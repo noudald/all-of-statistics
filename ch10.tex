@@ -2,6 +2,10 @@
 
 \subsection*{Solution 6.}
 
+I'm not sure if I understand the question correctly.
+Phillips and King are interested in testing the null hypothesis $\theta \leq \frac{1}{2}$, not $\theta = \frac{1}{2}$.
+The first one is statistically significant, the latter is not as you will see in the solution.
+
 We can use the Wald test.
 The null hypothesis $H_0: \theta_0 = \frac{1}{2}$.
 Let $n = 1919$.
@@ -30,3 +34,16 @@ C = (\hat{\theta} - \hat{se} z_{0.025}, \hat{\theta} + \hat{se} z_{0.025})
     = (0.480, 0.503),
 $$
 as $\hat{se} = \sqrt{\hat{\theta}(1 - \hat{\theta})/n}$.
+
+\subsection*{Solution 6. Alternative solution}
+
+We can calculate the probability directly from the biomial distribution.
+The null hypothese $H_0: \theta_0 = \frac{1}{2}$.
+Under $H_0$, $X \sim \mathrm{Bin}(n, \theta_0)$, where $n = 1919$.
+Then the p-value is $P(X \geq 922) + P(X \leq 1919/2 - 37.5) \approx 0.087$.
+So we don't reject the null-hypothesis.
+
+We reject the null-hypothesis if
+$$
+    X \notin (z_{0.025}, z_{0.975}) = (917, 1002).
+$$
