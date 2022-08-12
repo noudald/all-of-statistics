@@ -1,3 +1,32 @@
 \section*{10 Hypothesis Testing and p-values}
 
 \subsection*{Solution 6.}
+
+We can use the Wald test.
+The null hypothesis $H_0: \theta_0 = \frac{1}{2}$.
+Let $n = 1919$.
+We estimate $\hat{\theta} = \frac{922}{n} \approx 0.48$.
+Note that
+$$
+\mathrm{Var}(\theta_0)
+    = \mathrm{Var}(\frac{1}{n} \sum_{i=1}^n X_i)
+    = \frac{1}{n^2} \sum_{i=1}^n \mathrm{Var}(X_i)
+    = \frac{1}{n^2} n \theta_0 (1 - \theta_0)
+    = \frac{1}{4n}
+$$
+as $X_i \sim \mathrm{Bin}(n, \theta_0)$ and $\theta_0 = \frac{1}{2}$.
+Wald's test statistic is then given by
+$$
+W = \frac{\hat{\theta} - \theta_0}{\sqrt{\mathrm{Var}(\theta_0)}}
+    = 2\sqrt{n} (\hat{\theta} - \theta_0)
+    \approx -1.75.
+$$
+The p-value is $2\Phi(|W|) \approx 0.08$.
+So we do not reject the null-hypothesis.
+
+The confidence interval for which we reject the null-hypothesis is
+$$
+C = (\hat{\theta} - \hat{se} z_{0.025}, \hat{\theta} + \hat{se} z_{0.025})
+    = (0.480, 0.503),
+$$
+as $\hat{se} = \sqrt{\hat{\theta}(1 - \hat{\theta})/n}$.
