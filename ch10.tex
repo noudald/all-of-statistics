@@ -49,7 +49,7 @@ $$
 $$
 
 
-\subsection*{Solution 7}
+\subsection*{Solution 7.}
 
 See code for explicit calculations.
 
@@ -60,3 +60,29 @@ The confidence interval of $\overline{\Delta}$ is aproximately $(0.011, 0.033)$.
 (b) Using the permutation test on $T(X_1, ..., X_8, Y_1, ..., Y_{10}) = |\overline{X} - \overline{Y}|$.
 The approximate p-value is $0.00089$.
 We reject the null hypothesis that the distributions of $X$ and $Y$ are the same.
+
+
+\subsection*{Solution 8.}
+
+(a) We have to find $c$ such that
+$$
+\alpha = P_0\left(\frac{1}{n}\sum_{i = 1}^n X_i > c\right).
+$$
+Note that under $H_0$, $E(\frac{1}{n}\sum_{i = 1}^n X_i) = 0$ and $\mathrm{Var}(\frac{1}{n}\sum_{i = 1}^n X_i) = \frac{1}{\sqrt{n}}$.
+So
+$$
+P_0\left(\frac{1}{n} \sum_{i = 1}^n X_i > c\right) = P(Z > \sqrt{n}c) = \Phi(-\sqrt{n}c).
+$$
+Take $c = -\Phi^{-1}(\alpha)/\sqrt{n}$.
+
+(b) Under $H_1$, $E(\frac{1}{n} \sum_{i = 1}^n X_i) = 1$ and $\mathrm{Var}(\frac{1}{n} \sum_{i = 1}^n X_i) = \frac{1}{\sqrt{n}}$.
+So
+$$
+\beta(1) = P_1\left(\frac{1}{n} \sum_{i = 1}^n X_i > c\right) = P(Z > (c - 1)\sqrt{n}) = \Phi((1 - c)\sqrt{n}).
+$$
+
+(c) Note that for fixed $\alpha$,
+$$
+\beta(1) = \Phi(\sqrt{n} - c\sqrt{n}) = \Phi(\sqrt{n} + \Phi^{-1}(\alpha)).
+$$
+As $\Phi^{-1}(\alpha)$ is fixed $\beta(1) \to 1$ as $n \to \infty$.
