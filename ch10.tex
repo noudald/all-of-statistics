@@ -86,3 +86,16 @@ $$
 \beta(1) = \Phi(\sqrt{n} - c\sqrt{n}) = \Phi(\sqrt{n} + \Phi^{-1}(\alpha)).
 $$
 As $\Phi^{-1}(\alpha)$ is fixed $\beta(1) \to 1$ as $n \to \infty$.
+
+
+\subsection*{Solution 9.}
+\begin{equation*}
+\begin{split}
+\beta(\theta_1) &= P_{\theta_1}(|Z| < z_{\frac{\alpha}{2}}) \\
+    &= 1 - P_{\theta_1}(-z_{\frac{\alpha}{2}} < Z < z_{\frac{\alpha}{2}}) \\
+    &= 1 - P_{\theta_1}\left(-z_{\frac{\alpha}{2}} < \frac{\hat{\theta} - \theta_0}{\hat{se}} < z_{\frac{\alpha}{2}}\right) \\
+    &= 1 - P_{\theta_1}\left(-z_{\frac{\alpha}{2}} < \frac{\hat{\theta} - \theta_1}{\hat{se}} + \frac{\theta_1 - \theta_0}{\hat{se}} < z_{\frac{\alpha}{2}}\right).
+\end{split}
+\end{equation*}
+As $n \to \infty$, $\frac{\hat{\theta} - \theta_1}{\hat{se}} \to 0$ and $\frac{\theta_1 - \theta_0}{\hat{se}} \to \infty$, because $\hat{se} \to 0$ and $\theta_1 > \theta_0$.
+Therefore $\beta(\theta_1) \to 1$ as $n \to \infty$.
