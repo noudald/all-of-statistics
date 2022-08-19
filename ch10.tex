@@ -106,3 +106,20 @@ Therefore $\beta(\theta_1) \to 1$ as $n \to \infty$.
 See code.
 We use three different tests: Walk test per week, binomial test per week, and the $\chi^2$-test.
 All three of them suggest that in week -1 and 1 a significant change in elderly Chinese woman took place.
+
+
+\subsection*{Solution 12.}
+
+(a) Let $X_1, X_2, ..., X_n \sim \mathrm{Poison}(\lambda_0)$.
+Let $\hat{\lambda} = \overline{X}$ be the MLE of $X$.
+Note that
+$$
+\mathrm{Var}(\hat{\lambda}) = \frac{1}{n^2} \sum_{i=1}^n \mathrm{Var}(X_i) = \frac{\lambda_0}{n}.
+$$
+So the Wald estimate is
+$$
+W = \frac{\hat{\lambda} - \lambda_0}{\hat{se}} = \sqrt{n} \frac{\hat{\lambda} - \lambda_0}{\sqrt{\lambda_0}}.
+$$
+We reject $H_0: \lambda = \lambda_0$ if $|W| > z_{\frac{\alpha}{2}}$.
+
+(b) See code.
