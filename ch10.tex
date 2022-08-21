@@ -132,3 +132,25 @@ We reject $H_0: \lambda = \lambda_0$ if $|W| > z_{\frac{\alpha}{2}}$.
 For $n = 20$ we approximate that 5.62\% of all tests is rejected.
 This is not exactly equal to 5\% as the Poisson distribution is only approximately similar to the normal distribution.
 When $n \to \infty$ the rejection rate will go to exactly 5\%.
+
+
+\subsection*{Solution 13.}
+
+Let $X_1, X_2, ..., X_n \sim \mathcal{N}(\mu, \sigma^2)$.
+We will construct a likelihood ratio test for null hypothesis $H_0: \mu = \mu_0$ against $H_1: \mu \neq \mu_0$.
+Let $\hat{\mu} = \overline{X}$ be the maximum likelihood estimator for $\mu$.
+Note that
+$$
+\ell(\mu) = -\frac{n}{2} - \mathrm{log}(\sigma) - \frac{1}{2\sigma^2} \sum_{i=1}^n (X_i - \mu)^2.
+$$
+So
+\begin{equation*}
+\begin{split}
+\lambda &= 2\ell(\hat{\mu}) - 2\ell(\mu_0) \\
+    &= \frac{1}{\sigma^2} \sum_{i=1}^n \left[ (X_i - \mu_0)^2 - (X_i - \hat{\mu})^2 \right] \\
+    &= \frac{1}{\sigma^2} \sum_{i=1}^n (\mu_0^2 - 2(\mu_0 - \hat{\mu}) - \hat{\mu}^2) \\
+    &= \frac{1}{\sigma^2} (n\mu_0^2 - 2n(\mu_0 - \hat{\mu})\hat{\mu} - \hat{\mu}^2)
+    = n \left(\frac{\hat{\mu} - \mu_0}{\sigma}\right)^2.
+\end{split}
+\end{equation*}
+Observe that the likelihood ration and Wald statistics are related, because $\lambda = W^2$.
