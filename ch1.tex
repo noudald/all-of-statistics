@@ -1,0 +1,20 @@
+\section*{Chapter 1 - Probability of Finite Sample Spaces}
+
+\subsection*{Solution 1}
+
+Let $A_1 \subset A_2 \subset A_3 \subset ...$.
+Define $B_i = A_i \backslash \cup_{j < i} A_j$.
+
+(a) Let $a \in A_n$.
+Let $i \leq n$ the smallest $i$ such that $a \in A_n$.
+Then $a \in A_i \backslash \cup_{j < i} A_j = B_i$.
+Let $b \in B_i$ for some $i$.
+Then $b \in A_i \subset A_n$.
+Therefore $A_n = \cup_{i = 1}^n B_i$.
+
+(b) Take $a \in \cup_{i = 1}^{\infty} A_i$.
+There is an $n$ such $a \in A_n = \cup_{i = 1}^n B_i$.
+So $a \in \cup_{i = 1}^{\infty} B_i$.
+Let $b \in \cup_{i = 1}^{\infty} B_i$, then $b \in B_n$ for some $n$.
+Therfore $b \in A_n$, hence $b \in \cup_{i=1}^{\infty} A_n$.
+So $\cup_{i=1}^{\infty} A_i = \cup_{i=1}^n B_i$.
