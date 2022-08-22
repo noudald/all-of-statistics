@@ -154,3 +154,23 @@ So
 \end{split}
 \end{equation*}
 Observe that the likelihood ration and Wald statistics are related, because $\lambda = W^2$.
+
+
+\subsection*{Solution 14.}
+
+Let $X_1, X_2, ..., X_n \sim \mathcal{N}(\mu, \sigma^2)$.
+We will construct a likelihood ratio test for null hypothesis $H_0: \sigma = \sigma_0$ against $H_1: \sigma \neq \sigma_0$.
+Let $\hat{\sigma} = \frac{1}{n}\sum_{i=0}^n (X_i - \mu)^2$ be the maximum likelihood estimator for $\sigma$.
+Note that
+$$
+\ell(\sigma) = -\frac{n}{2} - \mathrm{log}(\sigma) - \frac{1}{2\sigma^2} \sum_{i=1}^n (X_i - \mu)^2.
+$$
+So
+\begin{equation*}
+\begin{split}
+\lambda &= 2\ell(\hat{\sigma}) - 2\ell(\sigma_0) \\
+    &= 2\mathrm{log}(\hat{\sigma}) - 2\mathrm{log}(\sigma_0) + 2\left(\frac{1}{2\sigma_0} - \frac{1}{2\hat{\sigma}}\right) \sum_{i=1}^n (X_i - \mu)^2 \\
+    &= 2\mathrm{log}\left(\frac{\hat{\sigma}}{\sigma_0}\right) + \frac{\hat{\sigma}^2 - \sigma_0^2}{\sigma_0^2 \hat{\sigma}^2} n \hat{\sigma}^2
+    = 2\mathrm{log}\left(\frac{\hat{\sigma}}{\sigma_0}\right) + n - n\left(\frac{\sigma_0}{\hat{\sigma}}\right)^2.
+\end{split}
+\end{equation*}
