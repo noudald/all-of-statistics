@@ -1,0 +1,11 @@
+\section*{Chapter 2 - Random Variables}
+
+\subsection*{Solution 1}
+
+Let $x^+_1 > x^+_2 > ...$ and $x^-_1 < x^-_2 < ...$ such that $x^+_i \downarrow x$ and $x^-_i \uparrow x$.
+Let $A_i = [x^-_i, x^+_i]$ for all $i > 0$.
+Note that $A_{i+1} \subset A_i$ for all $i > 0$ and $A_i \to \{x\}$ as $i \to \infty$.
+By theorem 1.8 (Continuity of Probability)
+$$
+P(x) = \lim_{i \to \infty} P(A_i) = \lim_{i \to \infty} (F(x^+_i) - F(x^-_i)) = F(x^+) - F(x^-).
+$$
