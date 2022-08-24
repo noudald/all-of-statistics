@@ -28,3 +28,19 @@ F(x) = \left\{ \begin{array}{ll}
 \end{array} \right.
 $$
 So $P(2 \leq X \leq 4.8) = F(4.8) - F(2^-) = \frac{2}{10}$.
+
+
+\subsection*{Solution 3}
+
+\begin{enumerate}
+\item Let $x^-_1 < x^-_2 < ...$ such that $x^-_i \to x$ and $A_i = (x^-_i, x]$.
+Then $A_i \supset A_{i+1}$ for all $i$ and $A_i \to \{x\}$.
+By the continuity of the probability function
+$$
+P(x) = \lim_{i \to \infty} P(A_i) = \lim_{i \to \infty} F(x) - F(x^-_i) = F(x) - F(x^-).
+$$
+\item $P(x < X \leq y) = P(X \leq y) - P(X \leq x) = F(y) - F(x)$.
+\item $P(X > x) = 1 - P(X \leq x) = 1 - F(x)$.
+\item Follows directly from continuity of the probability function.
+$P(x < X) = P(x \leq X)$ if $P$ is continuous.
+\end{enumerate}
