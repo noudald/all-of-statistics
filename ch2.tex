@@ -44,3 +44,27 @@ $$
 \item Follows directly from continuity of the probability function.
 $P(x < X) = P(x \leq X)$ if $P$ is continuous.
 \end{enumerate}
+
+
+\subsection*{Solution 4}
+
+(a)
+$$
+F_X(x) = \left\{ \begin{array}{ll}
+    0 & \text{if } x \leq 0 \\
+    x/4 & \text{if } 0 < x < 1 \\
+    1/4 & \text{if } 1 \leq x \leq 3 \\
+    1/8(3x - 7) & \text{if } 3 < x < 5 \\
+    1 & \text{if } 5 \leq x
+\end{array} \right.
+$$
+
+(b) For $Y = 1/X$, $F_Y(y) = P(1/X < y) = P(1/y < X) = 1 - P(X < 1/y)$, so
+$$
+F_Y(y) = \left\{ \begin{array}{ll}
+    0 & \text{if } y < 1/5 \\
+    1 - 1/8(3/y - 7) & \text{if } 1/5 \leq y < 1/3 \\
+    3/4 & \text{if } 1/3 \leq y \leq 1 \\
+    1 - 1/(4y) & \text{if } 1 < y
+\end{array} \right.
+$$
