@@ -78,3 +78,17 @@ As $X$ and $Y$ are discrete random variables:
 \item[$\rightarrow$)] $f(x, y) = P(X \in \{x\}, Y \in \{y\}) = P(X \in \{x\})P(Y \in \{y\}) = f(x)f(y)$.
 \item[$\leftarrow$)] $P(X \in A, Y \in B) = \sum_{(x, y) \in A \times B} f(x, y) = \sum_{x \in A} \sum_{y \in B} f(x) f(y) = P(X \in A) P(Y \in B)$.
 \end{itemize}
+
+
+\subsection*{Solution 6}
+
+$Y = I_A(X)$ takes the value $1$ if $X \in A$ and $0$ if $X \notin A$.
+So $P(Y = 0) = 1 - F_X(A)$ and $P(Y = 1) = F_X(A)$.
+This gives the CDF
+$$
+F_Y(y) = \left\{ \begin{array}{ll}
+    0 & \text{if } y < 0 \\
+    1 - F_X(A) & \text{if } 0 \leq y < 1 \\
+    1 & \text{if } 1 \leq y
+\end{array} \right.
+$$
