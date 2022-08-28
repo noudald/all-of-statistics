@@ -92,3 +92,22 @@ F_Y(y) = \left\{ \begin{array}{ll}
     1 & \text{if } 1 \leq y
 \end{array} \right.
 $$
+
+
+\subsection*{Solution 7}
+
+Let $Z = \mathrm{min}(X, Y)$, $X, Y \sim \mathrm{Uniform}(0, 1)$, then
+\begin{equation*}
+\begin{split}
+F_Z(z) &= P(Z < z) \\
+    &= 1 - P(Z > z) \\
+    &= 1 - P(X > z \text{ and } Y > z) \\
+    &= 1 - P(X > z)P(Y > z) \\
+    &= 1 -(1 - F_X(z))(1 - F_Y(z))
+    = 1 - (1 - z)^2.
+\end{split}
+\end{equation*}
+Taking the derivative gives the probability distribution function
+$$
+f_Z(z) = 2 (1 - z).
+$$
