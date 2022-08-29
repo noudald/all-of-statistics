@@ -111,3 +111,17 @@ Taking the derivative gives the probability distribution function
 $$
 f_Z(z) = 2 (1 - z).
 $$
+
+
+\subsection*{Solution 8}
+
+Let $X$ be a random variable with CDF $F$.
+Define $X^+ = \mathrm{max}(0, X)$.
+Note that $P(X^+ < 0) = 0$ and $P(X^+ = 0) = P(X \leq 0) = F(0)$.
+Therefore
+\begin{equation*}
+    F_+(x) = \left\{ \begin{array}{ll}
+        0 & \text{if } x < 0 \\
+        F(x) & \text{if } x \geq 0
+    \end{array} \right.
+\end{equation*}
