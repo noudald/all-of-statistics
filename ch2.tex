@@ -125,3 +125,16 @@ Therefore
         F(x) & \text{if } x \geq 0
     \end{array} \right.
 \end{equation*}
+
+
+\subsection*{Solution 9}
+
+Let $X \sim \mathrm{Exp}(\beta)$.
+We have $f(x) = \beta^{-1} \exp(-\beta^{-1}x)$.
+Then
+$$
+F_X(x) = \int_{-\infty}^x f(t)dt
+    = \int_{-\infty}^x \frac{1}{\beta} \exp\left(-\frac{t}{\beta}\right) dt
+    = 1 - \exp\left(-\frac{x}{\beta}\right).
+$$
+Solving $x$ for $q = F_X(x) = 1 - \exp(-\beta^{-1}x)$ yields $x = F_X^{-1}(q) = -\beta \log(1 - q)$.
