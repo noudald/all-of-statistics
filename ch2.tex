@@ -138,3 +138,16 @@ F_X(x) = \int_{-\infty}^x f(t)dt
     = 1 - \exp\left(-\frac{x}{\beta}\right).
 $$
 Solving $x$ for $q = F_X(x) = 1 - \exp(-\beta^{-1}x)$ yields $x = F_X^{-1}(q) = -\beta \log(1 - q)$.
+
+
+\subsection*{Solution 10}
+
+Follows almost from the definition.
+\begin{equation*}
+\begin{split}
+P(g(X) \in A, h(Y) \in B)
+    &= P(X \in g^{-1}(A), Y \in h^{-1}(B)) \\
+    &= P(X \in g^{-1}(A)) P(Y \in h^{-1}(B))
+    = P(g(X) \in A) P(h(Y) \in B).
+\end{split}
+\end{equation*}
