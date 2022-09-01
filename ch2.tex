@@ -151,3 +151,53 @@ P(g(X) \in A, h(Y) \in B)
     = P(g(X) \in A) P(h(Y) \in B).
 \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 11}
+
+(a) $P(X = 1, Y = 0) = p$, but $P(X = 1) = p$ and $P(Y = 0) = p$, so $P(X = 1)P(Y = 1) = p^2 \neq p$ (assuming $p > 0$).
+Therefore $X$ and $Y$ are dependent.
+
+(b) Let $N \sim \mathrm{Poisson}(\lambda)$, flip $N$ coins and let $X$ be the number of heads, $Y$ the number of tails.
+We have
+\begin{equation*}
+\begin{split}
+P(X = i, Y = j)
+    &= f_{\lambda}(N) \binom{N}{i} p^i (1 - p)^{N - i} \\
+    &= f_{\lambda}(i + j) \binom{i + j}{i} p^i (1 - p)^j \\
+    &= e^{-\lambda} \frac{\lambda^{i + j}}{(i + j)!} \frac{(i + j)!}{i! j!} p^i (1 - p)^j \\
+    &= e^{-\lambda} \frac{\lambda^i p^i}{i!} \frac{\lambda^j (1 - p)^j}{j!} = g(i) h(j),
+\end{split}
+\end{equation*}
+where $g(i) = e^{-\lambda} \lambda^i p^i / i!$ and $h(j) = \lambda^j (1 - p)^j / j!$.
+By Theorem 2.33 $X$ and $Y$ are independent.
+
+Here follows a remark, as the results of this exercise is counter intuitive (for me).
+Suppose you toss a coin $50$ times.
+Let $X$ be the number of heads and $Y$ the number of tails.
+If $X = 25$, what is $Y$? Easy, $Y = 50 - X = 25$.
+If $X = 4$, $Y = 50 - 4 = 46$.
+Or $X = 48$, then $Y = 50 - 48 = 2$.
+$X$ and $Y$ are entirely correlated.
+If I know $X$, I also know $Y$.
+
+Now let me toss a coin every time I receive an email in my mailbox.
+I count the number of heads and tails during the day.
+Let $X$ be the number of heads and $Y$ the number of tails of that day.
+I receive around $50$ mails a day, and the exact number of mails per day follows a Poisson distribution with $\lambda = 50$.
+After one day I count $X = 25$ heads, how many tails do I expect to have counted?
+Intuitively I expect $Y = 25$ tails, which is correct.
+But suppose now that $X = 4$?
+Because $X$ is a low number, I expect that I have not received many mails that day, and therefore flipped few coins, so $E(E(Y | X = 4)) = 4$ would be an intuitive guess.
+Similar, if $X = 48$, I probably received many mails, flipped a lot of coins, so $E(E(Y | X = 48)) = 48$ seems reasonable.
+
+But this is not the case.
+As we saw in the exercise, $X$ and $Y$ are independent.
+Therefore
+$$
+E(Y | X = x) = \int y f(y|x) dy = \int y f(y) dy = E(Y),
+$$
+which shows that $E(E(Y | X = x)) = E(Y) = \frac{\lambda}{2} = 25$.
+In particular, $E(E(Y | X = 25)) = E(E(Y | X = 4)) = E(E(Y | X = 48)) = 25$.
+The number of heads will give you absolutely no information about the number of tails that occured during the day.
+This is an extreme case where a small change, going from $N = 50$ to $N \sim \mathrm{Poisson}(50)$, turns entirely dependent random variables into completely independent random variables.
