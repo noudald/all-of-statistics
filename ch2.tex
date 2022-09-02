@@ -201,3 +201,20 @@ which shows that $E(E(Y | X = x)) = E(Y) = \frac{\lambda}{2} = 25$.
 In particular, $E(E(Y | X = 25)) = E(E(Y | X = 4)) = E(E(Y | X = 48)) = 25$.
 The number of heads will give you absolutely no information about the number of tails that occured during the day.
 This is an extreme case where a small change, going from $N = 50$ to $N \sim \mathrm{Poisson}(50)$, turns entirely dependent random variables into completely independent random variables.
+
+
+\subsection*{Solution 12}
+
+Let $f(x, y) = g(x) h(y)$ for all $x, y$.
+Note
+$$
+1 = \lim_{x, y \to infty} F(x, y) = \int f(x, y) dx dy = \int g(x) dx \int h(y) dy = A_g A_h.
+$$
+Now
+\begin{equation*}
+    \begin{split}
+        f_X(x) &= \int f(x, y) dy = \int g(x) h(y) dy = A_h g(x), \\
+        f_Y(y) &= \int f(x, y) dx = \int g(x) h(y) dx = A_g h(y).
+    \end{split}
+\end{equation*}
+We have $f(x, y) = g(x) h(y) = A_g A_h g(x) h(y) = (A_h g(x))(A_g h(y)) = f_X(x) f_Y(y)$, which shows that $X$ and $Y$ are independent.
