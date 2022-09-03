@@ -1,0 +1,50 @@
+\section*{Chapter 3 - Expectation}
+
+\subsection*{Exercise 12}
+
+We calculate the expected value and variance for all distributions in section 3.4.
+
+\begin{itemize}
+\item[(a)] Point mass distribution. $E(X) = \sum x p(x) = a p(a) = a$ and $V(X) = E(X^2) - E(X)^2 = a^2 - a^2 = 0$.
+
+\item[(b)] Bernoulli, $X \sim \mathrm{Bernoulli}(p)$. $E(X) = 1p + 0(1-p) = p$.
+Note that $E(X^2) = 1^2p + 0^2(1-p) = p$, so $V(X) = E(X^2) - E(X)^2 = p - p^2 = p(1 - p)$.
+
+\item[(c)] Binomial, $X \sim \mathrm{Binomial}(n, p)$.
+Write $X = \sum_{i = 1}^n X_i$, where $X_i \sim \mathrm{Bernoulli}(p)$.
+Then $E(X) = E(\sum X_i) = np$ and $V(X) = V(\sum X_i) = np(1 - p)$.
+
+\item[(d)] Geometric, $X \sim \mathrm{Geometric}(p)$.
+\begin{equation*}
+E(X) = \sum_{x = 1}^{\infty} xp(1 - p)^{x - 1}
+    = p \left(-\sum_{x = 0}^{\infty} (1 - p)^{x}\right)'
+    = p \left(-\frac{1}{p}\right)'
+    = \frac{p}{p^2}
+    = \frac{1}{p},
+\end{equation*}
+and
+\begin{equation*}
+E(X(X - 1)) = \sum_{x = 2}^{\infty} x(x - 1) p (1 - p)^{x - 1}
+    = p (1 - p) \left(\sum_{x = 0}^{\infty} (1 - p)^{x}\right)''
+    = p (1 - p) \left(\frac{1}{p}\right)''
+    = \frac{2(1 - p)}{p^2}.
+\end{equation*}
+So $E(X^2) = E(X(X - 1)) + E(X) = \frac{2(1 - p)}{p^2} + \frac{1}{p} = \frac{2 - p}{p^2}$.
+Such that $V(X^2) = E(X^2) - E(X)^2 = \frac{2 - p}{p^2} - \frac{1}{p^2} = \frac{1 - p}{p^2}$.
+
+\item[(e)] Poisson, $X \sim \mathrm{Poisson}(\lambda)$.
+\begin{equation*}
+E(X) = \sum_{x = 0}^{\infty} x \frac{\lambda^x}{x!} e^{-\lambda}
+    = \lambda e^{-\lambda} \sum_{x = 0} \frac{\lambda^{x-1}}{(x-1)!}
+    = \lambda e^{-\lambda} e^{\lambda}
+    = \lambda.
+\end{equation*}
+Note that
+\begin{equation*}
+E(X(X-1)) = \sum_{x = 0}^{\infty} x(x - 1) \frac{\lambda^x}{x!} e^{-\lambda}
+    = \lambda^2 e^{-\lambda} \sum_{x = 2}^{\infty} \frac{\lambda^{x-2}}{x!}
+    = \lambda^2.
+\end{equation*}
+So $E(X^2) - E(X)^2 = E((X - 1)X) + E(X) - E(X)^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$.
+
+\end{itemize}
