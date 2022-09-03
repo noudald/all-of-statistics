@@ -218,3 +218,22 @@ Now
     \end{split}
 \end{equation*}
 We have $f(x, y) = g(x) h(y) = A_g A_h g(x) h(y) = (A_h g(x))(A_g h(y)) = f_X(x) f_Y(y)$, which shows that $X$ and $Y$ are independent.
+
+
+\subsection*{Solution 13}
+
+Let $X \sim \mathrm{Normal}(0, 1)$ and $Y = \exp(X)$.
+
+(a) We first calculate $F_Y$,
+\begin{equation*}
+F_Y(y) = P(Y < y)
+    = P(X < \log(y))
+    = \Phi(\log(y))
+    = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\log(y)} \exp\left(-\frac{1}{2} t^2\right) dt
+\end{equation*}
+By the fundamental theorem of calculus
+$$
+f_Y(y) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2} \log(y)^2\right).
+$$
+
+(b) See code.
