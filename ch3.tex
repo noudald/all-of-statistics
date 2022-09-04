@@ -47,4 +47,138 @@ E(X(X-1)) = \sum_{x = 0}^{\infty} x(x - 1) \frac{\lambda^x}{x!} e^{-\lambda}
 \end{equation*}
 So $E(X^2) - E(X)^2 = E((X - 1)X) + E(X) - E(X)^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$.
 
+\item[(f)] Uniform, $X \sim \mathrm{Uniform}(a, b)$. First take $U \sim \mathrm{Uniform}(0, 1)$, then
+\begin{equation*}
+\begin{split}
+E(U) &= \int_0^1 xf(x)dx = \left.\frac{1}{2}x^2\right|_0^1 = \frac{1}{2}, \\
+E(U^2) &= \int_0^1 x^2f(x)dx = \left.\frac{1}{3}x^3\right|_0^1 = \frac{1}{3}.
+\end{split}
+\end{equation*}
+So
+\begin{equation*}
+\begin{split}
+E(X) &= E((b - a)U + a) = (b - a) \frac{1}{2} + a = \frac{1}{2}(a + b), \\
+V(X) &= V((b - a)U + a) = (b - a)^2 V(U) = (b - a)^2 (E(U^2) - E(U)) = \frac{1}{12} (b - a)^2.
+\end{split}
+\end{equation*}
+
+\item[(g)] Normal, $X \sim \mathrm{Normal}(\mu, \sigma^2)$.
+First take $Z \sim \mathrm{Normal}(0, 1)$.
+Because $xf_z(x) = x\phi(x)$ is anti-symmetric $E(Z) = 0$.
+To calculate $V(Z) = E(Z^2)$ we need the following lemma.
+
+Let $\phi$ be monotonic decreasing function with finite moments on some interval $(a, \infty)$ such that $\phi(z) \to 0$ if $z \to \infty$, then $z\phi(z) \to 0$ if $z \to \infty$.
+Indeed
+\begin{equation*}
+\int_{z/2}^{\infty} \phi(t)dt
+    \geq \int_{z/2}^{z} \phi(t)dt
+    \geq \int_{z/2}^{z} \phi(z)dt
+    = \frac{1}{2} z\phi(z)
+    > z\phi(z),
+\end{equation*}
+when $z$ is large enough such that $\phi(t)$ is monotonic decreasing.
+As $\phi \to 0$ as $z \to \infty$, we have
+\begin{equation*}
+z\phi(z) < \int_{\frac{z}{2}}^{\infty} \phi(t)dt \to 0.
+\end{equation*}
+So $z\phi(z) \to 0$ as $z \to \infty$.
+
+Now we calculate
+\begin{equation*}
+E(Z^2) = \int_{-\infty}^{\infty} z^2\phi(z) dz
+    = 2\int_{0}^{\infty} z^2\phi(z) dz
+    = \left[\Phi(z) - z\phi(z)\right]_{0}^{\infty}
+    = 2\lim_{z \to \infty} \Phi(z) - 2\Phi(0)
+    = 2 - 1
+    = 1
+\end{equation*}
+Where we use the lemma $z\phi(z) \to 0$ if $z \to \infty$.
+So $V(Z) = E(Z^2) = 1$.
+
+Now $X = \sigma Z + \mu$, so $E(X) = \sigma E(Z) + \mu = \mu$ and $V(X) = \sigma^2 V(Z) = \sigma^2$.
+
+\item[(h)] Exponential, $X \sim \mathrm{Exp}(\beta)$.
+Using integration by parts
+\begin{equation*}
+\begin{split}
+E(X) &= \int_0^{\infty} \frac{x}{\beta} \mathrm{exp}\left(-\frac{x}{\beta}\right) dx \\
+    &= -\left.x \exp\left(-\frac{x}{\beta}\right)\right|_0^{\infty} + \frac{1}{\beta}\int_0^{\infty} \beta \exp\left(-\frac{x}{\beta}\right) dx \\
+    &= \left.-\beta \exp\left(-\frac{x}{\beta}\right)\right|_0^{\infty}
+    = \beta.
+\end{split}
+\end{equation*}
+And
+\begin{equation*}
+E(X^2) = \int_0^{\infty} \frac{x^2}{\beta} \mathrm{exp}\left(-\frac{x}{\beta}\right) dx
+    = -\left. x\exp\left(-\frac{x}{\beta}\right)\right|_0^{\infty} + 2 \int_0^{\infty} x \exp\left(-\frac{x}{\beta}\right) dx
+    = 2 \beta E(X) = 2 \beta^2.
+\end{equation*}
+So $V(X) = E(X^2) - E(X)^2 = 2 \beta^2 - \beta^2 = \beta^2$.
+
+\item[(i)] Gamma, $X \sim \mathrm{Gamma}(\alpha, \beta)$.
+\begin{equation*}
+\begin{split}
+E(X) &= \int_{0}^{\infty} \frac{\beta^{\alpha} x^{\alpha}}{\Gamma(\alpha)} \exp(-\beta x) dx \\
+    &= \frac{\alpha}{\beta} \int_0^{\infty} \frac{\beta^{\alpha + 1} x^{(\alpha + 1) - 1}}{\Gamma(\alpha + 1)} \exp(-\beta x) dx \\
+    &= \frac{\alpha}{\beta} \int_0^{\infty} f(x; \alpha + 1, \beta) dx
+    = \frac{\alpha}{\beta}.
+\end{split}
+\end{equation*}
+And
+\begin{equation*}
+\begin{split}
+E(X^2) &= \int_{0}^{\infty} \frac{\beta^{\alpha} x^{\alpha + 1}}{\Gamma(\alpha)} \exp(-\beta x) dx \\
+    &= \frac{\alpha(\alpha + 1)}{\beta^2} \int_0^{\infty} \frac{\beta^{\alpha + 2} x^{(\alpha + 2) - 1}}{\Gamma(\alpha + 2)} \exp(-\beta x) dx \\
+    &= \frac{\alpha(\alpha + 1)}{\beta^2} \int_0^{\infty} f(x; \alpha + 2, \beta) dx
+    = \frac{\alpha(\alpha + 1)}{\beta^2}.
+\end{split}
+\end{equation*}
+So $V(X) = E(X^2) - E(X)^2 = \frac{\alpha}{\beta^2}$.
+
+\item[(j)] Beta, $X \sim \mathrm{Beta}(\alpha, \beta)$.
+\begin{equation*}
+\begin{split}
+E(X) &= \int_0^1 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha} (1 - x)^{\beta - 1} dx \\
+    &= \frac{\alpha}{\alpha + \beta} \int_0^1 \frac{\Gamma(\alpha + 1 + \beta)}{\Gamma(\alpha + 1) \Gamma(\beta)} x^{(\alpha + 1) - 1} (1 - x)^{\beta - 1} dx
+    = \frac{\alpha}{\alpha + \beta}.
+\end{split}
+\end{equation*}
+For the variance
+\begin{equation*}
+\begin{split}
+E(X^2) &= \int_0^1 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha + 1} (1 - x)^{\beta - 1} dx \\
+    &= \frac{\alpha (\alpha + 1)}{(\alpha + \beta)(\alpha + \beta + 1)} \int_0^1 \frac{\Gamma(\alpha + 2 + \beta)}{\Gamma(\alpha + 2) \Gamma(\beta)} x^{(\alpha + 2) - 1} (1 - x)^{\beta - 1} dx
+    = \frac{\alpha(\alpha + 1)}{(\alpha + \beta)(\alpha + \beta + 1)},
+\end{split}
+\end{equation*}
+so that
+\begin{equation*}
+V(X) = E(X^2) - E(X)^2
+    = \frac{\alpha}{\alpha + \beta} + \frac{\alpha(\alpha + 1)}{(\alpha + \beta)(\alpha + \beta + 1)}
+    = \frac{\alpha \beta}{(\alpha + \beta)^2(\alpha + \beta + 1)}.
+\end{equation*}
+
+\item[(k)] Student-t, $X \sim t(\nu)$.
+For $\nu > 1$, $xf(x;\nu)$ is odd, so $E(X) = 0$.
+Let $\nu > 2$, variance TODO.
+
+\item[($\ell$)] $\chi^2$ distribution, $X \sim \chi^2_p$.
+We calculate all moments of $X$.
+\begin{equation*}
+\begin{split}
+E(X^k) &= \frac{1}{2^{p/2} \Gamma(p/2)} \int_0^{\infty} x^{k + p/2 - 1} e^{-x/2} dx \\
+    &= \frac{2}{2^{p/2} \Gamma(p/2)} \int_0^{\infty} (2y)^{k + p/2 - 1} e^{-y} dy \\
+    &= \frac{2^{k + p/2}}{2^{p/2} \Gamma(p/2)} \int_0^{\infty} y^{k + p/2 - 1} e^{-y} dy
+    = \frac{2^{k}}{\Gamma(p/2)} \Gamma\left(k + \frac{p}{2}\right).
+\end{split}
+\end{equation*}
+So $E(X) = p$, $E(X^2) = p(p + 1)$, and $V(X) = E(X^2) - E(X)^2 = p(p + 1) - p^2 = p$.
+
+\item[(m)] Multinomial is explained in the book.
+
+\item[(n)] Multi-Normal, $X \sim \mathrm{Normal}(\mu, \Sigma)$.
+By Theorem 2.44, if $Z \sim \mathrm{Normal}(0, I)$, then $E(Z) = 0$ and $V(Z) = I$.
+By Theorem 2.43, $X = \Sigma^{\frac{1}{2}} (Z - \mu)$.
+By lemma 3.21, $E(X) = E(\Sigma^{1/2}Z + \mu) = \mu$ and $V(X) = V(\Sigma^{1/2}Z + \mu) = \Sigma^{1/2} V(Z) \Sigma^{1/2} = \Sigma$.
+
 \end{itemize}
