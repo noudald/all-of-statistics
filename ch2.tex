@@ -244,3 +244,20 @@ $$
 Let $A_r = \{(x, y) : x^2 + y^2 \leq r^2\}$ be the circle with radius $r$.
 We have $F_R(r) = \mathrm{Opp}(A_r) / \mathrm{Opp}(A_1) = r^2 \pi / \pi = r^2$.
 So $f_R(r) = 2r$.
+
+
+\subsection*{Solution 15}
+
+Let $X \sim F$ and $F$ continuous, strictly increasing, i.e., $x_1 < x_2$, then $F(x_1) < F(x_2)$.
+Let $Y = F(X)$.
+
+(a) $F_Y(y) = P(Y \leq y) = P(F(X) \leq y) = P(X \leq F^{-1}(y)) = F(F^{-1}(y)) = y$.
+So $Y \sim \mathrm{Uniform}(0, 1)$.
+
+(b) Let $U \sim \mathrm{Uniform}(0, 1)$ and $X = F^{-1}(U)$.
+Then $F_X(x) = P(X \leq x) = P(F^{-1}(U) \leq x) = P(U \leq F(x)) = F(x)$.
+So $X \sim F$.
+
+(c) Take $F(x) = 1 - \exp(-\frac{x}{\beta}) = u$, then $F^{-1}(u) = -\beta \log(1 - u)$.
+So if $U \sim \mathrm{Uniform}(0, 1)$, then $X = F^{-1}(U) = -\beta \log(1 - U) \sim \mathrm{Exp}(\beta)$.
+See code for an implementation.
