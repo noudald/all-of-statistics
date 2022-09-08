@@ -262,3 +262,20 @@ So $X \sim F$.
 (c) Take $F(x) = 1 - \exp(-\frac{x}{\beta}) = u$, then $F^{-1}(u) = -\beta \log(1 - u)$.
 So if $U \sim \mathrm{Uniform}(0, 1)$, then $X = F^{-1}(U) = -\beta \log(1 - U) \sim \mathrm{Exp}(\beta)$.
 See code for an implementation.
+
+
+\subsection*{Solution 16}
+
+$X \sim \mathrm{Poisson}(\lambda)$, $Y \sim \mathrm{Poisson}(\mu)$.
+Let $n = X + Y$.
+\begin{equation*}
+    P(X = x | X + Y = n) \propto P(X = x, X + Y = n)
+        = e^{-\lambda} \frac{\lambda^x}{x!} e^{-\mu} \frac{\mu^{n-x}}{(n - x)!}
+        \propto \frac{\lambda^x \mu^{n-x}}{x!(n-x!)}
+        \propto \binom{n}{x} \theta^x (1 - \theta)^x,
+\end{equation*}
+where
+\begin{equation*}
+    \theta = \frac{\lambda}{\lambda + \mu}.
+\end{equation*}
+So $X|X+Y \sim \mathrm{Binomial}(n, \theta)$.
