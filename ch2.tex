@@ -279,3 +279,19 @@ where
     \theta = \frac{\lambda}{\lambda + \mu}.
 \end{equation*}
 So $X|X+Y \sim \mathrm{Binomial}(n, \theta)$.
+
+
+\subsection*{Solution 17}
+
+We have
+\begin{equation*}
+    f_Y\left(\frac{1}{2}\right) = \int_0^1 f\left(x, \frac{1}{2}\right) dx = \int_0^1 c\left(x + \frac{1}{4}\right) dx = \frac{3}{4}c.
+\end{equation*}
+Using the definition of the conditional probability density function
+\begin{equation*}
+    P\left(X < \frac{1}{2} \left| Y = \frac{1}{2} \right.\right)
+        = \int_0^{\frac{1}{2}} f(x | y = 1/2) dx
+        = \int_0^{\frac{1}{2}} \frac{f(x, 1/2)}{f(1/2)} dx
+        = \frac{\frac{1}{4}c}{\frac{3}{4}c}
+        = \frac{1}{3}.
+\end{equation*}
