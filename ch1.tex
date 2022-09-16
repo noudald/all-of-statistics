@@ -18,3 +18,17 @@ So $a \in \cup_{i = 1}^{\infty} B_i$.
 Let $b \in \cup_{i = 1}^{\infty} B_i$, then $b \in B_n$ for some $n$.
 Therfore $b \in A_n$, hence $b \in \cup_{i=1}^{\infty} A_n$.
 So $\cup_{i=1}^{\infty} A_i = \cup_{i=1}^n B_i$.
+
+
+\subsection*{Solution 2}
+
+\begin{itemize}
+    \item[(i)] Let $A_1 = \emptyset$, $A_2 = \Omega$, then $A_1 \cap A_2 = \emptyset$ and $1 = P(\Omega) = P(A_1 \cup A_2) = P(A_1) + P(A_2) = P(\emptyset) + P(\Omega) = P(\emptyset) + 1$.
+        Hence $P(\emptyset) = 1 - 1 = 0$.
+    \item[(ii)] $A \subset B$, let $A_1 = A$, $A_2 = B \backslash A$. Then $A_1 \cap A_2 = \emptyset$ and $P(A) + P(B \backslash A) = P(A_1) + P(A_2) = P(A_1 \cup A_2) = P(B)$.
+        Because $P(X) \geq 0$ for all $X$, $P(A) = P(B) - P(B \backslash A) \leq P(B)$.
+    \item[(iii)] $A \subset \Omega$, so from (ii) $0 \leq P(A) \leq P(\Omega) = 1$.
+    \item[(iv)] $1 = P(\Omega) = P(A \cup \Omega \backslash A) = P(A) + P(\Omega \backslash A) = P(A) + P(A^c)$.
+        So $P(A^c) = 1 - P(A)$.
+    \item[(v)] Take $A_1 = A$, $A_2 = B$, $A_i = \emptyset$ for $i > 2$.
+\end{itemize}
