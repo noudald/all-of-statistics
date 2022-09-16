@@ -32,3 +32,24 @@ So $\cup_{i=1}^{\infty} A_i = \cup_{i=1}^n B_i$.
         So $P(A^c) = 1 - P(A)$.
     \item[(v)] Take $A_1 = A$, $A_2 = B$, $A_i = \emptyset$ for $i > 2$.
 \end{itemize}
+
+
+\subsection*{Solution 3}
+
+\begin{itemize}
+    \item[(a)] Let $b \in B_{n+1}$, then $b \in A_m$ for all $m \geq n + 1 > n$, so $b \in B_n$.
+        Hence $B_1 \supset B_2 \supset ...$.
+        Let $c \in C_n$, then $c \in A_m$ for all $m \geq n$.
+        So $c \in A_p$ for all $p \geq n + 1 > n$, so $c \in C_{n+1}$.
+        Hence $C_1 \subset C_2 \subset ...$.
+    \item[(b)] $\rightarrow$, let $\omega \in \cap B_n$, then $\omega \in B_n$ for all $n$, hence there is an $m$ such that for all $i \geq m$, $\omega \in A_i$.
+        $\leftarrow$, let $\omega$ be in infinite $A_i$, but $\omega \notin \cap B_n$.
+        Then there is a $B_m$ such that $\omega \notin B_m = \cup_{i \geq m} A_m$.
+        But then $\omega \notin A_i$ for all $i \geq m$, which contradics that there are infinite $A_i$ containing $\omega$.
+    \item[(c)] $\rightarrow$, let $\omega \in \cup C_i$, then there is an $m$ such that $\omega \in C_m = \cap_{i \geq m} A_i$.
+        So $\omega$ is contained in $A_m, A_{m+1}, ...$.
+        $\leftarrow$, let $m > 0$ such that $\omega$ in $A_m, A_{m+1}, ...$.
+        We can do this because there are only a finite number of $A_i$ not containing $\omega$.
+        Then $\omega \in \cap_{i \geq m} A_i = C_m$, so $\omega \in \cup C_i$.
+
+\end{itemize}
