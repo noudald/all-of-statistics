@@ -61,3 +61,14 @@ So $\cup_{i=1}^{\infty} A_i = \cup_{i=1}^n B_i$.
     \item[(a)] $x \in (\cup A_i)^c$, iff $x \notin \cup A_i$, iff $x \notin A_i$ for all $i$, iff $x \in A_i^c$ for all $i$, iff $x \in \cap A_i^c$.
     \item[(b)] $x \in (\cap A_i)^c$, iff $x \notin \cap A_i$, iff $x \notin A_i$ for some $i$, iff $x \in A_i^c$ for some $i$, iff $x \in \sum A_i^c$.
 \end{itemize}
+
+
+\subsection*{Solution 5}
+
+The sample space is $S = \{ x_1 x_2 ... x_k : \exists i > n, x_i = H, x_n = H, \forall j \neq i, j \neq n, x_j = T\}$.
+The probability that $k$ tosses are required is
+\begin{equation*}
+    \sum_{j < k - 1} (1 - p)^j p (1 - p)^{k - j} p
+        = (k - 1) p^2 (1 - p)^{k - 2}
+        = \frac{k - 1}{2^k}.
+\end{equation*}
