@@ -17,3 +17,16 @@ P(|X - \mu| \geq k\sigma) \leq \frac{\sigma^2}{(k\sigma)^2}
     = \frac{1}{k^2}.
 \end{equation*}
 Note that $1 - \exp(-(k + 1)) + \exp(k - 1) \leq k^{-2}$.
+
+
+\subsection*{Solution 2}
+
+Let $X \sim \mathrm{Poisson}(\lambda)$.
+Note that $E(X) = \lambda$, $\sigma^2 = V(X) = \lambda$, and $X > 0$.
+From Chebyshev's inequality
+\begin{equation*}
+P(X > 2\lambda)
+    = P(|X - \lambda| > \lambda)
+    \leq \frac{\sigma^2}{\lambda^2}
+    = \frac{1}{\lambda}.
+\end{equation*}
