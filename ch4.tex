@@ -1,0 +1,19 @@
+\section*{Chapter 4 - Inequalities}
+
+\subsection*{Solution 1}
+
+Let $X \sim \mathrm{Exp}(\beta)$.
+We have $E(X) = \beta$ and $\sigma^2 = V(X) = \beta^2$.
+So
+\begin{equation*}
+P(|X - \mu| \geq k\sigma)
+    = 1 - P(|X - \beta| < k\beta)
+    = 1 - F((1 + k)\beta) + F((1 - k)\beta)
+    = 1 - \exp(-(k + 1)) + \exp(k - 1).
+\end{equation*}
+From Chebyshev's inequality
+\begin{equation*}
+P(|X - \mu| \geq k\sigma) \leq \frac{\sigma^2}{(k\sigma)^2}
+    = \frac{1}{k^2}.
+\end{equation*}
+Note that $1 - \exp(-(k + 1)) + \exp(k - 1) \leq k^{-2}$.
