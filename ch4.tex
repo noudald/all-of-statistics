@@ -48,3 +48,23 @@ P(|\overline{X} - p| > \epsilon)
     \leq 2 e^{-2n\epsilon^2}.
 \end{equation*}
 Note that $e^{-n} / n \to 0$ when $n \to \infty$, so Hoeffding's inequality is a more strict upperbound than Chebyshev's inequality for $P(|\overline{X} - p| > \epsilon)$ when $n$ is large.
+
+
+\subsection*{Solution 4}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Bernoulli}(p)$.
+
+\begin{itemize}
+\item[(a)] Let $\alpha > 0$ and
+\begin{equation*}
+\epsilon_n = \sqrt{\frac{1}{2n} \log\left(\frac{2}{\alpha}\right)}.
+\end{equation*}
+Let $\hat{p}_n = \frac{1}{n}\sum_{i=1}^n X_i$ and $C_n = (\hat{p_n}_n - \epsilon_n, \hat{p}_n + \epsilon_n)$.
+By Hoeffdings inequality
+\begin{equation*}
+P(p \in C_n) = 1 - P(p \notin C_n)
+    = 1 - P(|\hat{p}_n - p| > \epsilon)
+    \geq 1 - 2e^{-2n\epsilon^2}
+    = 1 - \alpha.
+\end{equation*}
+\end{itemize}
