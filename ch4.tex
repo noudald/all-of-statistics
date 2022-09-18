@@ -30,3 +30,21 @@ P(X > 2\lambda)
     \leq \frac{\sigma^2}{\lambda^2}
     = \frac{1}{\lambda}.
 \end{equation*}
+
+
+\subsection*{Solution 3}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Bernoulli}(p)$ and $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_n$.
+We have $E(\overline{X}) = p$ and $V(\overline{X}) = \frac{1}{n} p (1 - p)$.
+From Chebyshev's inequality
+\begin{equation*}
+P(|\overline{X} - p| > \epsilon)
+    \leq \frac{\sigma^2}{\epsilon^2}
+    = \frac{p(1 -p)}{n\epsilon^2}.
+\end{equation*}
+From Hoeffding's inequality
+\begin{equation*}
+P(|\overline{X} - p| > \epsilon)
+    \leq 2 e^{-2n\epsilon^2}.
+\end{equation*}
+Note that $e^{-n} / n \to 0$ when $n \to \infty$, so Hoeffding's inequality is a more strict upperbound than Chebyshev's inequality for $P(|\overline{X} - p| > \epsilon)$ when $n$ is large.
