@@ -307,3 +307,17 @@ Note that $X = 4Z - 3$, where $Z \sim \mathrm{Normal}(0, 1)$.
     \item[(d)] $P(0 \leq X < 4) = P(-3/4 \leq Z < 1/4) = \Phi(1/4) - \Phi(-3/4) \approx 0.37$.
     \item[(e)] $P(|X| > |x|) = 0.05$ if and only if $0.025 = P(X < -x) = P(Z < -(x - 3)/4) = \Phi(-(x + 3)/4)$, so $x = \pm (4\Phi^{-1}(0.025) + 3) \approx \pm 4.84$.
 \end{itemize}
+
+
+\subsection*{Solution 19}
+
+Let $r$ be strictly increasing.
+Let $s = r^{-1}$ and $Y = r(X)$.
+Note that $F_Y(y) = P(Y < y) = P(X < r^{-1}(y)) = F_X(s(y))$.
+So we have
+\begin{equation*}
+    f_Y(y) = \frac{dF_X(s(y))}{dy}
+        = \frac{dF_x(s(y))}{ds(y)} \frac{ds(y)}{dy}
+        = f_X(s(y)) \left|\frac{ds(y)}{dy}\right|.
+\end{equation*}
+If $r$ would be strictly decreasing the same calculation holds, but with a minus sign, as $F_Y(y) = 1 - F_X(s(y))$.
