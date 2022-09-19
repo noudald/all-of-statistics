@@ -321,3 +321,27 @@ So we have
         = f_X(s(y)) \left|\frac{ds(y)}{dy}\right|.
 \end{equation*}
 If $r$ would be strictly decreasing the same calculation holds, but with a minus sign, as $F_Y(y) = 1 - F_X(s(y))$.
+
+
+\subsection*{Solution 20}
+
+Let $Z_1 = X - Y$, $Z_2 = X/Y$.
+This is an exercise in drawing squares.
+\begin{itemize}
+    \item[(a)] If $z \leq 0$, then $P(Z_1 < z) = \frac{1}{2}(1 - z)^2$. If $z \geq 0$, then $P(Z_1 < z) = \frac{1}{2}(1 + z)^2$. So
+        \begin{equation*}
+            f_{Z_1}(x) = \left\{ \begin{array}{cc}
+                1 - z, & \text{if } z \leq 0, \\
+                1 + z, & \text{if } z > 0.
+            \end{array} \right.
+        \end{equation*}
+    \item[(b)] Define $A_z = F_{Z_2}(z)$.
+        If $0 \leq z \leq 1$, $|A_z| = z/2$. If $1 < z$, $|A_z| = 1 - \frac{1}{2z}$.
+        \begin{equation*}
+            f_{Z_1}(x) = \left\{ \begin{array}{cc}
+                \frac{1}{2}, & \text{if } 0 \leq z \leq 1, \\
+                \\
+                \frac{1}{2z^2}, & \text{if } 1 < z.
+            \end{array} \right.
+        \end{equation*}
+\end{itemize}
