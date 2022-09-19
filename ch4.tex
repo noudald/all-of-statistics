@@ -70,3 +70,17 @@ P(p \in C_n) = 1 - P(p \notin C_n)
 \item[(b)] See code. It seems that Hoeffding's inequality is a weak lower bound, with a factor 10 error margin.
 \item[(c)] See code.
 \end{itemize}
+
+
+\subsection*{Solution 5}
+
+Let $Z \sim \mathrm{Normal}(0, 1)$.
+Note that if $x > t$, then $\frac{x}{t} > 1$.
+We have
+\begin{equation*}
+    P(|Z| > t) = 2P(Z > t)
+        = 2 \int_t^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx
+        < \frac{2}{\sqrt{2\pi}} \int_t^{\infty} \frac{x}{t} e^{-\frac{x^2}{2}} dx
+        = \sqrt{\frac{2}{\pi}} \frac{e^{-\frac{t^2}{2}}}{t}.
+\end{equation*}
+See code.
