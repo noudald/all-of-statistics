@@ -83,4 +83,17 @@ We have
         < \frac{2}{\sqrt{2\pi}} \int_t^{\infty} \frac{x}{t} e^{-\frac{x^2}{2}} dx
         = \sqrt{\frac{2}{\pi}} \frac{e^{-\frac{t^2}{2}}}{t}.
 \end{equation*}
-See code.
+
+
+\subsection*{Solution 6}
+
+Let $Z \sim \mathrm{Normal}(0, 1)$.
+We calculate the moments of the absolute normal random variable $|Z|$.
+\begin{equation*}
+    E(|Z|^k) = \int_{-\infty}^{\infty} |z|^k \frac{1}{\sqrt{2\pi}} e^{-\frac{z^2}{2}} dz
+        = \frac{2}{\sqrt{2\pi}} \int_0^{\infty} z^k e^{-\frac{z^2}{2}} dz
+        = \frac{2}{\sqrt{2\pi}} \int_0^{\infty} 2^{\frac{k - 1}{2}} x^{\frac{k - 1}{2}} e^{-x} dx
+        = \sqrt{\frac{2^{k}}{\pi}} \Gamma\left(\frac{k+1}{2}\right),
+\end{equation*}
+were we use substitution $x = z^2/2$.
+For the rest of the solution see code.
