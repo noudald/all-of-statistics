@@ -97,3 +97,21 @@ We calculate the moments of the absolute normal random variable $|Z|$.
 \end{equation*}
 were we use substitution $x = z^2/2$.
 For the rest of the solution see code.
+
+
+\subsection*{Solution 7}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Normal}(0, 1)$.
+Define $\overline{X}_n = \frac{1}{2} \sum X_i$.
+Note that $E(\overline{X}) = 0$ and $V(\overline{X}) = \frac{1}{n}$, so $\sqrt{n}\overline{X} \sim \mathrm{Normal}(0, 1)$.
+Using Mill's inequality, we have
+\begin{equation*}
+    P(|\overline{X}_n| \geq t) = P(|\sqrt{n}\,\overline{X}_n| \geq \sqrt{n}t)
+        \leq \sqrt{\frac{2}{\pi}} \frac{e^{-\frac{nt}{2}}}{\sqrt{n}t}.
+\end{equation*}
+By Chebyshev's inequality, we have
+\begin{equation*}
+    P(|\overline{X}_n| \geq t) = P(|\sqrt{n}\,\overline{X}_n| \geq \sqrt{n}t)
+        \leq \frac{1}{\sqrt{n}t}
+\end{equation*}
+Note that Mill's inequality is a shaper bound that Chebychev's inequality.
