@@ -82,6 +82,26 @@ Write out the definition and do required book keeping.
 \end{equation*}
 
 
+\subsection*{Solution 7}
+
+We first prove a lemma.
+\begin{equation*}
+    x P(X > x) = x \int_x^{\infty} f(t) dt
+        \leq \int_x^{\infty} t f(t) dt
+        = E(X) - \int_{-\infty}^{x} t f(t) dt
+        \to 0,
+\end{equation*}
+as $x \to \infty$.
+So $\lim_{x \to \infty} x(1 - F(x)) = \lim_{x \to \infty} x P(X > x) = 0$.
+
+For the solution, use integration by parts.
+\begin{equation*}
+    \int_0^{\infty} P(X > x) dx = \int_0^{\infty} (1 - F(x)) dx
+        = x(1 - F(x))|_0^{\infty} + \int_0^{\infty} xf(x) dx
+        = E(X).
+\end{equation*}
+
+
 \subsection*{Solution 12}
 
 We calculate the expected value and variance for all distributions in section 3.4.
