@@ -14,6 +14,23 @@ Using the tower property of conditional expectation we have
         = \left(\frac{5}{4}\right)^n c.
 \end{equation*}
 
+
+\subsection*{Solution 2}
+
+\begin{itemize}
+    \item[$\rightarrow$)] TODO: This is a hand-wave proof. I should look for a better proof if I have some time.
+        Suppose $V(X) = 0$, then
+        \begin{equation*}
+            \int_{-\infty}^{\infty} (x - \mu_X)^2 dF(x) = 0.
+        \end{equation*}
+        But $(x - \mu_X)^2 \geq 0$ and continuous and $F$ is right continuous, so for each $x$ we must have $f(x) = 0$ or $(x - \mu_X)^2 = 0$.
+        $f(x)$ cannot be zero everywhere, so there must be an $x$ such that $(x - \mu_X)^2 = 0$, which is only once at $x = \mu_X$.
+        In other words $P(X = \mu_X) = f(\mu_X) = 1$ and for all $x \neq \mu_X$ we must have $f(x) = 0$.
+        Take $c = \mu_X$.
+    \item[$\leftarrow$)] If $P(X = c) = 1$, then $E(X) = c$ and $E(X^2) = c^2$, and $V(X) = E(X^2) - E(X)^2 = c^2 - c^2 = 0$.
+\end{itemize}
+
+
 \subsection*{Solution 12}
 
 We calculate the expected value and variance for all distributions in section 3.4.
