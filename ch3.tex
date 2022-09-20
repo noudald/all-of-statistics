@@ -53,6 +53,17 @@ Note that for $n > 0$, $X_n = \sum_{i = 1}^n (1 - 2B_i)$, where $B_i \sim \mathr
 We have $E(X_n) = n - 2\sum_i E(B_i) = n(1 - 2p)$ and $V(X_n) = 4\sum_i V(B_i) = 4np(1-p)$.
 
 
+\subsection*{Solution 5}
+
+The probability density function is $f(X = i) = p^{i - 1} (1 - p) = p^i$, as $p = \frac{1}{2}$.
+We have
+\begin{equation*}
+    E(X) = \sum_{i = 0}^{\infty} if(X = i)
+        = \sum_{i = 0}^{\infty} i p^i
+        = \left( \frac{1}{1 - p} \right)'
+        = \frac{p}{(1 - p)^2}
+        = 2.
+\end{equation*}
 \subsection*{Solution 12}
 
 We calculate the expected value and variance for all distributions in section 3.4.
