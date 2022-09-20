@@ -31,6 +31,21 @@ Using the tower property of conditional expectation we have
 \end{itemize}
 
 
+\subsection*{Solution 3}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, 1)$.
+Define $Y_n = \mathrm{max}(X_1, X_2, ..., X_n)$.
+\begin{equation*}
+    P(Y_n < y) = \prod_{i=1}^n P(X_i < y)
+        = y^n.
+\end{equation*}
+So $f(y) = ny^{n-1}$ and
+\begin{equation*}
+    E(Y_n) = \int_0^1 ny^{n} dy
+        = \frac{n}{n + 1}.
+\end{equation*}
+
+
 \subsection*{Solution 12}
 
 We calculate the expected value and variance for all distributions in section 3.4.
