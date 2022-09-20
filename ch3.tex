@@ -1,6 +1,20 @@
 \section*{Chapter 3 - Expectation}
 
-\subsection*{Exercise 12}
+\subsection*{Solution 1}
+
+Let $X_n$ a random variable representing the amount of money after $n$ turns.
+We set $X_0 = c$.
+We have $E(X_n | X_{n-1}) = \frac{1}{2}(2 X_{n-1} + \frac{1}{2} X_{n-1}) = \frac{5}{4} X_{n-1}$.
+Using the tower property of conditional expectation we have
+\begin{equation*}
+    E(X_n) = E(E(X_n | X_{n-1}))
+        = \frac{5}{4} E(E(X_{n-1} | X_{n-2}))
+        = ...
+        = \left(\frac{5}{4}\right)^n E(X_0)
+        = \left(\frac{5}{4}\right)^n c.
+\end{equation*}
+
+\subsection*{Solution 12}
 
 We calculate the expected value and variance for all distributions in section 3.4.
 
@@ -184,7 +198,7 @@ By lemma 3.21, $E(X) = E(\Sigma^{1/2}Z + \mu) = \mu$ and $V(X) = V(\Sigma^{1/2}Z
 \end{itemize}
 
 
-\subsection*{Exercise 15}
+\subsection*{Solution 15}
 
 We have
 \begin{equation*}
