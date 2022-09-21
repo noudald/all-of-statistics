@@ -102,6 +102,43 @@ For the solution, use integration by parts.
 \end{equation*}
 
 
+\subsection*{Solution 8}
+
+Let $X_1, X_2, ..., X_n$ i.i.d. with $\mu = E(X_i)$ and $\sigma^2 = V(X_i)$.
+Let the sample mean be $\overline{X}_n = \frac{1}{n} \sum X_i$.
+We have
+\begin{equation*}
+    \begin{split}
+        E(\overline{X}_n) &= \frac{1}{n} \sum_{i = 1}^n E(X_i)
+            = \frac{n}{n} \mu
+            = \mu, \\
+        V(\overline{X}_n) &= \frac{1}{n^2} \sum_{i = 1}^n V(X_i)
+            = \frac{n}{n^2} \sigma^2
+            = \frac{\sigma^2}{n}.
+    \end{split}
+\end{equation*}
+Define the sample variance by $S^2_n = \frac{1}{n - 1} \sum_{i = 1}^n (X_i - \overline{X}_n)^2$.
+Note that
+\begin{equation*}
+    \begin{split}
+        E(X_i^2) &= V(X_i) + E(X_i)^2 = \sigma^2 + \mu^2, \\
+        E(\overline{X}_n^2) &= V(\overline{X}_n) + E(\overline{X}_n)^2 = \frac{\sigma^2}{n} + \mu^2, \\
+        E(X_i \overline{X}_n) &= \frac{1}{n} \sum_{j = 1}^n E(X_i X_j)
+            = \frac{1}{n} \left(E(X_i^2) + \sum_{i \neq j} E(X_i) E(X_j)\right)
+            = \mu^2 + \frac{\sigma^2}{n}.
+    \end{split}
+\end{equation*}
+We calculate
+\begin{equation*}
+    \begin{split}
+        E(S_n^2) &= \frac{1}{n - 1} \sum_{i = 1}^n \left(E(X_i^2) - 2 E(X_i \overline{X}_n) + E(\overline{X}_n^2)\right) \\
+            &= \frac{1}{n - 1} \sum_{i = 1}^n \left(\sigma^2 + \mu^2 - 2 \frac{\sigma^2}{n} - 2 \mu^2 + \mu^2 + \frac{\sigma^2}{n}\right) \\
+            &= \frac{1}{n - 1} \sum_{i = 1}^n \frac{n - 1}{n} \sigma^2
+            = \sigma^2.
+    \end{split}
+\end{equation*}
+
+
 \subsection*{Solution 12}
 
 We calculate the expected value and variance for all distributions in section 3.4.
