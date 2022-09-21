@@ -146,6 +146,14 @@ Note that the Cauchy distribution doesn't have moments.
 Therefore, we cannot "sample" the mean of the Cauchy distribution.
 
 
+\subsection*{Solution 10}
+
+Let $X \sim \mathrm{Normal}(0, 1)$ and let $Y = e^X$.
+Note that for the moment generating function for X we have $\exp(\frac{t^2}{2}) = \phi_X(t) = E(e^{tX}) = E(Y^t)$.
+So $E(Y) = \phi_X(1) = \sqrt{e}$, and $E(Y^2) = \phi_X(2) = e^2$ so that $V(Y) = E(Y^2) - E(Y)^2 = e^2 - e = e(e - 1)$.
+
+
+
 \subsection*{Solution 12}
 
 We calculate the expected value and variance for all distributions in section 3.4.
