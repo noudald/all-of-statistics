@@ -1,0 +1,8 @@
+\section*{Chapter 6 - Models, Statistical Inference and Learning}
+
+\subsection*{Solution 1}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Poisson}(\lambda)$.
+Estimate $\hat{\lambda} = \frac{1}{n} \sum_{i = 1}^n X_i$.
+We have $E(\hat{\lambda}) = \lambda$, so $\mathrm{bias}(\hat{\lambda}) = E(\hat{\lambda}) - \lambda = 0$.
+Moreover, $V(\hat{\lambda}) = \frac{\lambda}{n}$, so $\mathrm{se} = \sqrt{\frac{\lambda}{n}}$ and $\mathrm{MSE} = \mathrm{bias}^2 + V(\hat{\lambda}) = \frac{\lambda}{n}$.
