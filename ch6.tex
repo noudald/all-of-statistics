@@ -6,3 +6,35 @@ Let $X_1, X_2, ..., X_n \sim \mathrm{Poisson}(\lambda)$.
 Estimate $\hat{\lambda} = \frac{1}{n} \sum_{i = 1}^n X_i$.
 We have $E(\hat{\lambda}) = \lambda$, so $\mathrm{bias}(\hat{\lambda}) = E(\hat{\lambda}) - \lambda = 0$.
 Moreover, $V(\hat{\lambda}) = \frac{\lambda}{n}$, so $\mathrm{se} = \sqrt{\frac{\lambda}{n}}$ and $\mathrm{MSE} = \mathrm{bias}^2 + V(\hat{\lambda}) = \frac{\lambda}{n}$.
+
+
+\subsection*{Solution 2}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, \theta)$.
+Let $\hat{\theta} = \mathrm{max}(X_1, X_2, ..., X_n)$.
+The cumulative density function is $F(t) = P(\hat{\theta} < t) = \prod P(X_i < t) = t^n$.
+So the probability distribution function is $f(t) = F'(t) = nt^{n-1}$.
+This gives
+\begin{equation*}
+    E(\hat{\theta}) = \int_0^{\theta} tf(t) dt = \frac{n}{n+1} \theta, \quad
+    \mathrm{bias} = E(\hat{\theta}) - \theta = - \frac{1}{n+1} \theta.
+\end{equation*}
+So $\hat{\theta}$ is not unbias ($\frac{n+1}{n} \hat{\theta}$ would be unbias).
+Note that
+\begin{equation*}
+    \begin{split}
+        E(\hat{\theta}^2) &= \int_0^{\theta} t^2 f(t) dt
+            = \frac{n}{n+2} \theta^2, \\
+        V(\hat{\theta}) &= E(\hat{\theta}^2) - E(\hat{\theta})^2
+            = \frac{n}{n+1} \theta^2 - \frac{1}{(n+1)^2} \theta^2
+            = \frac{n}{(n+1)^2 (n+2)^2} \theta^2.
+    \end{split}
+\end{equation*}
+We have $\mathrm{se} = \sqrt{V(\hat{\theta})}$.
+And the mean squared error is given by
+\begin{equation*}
+    \mathrm{MSE} = \mathrm{bias}^2 + V(\hat{\theta})
+        = \frac{1}{(n+1)^2} \theta^2 + \frac{n}{(n+1)^2 (n+2)} \theta^2
+        = \frac{n^2 + 2n + 1}{(n+1)^2 (n+2)} \theta^2
+        = \frac{1}{n + 2} \theta^2.
+\end{equation*}
