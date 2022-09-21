@@ -1,0 +1,21 @@
+\section*{Chapter 5 - Convergence of Random Variables}
+
+\subsection*{Solution 1}
+
+Let $X_1, X_2, ..., X_n$ i.i.d. with $E(X_i) = \mu$ and $V(X_i) = \sigma^2$.
+
+\begin{itemize}
+    \item[(a)] See solution 3.8.
+    \item[(b)] We write
+        \begin{equation*}
+            \begin{split}
+                S_n^2 &= \frac{1}{n - 1} \sum_{i = 1}^n (X_i - \overline{X}_n)^2 \\
+                    &= \frac{1}{n - 1} \sum_{i = 1}^n (X_i^2 - 2 \overline{X}_n X_i + \overline{X}_n^2) \\
+                    &= \frac{n}{n - 1} \frac{1}{n} \sum_{i = 1}^n X_i^2 - \frac{n - 2}{n - 1} \overline{X}_n^2
+                    = c_n \frac{1}{n} \sum_{i = 1}^n X_i^2 - d_n \overline{X}_n^2,
+            \end{split}
+        \end{equation*}
+        where $c_n, d_n \to 1$ as $n \to \infty$.
+        By the weak law of large numbers $\frac{1}{n} \sum_{i = 1} X_i^2 \xrightarrow{P} E(X_i^2) = \mu^2 + \sigma^2$ and $\overline{X}_n^2 \xrightarrow{P} \mu^2$.
+        Using Theorem 5.5, $S_n^2 \xrightarrow{P} \sigma^2$.
+\end{itemize}
