@@ -19,7 +19,7 @@ This gives
     E(\hat{\theta}) = \int_0^{\theta} tf(t) dt = \frac{n}{n+1} \theta, \quad
     \mathrm{bias} = E(\hat{\theta}) - \theta = - \frac{1}{n+1} \theta.
 \end{equation*}
-So $\hat{\theta}$ is not unbias ($\frac{n+1}{n} \hat{\theta}$ would be unbias).
+So $\hat{\theta}$ is not unbiased ($\frac{n+1}{n} \hat{\theta}$ would be unbiased).
 Note that
 \begin{equation*}
     \begin{split}
@@ -38,3 +38,17 @@ And the mean squared error is given by
         = \frac{n^2 + 2n + 1}{(n+1)^2 (n+2)} \theta^2
         = \frac{1}{n + 2} \theta^2.
 \end{equation*}
+
+
+\subsection*{Solution 3}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, \theta)$.
+Let $\hat{\theta} = \frac{2}{n} \sum X_i$.
+We have
+\begin{equation*}
+    E(\hat{\theta}) = \frac{2}{n} \sum_{i=0}^n E(X_i)
+        = \theta, \quad
+    V(\hat{\theta}) = \frac{2^2}{n^2} \sum_{i = 0}^n V(X_i)
+        = \frac{\theta^2}{3n^2}.
+\end{equation*}
+Therefore, $\mathrm{bias} = 0$, so $\hat{\theta}$ is unbiased, $\mathrm{se} = \frac{\theta}{\sqrt{3}n}$, and $\mathrm{MSE} = \frac{\theta^2}{3n^2}$.
