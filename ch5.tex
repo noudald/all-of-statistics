@@ -19,3 +19,23 @@ Let $X_1, X_2, ..., X_n$ i.i.d. with $E(X_i) = \mu$ and $V(X_i) = \sigma^2$.
         By the weak law of large numbers $\frac{1}{n} \sum_{i = 1} X_i^2 \xrightarrow{P} E(X_i^2) = \mu^2 + \sigma^2$ and $\overline{X}_n^2 \xrightarrow{P} \mu^2$.
         Using Theorem 5.5, $S_n^2 \xrightarrow{P} \sigma^2$.
 \end{itemize}
+
+
+\subsection*{Solution 2}
+
+Let $X_1, X_2, ...$ be a sequence of random variables.
+\begin{itemize}
+    \item[$\rightarrow$)] Suppose $X_n \xrightarrow{qm} b$, i.e. $E((X_n - b)^2) \to 0$ as $n \to \infty$.
+        We calculate
+        \begin{equation}
+            \label{eqn:5.2.1}
+            E((X_n - b)^2) = E(X_n^2) - 2bE(X_n) + b^2
+                = V(X_n) + (E(X_n) - b)^2
+                \to 0,
+        \end{equation}
+        as $n \to \infty$.
+        Both $V(X_n)$ and $(E(X_n) - b)^2$ are non-negative, so we must have $V(X_n) \to 0$ and $(E(X_n) - b)^2 \to 0$ as $n \to \infty$.
+        Finally, if $(E(X_n) - b)^2 \to 0$, then $E(X_n) \to b$, as $n \to \infty$.
+    \item[$\leftarrow$)] Suppose $E(X_n) \to b$ and $V(X_n) \to 0$ as $n \to \infty$.
+        Using (\ref{eqn:5.2.1}), $E((X_n - b)^2) = V(X_n) + (E(X_n) - b)^2 \to 0$ as $n \to \infty$.
+\end{itemize}
