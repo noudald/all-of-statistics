@@ -91,3 +91,17 @@ Then $B_i \cap B_j = \emptyset$ when $i \neq j$, and $\cup B_n = \cup A_n$.
 So $P(\cup A_n) = P(\cup B_n) = \sum P(B_n)$.
 As $B_n \subset A_n$, $P(B_n) \leq P(A_n)$.
 Therefore we have $P(\cup A_n) = \sum P(B_n) \leq \sum P(A_n)$.
+
+
+\subsection*{Solution 8}
+
+Proving $P(\cap A_i) = 1$ is equivalent to proving $P((\cap A_i)^c) = P(\cup A_i^c) = 0$.
+Take disjoint sets $B_n = A_n^c \backslash \cup_{i < n} A_i^c$.
+Note that $B_n^c \subset A_n^c$, so $P(B_n^c) \leq P(A_n^c) = 1 - P(A_n) = 0$.
+So
+\begin{equation*}
+    P(\cup_{i = 1}^n A_i^c)
+        = P(\cup_{i = 1}^n B_i)
+        = \sum_{i = 1}^n P(B_i)
+        = 0.
+\end{equation*}
