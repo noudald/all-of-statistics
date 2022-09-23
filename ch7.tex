@@ -22,3 +22,17 @@ Let $\hat{F}_n(x) = \frac{1}{n} \sum I(X_i \leq x)$ be the emperical distributio
     \item[(c)] Using (a) we have $\mathrm{bias} = E(\hat{F}_n(x)) - F(x) = 0$, so from (b), $\mathrm{MSE} = V(\hat{F}_n(x)) = \frac{1}{n} F(x) (1 - F(x)) \to 0$ when $n \to \infty$.
     \item[(d)] As $\mathrm{MSE} = E((\hat{F}_n(x) - F(x))^2) \to 0$ as $n \to \infty$, $\hat{F}_n(x) \xrightarrow{qm} F(x)$ and by Theorem 5.4.a $\hat{F}_n(x) \xrightarrow{P} F(x)$.
 \end{itemize}
+
+
+\subsection*{Solution 2}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Bernoulli}(p)$ and $Y_1, Y_2, ..., Y_m \sim \mathrm{Bernoulli}(q)$.
+
+\begin{itemize}
+    \item[(a)] The plug-in estimator for $p$ is $\hat{p} = E(\overline{X}_n) = \frac{1}{n} \sum_{i = 1}^n X_i$.
+        The plug-in estimator for the standard error on $\hat{p}$ is $\sqrt{\frac{1}{n} \hat{p}(1 - \hat{p})}$.
+    \item[(b)] The 90\% confidence interval for plug-in estimator $\hat{p}$ is $\hat{p} \pm z_{0.05} \sqrt{\frac{1}{n} \hat{p}(1 - \hat{p})}$.
+    \item[(c)] The plug-in estimator for $p - q$ is $\hat{p} - \hat{q}$.
+        The plug-in estimator for the standard error on $\hat{p} - \hat{q}$ is $\sqrt{V(\hat{p}) + V(\hat{q})} = \sqrt{\frac{1}{n} \hat{p}(1 - \hat{p}) + \frac{1}{m} \hat{q}(1 - \hat{1})}$.
+    \item[(d)] The 90\% confidence interval for plug-in estimator $\hat{p} - \hat{q}$ is $\hat{p} - \hat{q} \pm z_{0.05} \sqrt{\frac{1}{n} \hat{p}(1 - \hat{p}) + \frac{1}{m} \hat{q}(1 - \hat{q})}$.
+\end{itemize}
