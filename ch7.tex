@@ -1,0 +1,24 @@
+\section*{Chapter 7 - Estimating the CDF and Statistical Functionals}
+
+\subsection*{Solution 1}
+
+Let $X_1, X_2, ..., X_n$ random variables with cumulative distribution function $F$.
+Let $\hat{F}_n(x) = \frac{1}{n} \sum I(X_i \leq x)$ be the emperical distribution function of $F$.
+\begin{itemize}
+    \item[(a)] Note that
+        \begin{equation*}
+            E(I(X_i \leq x)) = \int_{-\infty}^{\infty} I(t \leq x) f(t) dt
+                = \int_{-\infty}^{x} f(t) dt
+                = F(x).
+        \end{equation*}
+        Therefore, $E(\hat{F}_n(x)) = \frac{1}{n} \sum E(I(X_i \leq x)) = F(x)$.
+    \item[(b)] As in (a), we calculate $E(I(X_i \leq x)^2) = F(x)$.
+        So
+        \begin{equation*}
+            V(\hat{F}_n(x)) = \frac{1}{n^2} \sum_{i = 1}^n V(I(X_i \leq x))
+                = \frac{1}{n^2} \sum_{i = 1}^n (E(I(X_i \leq x)^2) - E(I(X_i \leq x))^2)
+                = \frac{1}{n} F(x) (1 - F(x)).
+        \end{equation*}
+    \item[(c)] Using (a) we have $\mathrm{bias} = E(\hat{F}_n(x)) - F(x) = 0$, so from (b), $\mathrm{MSE} = V(\hat{F}_n(x)) = \frac{1}{n} F(x) (1 - F(x)) \to 0$ when $n \to \infty$.
+    \item[(d)] As $\mathrm{MSE} = E((\hat{F}_n(x) - F(x))^2) \to 0$ as $n \to \infty$, $\hat{F}_n(x) \xrightarrow{qm} F(x)$ and by Theorem 5.4.a $\hat{F}_n(x) \xrightarrow{P} F(x)$.
+\end{itemize}
