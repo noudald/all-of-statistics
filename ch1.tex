@@ -105,3 +105,18 @@ So
         = \sum_{i = 1}^n P(B_i)
         = 0.
 \end{equation*}
+
+
+\subsection*{Solution 9}
+
+\begin{itemize}
+    \item[1.] $P(X, B) \geq 0$ and $P(B) \geq 0$, so $P(X|B) = P(X, B) / P(B) \geq 0$.
+    \item[2.] $P(\Omega|B) = P(\Omega \cap B) / P(B) = P(B) / P(B) = 1$.
+    \item[3.] Let $A_1, A_2, ...$ be disjoint, then $A_1 \cap B, A_2 \cap B, ...$ are disjoint, and
+        \begin{equation*}
+            P(\cup_{i = 1}^{\infty} A_i | B)
+                = \frac{P(\cup_{i = 1}^{\infty} A_i \cap B)}{P(B)}
+                = \sum_{i = 1}^{\infty} \frac{P(A_i \cap B)}{P(B)}
+                = \sum_{i = 1}^{\infty} P(A_i | B).
+        \end{equation*}
+\end{itemize}
