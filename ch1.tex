@@ -120,3 +120,18 @@ So
                 = \sum_{i = 1}^{\infty} P(A_i | B).
         \end{equation*}
 \end{itemize}
+
+
+\subsection*{Solution 10}
+
+When we always pick door 1, the sample space is $\Omega = \{(1, 2), (1, 3), (2, 3), (3, 2)\}$, with probabilities $P(1, 2) = 1/6$, $P(1, 3) = 1/6$, $P(2, 3) = 1/3$, and $P(3, 2) = 1/3$.
+We have
+\begin{equation*}
+    \begin{split}
+        P(\omega_1 = 1 | \omega_2 = 2) &= \frac{P(\omega_1 = 1, \omega_2 = 2)}{P(\omega_2 = 2)} = \frac{1}{3}, \\
+        P(\omega_1 = 3 | \omega_2 = 2) &= \frac{P(\omega_1 = 2, \omega_2 = 2)}{P(\omega_2 = 2)} = \frac{2}{3}, \\
+        P(\omega_1 = 1 | \omega_2 = 3) &= \frac{P(\omega_1 = 1, \omega_2 = 2)}{P(\omega_2 = 3)} = \frac{1}{3}, \\
+        P(\omega_2 = 3 | \omega_2 = 3) &= \frac{P(\omega_1 = 3, \omega_2 = 2)}{P(\omega_2 = 3)} = \frac{2}{3}. \\
+    \end{split}
+\end{equation*}
+We conclude that it's better to switch to doors.
