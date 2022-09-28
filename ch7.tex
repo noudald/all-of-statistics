@@ -41,3 +41,17 @@ Let $X_1, X_2, ..., X_n \sim \mathrm{Bernoulli}(p)$ and $Y_1, Y_2, ..., Y_m \sim
 \subsection*{Solution 3}
 
 See code.
+
+
+\subsection*{Solution 4}
+
+Let $X_1, X_2, ..., X_n \sim F$.
+Let $\hat{F}(x) = \frac{1}{n} \sum I(X_i \leq x)$.
+Denote $Y_i = I(X_i \leq x)$.
+Note that $\overline{Y}_n = \hat{F}(x)$, and $E(\hat{F}(x)) = F(x)$ and $V(\hat{F}(x)) = \frac{1}{n} F(x)(1 - F(x))$.
+By the central limit theorem
+\begin{equation*}
+    \mathrm{Normal}(0, 1) \approx \frac{\overline{Y}_n - E(\overline{Y}_n)}{\sqrt{V(\overline{Y}_n)}}
+        = \sqrt{n} \frac{\hat{F}(x) - F(x)}{\sqrt{F(x)(1 - F(x))}}.
+\end{equation*}
+In other words, when $n \to \infty$, $\hat{F}(x)$ behaves as a random variable from the distribution $\mathrm{Normal}(F(x), \frac{1}{n} F(x)(1 - F(x)))$.
