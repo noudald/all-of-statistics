@@ -369,6 +369,20 @@ Let $X = B U_1 + (1 - B) U_2$ a random variable, where $B \sim \mathrm{Bernoulli
 \end{itemize}
 
 
+\subsection*{Solution 14}
+
+Let $X_1, X_2, ..., X_m$ and $Y_1, Y_2, ..., Y_m$ be random variables, and $a_1, a_2, ..., a_m$ and $b_1, b_2, ..., b_n$ be constants.
+We have
+\begin{equation*}
+    \begin{split}
+        \mathrm{Cov}\left(\sum_{i=1}^m a_i X_i, \sum_{j=1}^n b_j Y_j\right)
+            &= E\left(\sum_{i=1}^m a_i X_i \sum_{j=1}^n b_j Y_j\right) - E\left(\sum_{i=1}^m a_i X_i\right) E\left(\sum_{j=1}^n a_j Y_j\right) \\
+            &= \sum_{i=1}^m \sum_{j=1}^n a_i b_j \left( E(X_i Y_j) - E(X_i) E(Y_j) \right)
+            = \sum_{i=1}^m \sum_{j=1}^n a_i b_j \mathrm{Cov}(X_i, Y_j).
+    \end{split}
+\end{equation*}
+
+
 \subsection*{Solution 15}
 
 We have
