@@ -414,3 +414,17 @@ This follows almost by definition,
         = r(X) E(s(Y)|X).
 \end{equation*}
 Take $s(Y) = 1$ so that $E(r(X)|X) = E(r(X)s(Y)|X) = r(X) E(s(Y)|X) = r(X)$.
+
+
+\subsection*{Solution 17}
+
+This is an algebraic manipulation of symbols.
+\begin{equation*}
+    \begin{split}
+        E(V(Y|X)) + V(E(Y|X)) &= E(E(Y^2|X) - E(Y|X)^2) + E(E(Y|X)^2) - E(E(Y|X))^2 \\
+            &= E(E(Y^2|X)) - E(E(Y|X)^2) + E(E(Y|X)^2) - E(E(Y|X))^2 \\
+            &= E(E(Y^2|X)) - E(E(Y|X))^2 \\
+            &= E(Y^2) - E(Y)^2
+            = V(Y).
+    \end{split}
+\end{equation*}
