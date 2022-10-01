@@ -428,3 +428,18 @@ This is an algebraic manipulation of symbols.
             = V(Y).
     \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 18}
+
+Suppose $E(X|Y) = c$.
+We have $E(XY) = E(E(XY|Y)) = E(E(X|Y)Y) = cE(Y)$.
+The covariance of $X$ and $Y$ is
+\begin{equation*}
+    \mathrm{Cov}(X, Y) = E(XY) - E(X)E(Y)
+        = (c - E(X))E(Y)
+        = (c - E(E(X|Y)))E(Y)
+        = (c - c)E(Y)
+        = 0.
+\end{equation*}
+If the covariance of $X$ and $Y$ is zero, $X \bot Y$.
