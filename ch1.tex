@@ -161,3 +161,15 @@ We could intrepid the questions in multiple ways and get both right answers $\fr
     \item[(a)] $\Omega = \{ HH^kT, TT^kH: k \geq 0 \}$.
     \item[(b)] $P(HHT, TTH) = 2 \frac{1}{2^3} = \frac{1}{4}$.
 \end{itemize}
+
+
+\subsection*{Solution 14}
+
+Let $A \subset \Omega$ such that $P(A) = 0$ or $P(A) = 1$.
+\begin{itemize}
+    \item[(a)] If $P(A) = 0$, $0 \leq P(AB) \leq P(A) = 0$, so $P(AB) = 0 = P(A)P(B)$.
+        If $P(A) = 1$, then $P(A^c) = 0$, hence $P(A^c B^c) = P(A^c) P(B^c)$.
+        So $A^c \bot B^c$, and by exercise 2.11, $A \bot B$.
+    \item[(b)] Let $A \bot A$, then $P(A) = P(A \cap A) = P(A)^2$.
+        But this is only possible if $P(A) = 0$ or $P(A) = 1$.
+\end{itemize}
