@@ -450,3 +450,36 @@ If the covariance of $X$ and $Y$ is zero, $X \bot Y$.
 We have $f_X(x) = 1$ for $0 \leq x \leq 1$.
 As $E(X_i) = 1$ and $V(X_i) = \frac{1}{12}$, we have $E(\overline{X}_n) = \frac{1}{2}$ and $V(\overline{X}_n) = \frac{1}{12n}$.
 
+
+\subsection*{Solution 20}
+
+Let $a$ be a vector and $X$ a random variable with mean $\mu$ and variance $\Sigma$.
+We have
+\begin{equation*}
+    E(a^tX) = E\left(\sum_{i = 1}^n a_i X_i\right)
+        = \sum_{i = 1}^n E(a_i X_i)
+        = \sum_{i = 1}^n a_i E(X_i)
+        = a^t \mu.
+\end{equation*}
+Note that in the same way $E(Xa) = \mu a$.
+For the variance we calculate
+\begin{equation*}
+    V(a^tX) = E((a^tX - E(a^tX))^2)
+        = E(a^t (X - E(X))(X - E(X))^t a)
+        = a^t E((X - E(X))(X - E(X))^t) a
+        = a^t \Sigma a.
+\end{equation*}
+For the matrix $A$ the calculations are similar,
+\begin{equation*}
+    E(AX)_k = E\left(\sum_{i = 1}^n a_{ki} X_i\right)
+        = \sum_{i = 1}^n a_{ki} E(X_i)
+        = (A\mu)_k,
+\end{equation*}
+so $E(AX) = A\mu$, and similar $E(XA) = \mu A$.
+The variance is
+\begin{equation*}
+    V(AX) = E((AX - E(AX))^2)
+        = E(A(X - \mu)(X - \mu)^t A^t)
+        = A E((X - \mu)(X - \mu)^t) A^t
+        = A \Sigma A^t.
+\end{equation*}
