@@ -483,3 +483,19 @@ The variance is
         = A E((X - \mu)(X - \mu)^t) A^t
         = A \Sigma A^t.
 \end{equation*}
+
+
+\subsection*{Solution 21}
+
+Let $X$ and $Y$ be random variables.
+Suppose that $E(Y|X) = X$.
+We have
+\begin{equation*}
+    \begin{split}
+        \mathrm{Cov}(X, Y) &= E(XY) - E(X)E(Y) \\
+            &= E(E(XY|X)) - E(X)E(E(Y|X)) \\
+            &= E(XE(Y|X)) - E(X)E(X) \\
+            &= E(X^2) - E(X)^2
+            = \mathrm{Var}(X).
+    \end{split}
+\end{equation*}
