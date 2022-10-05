@@ -194,3 +194,21 @@ If $A \bot B$, then $P(AB) = P(A)P(B)$, and
 \subsection*{Solution 17}
 
 $P(ABC) = P(A|BC) P(BC) = P(A|BC) P(B|C) P(C)$.
+
+
+\subsection*{Solution 18}
+
+Let $A_1, A_2, ..., A_k$ disjoint subsets such that $\cup A_i = \Omega$.
+Let $P(B) > 0$ such that $P(A_1|B) < P(A_1)$.
+We show that there is an $A_i$ such that $P(A_i|B) > P(A_i)$.
+Suppose for all $i$, $P(A_i|B) \leq P(A_i)$.
+Then
+\begin{equation*}
+    1 = P(\cup_{i = 1}^k A_i|B)
+        = \sum_{i = 1}^k P(A_i | B)
+        = P(A_1 | B) + \sum_{i = 2}^k P(A_i | B)
+        < \sum P(A_i)
+        = 1,
+\end{equation*}
+which contradicts the assumption.
+Therefore, there exists an $A_i$ such that $P(A_i|B) > P(A_i)$.
