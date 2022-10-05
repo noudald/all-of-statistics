@@ -499,3 +499,23 @@ We have
             = \mathrm{Var}(X).
     \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 22}
+
+Let $0 < a < b < 1$ and $X \sim \mathrm{Uniform}(0, 1)$.
+Define $Y = 1$ if $0 \leq x \leq b$ else $Y = 0$, and $Z = 1$ if $a \leq x \leq 0$ else $Z = 0$.
+\begin{itemize}
+    \item[(a)] $Y$ and $Z$ are dependent.
+        Suppose $Y$ and $Z$ are independent, then $P(Y=1|Z=1) = P(Y=1) = P(X < b) = b$.
+        But we calculate
+        \begin{equation*}
+            P(Y=1|Z=1) = \frac{P(Y=1, Z=1)}{P(Z=1)}
+                = \frac{P(a < X < b)}{P(a < X)}
+                = \frac{b - a}{1 - a}
+                \neq b.
+        \end{equation*}
+    \item[(b)] If $Z = 1$, then $a \leq x \leq 1$, so $E(Y|Z=1) = \frac{b - a}{1 - a}$.
+        If $Z = 0$, then $x < a$, so $E(Y|Z=0) = 1$.
+        Similar $E(Z|Y=1) = \frac{b - a}{a}$ and $E(Z|Y=0) = 1$.
+\end{itemize}
