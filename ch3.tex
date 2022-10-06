@@ -519,3 +519,60 @@ Define $Y = 1$ if $0 \leq x \leq b$ else $Y = 0$, and $Z = 1$ if $a \leq x \leq 
         If $Z = 0$, then $x < a$, so $E(Y|Z=0) = 1$.
         Similar $E(Z|Y=1) = \frac{b - a}{a}$ and $E(Z|Y=0) = 1$.
 \end{itemize}
+
+
+\subsection*{Solution 23}
+
+We do the whole list.
+
+\begin{itemize}
+    \item[(a)] $X \sim \mathrm{Bernoulli}(p)$, then
+        \begin{equation*}
+            \psi_X(t) = E(e^{tX})
+                = \sum_{x=0}^{1} e^{tx} f(x)
+                = pe^t + (1 - p).
+        \end{equation*}
+    \item[(b)] $X \sim \mathrm{Binomial}(n, p)$.
+        If we write $X = \sum_{i = 0}^n B_i$, where $B_i \sim \mathrm{Bernoulli}(p)$, we have
+        \begin{equation*}
+            \psi_X(t) = E(e^{t\sum B_i})
+                = \prod_{i = 0}^n E(e^{tB_i})
+                = (pe^t + (1 - p))^n.
+        \end{equation*}
+    \item[(c)] $X \sim \mathrm{Poisson}(\lambda)$, then
+        \begin{equation*}
+            \psi_X(t) = E(e^{tX})
+                = \sum_{x = 0}^{\infty} e^{tx} \frac{\lambda^x}{x!} e^{-\lambda}
+                = e^{-\lambda} \sum_{x = 0}^{\infty} \frac{(\lambda e^t)^x}{x!}
+                = e^{-\lambda} e^{\lambda e^t}
+                = \exp(\lambda(e^t - 1)).
+        \end{equation*}
+    \item[(d)] $X \sim \mathrm{Normal}(\mu, \sigma)$.
+        Note that $X = \sigma Z + \mu$ and $E(e^{tX}) = e^{t\mu} E(e^{t\sigma Z})$.
+        So we only have to calculate
+        \begin{equation*}
+            \begin{split}
+                E(e^{t \sigma Z}) &= \int e^{t \sigma z} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{z^2}{2}\right) dz \\
+                    &= \int \frac{1}{\sqrt{2 \pi}} \exp\left(\sigma t z - \frac{z^2}{2}\right) dz \\
+                    &= \int \frac{1}{\sqrt{2 \pi}} \exp\left(\frac{1}{2} (z - \sigma t)^2 + \frac{\sigma^2 t^2}{2}\right) dz \\
+                    &= \exp\left(\frac{\sigma^2 t^2}{2}\right) \int \frac{1}{\sqrt{2 \pi}} \exp\left(\frac{1}{2} (z - \sigma t)^2\right) dz
+                    = \exp\left(\frac{\sigma^2 t^2}{2}\right).
+            \end{split}
+        \end{equation*}
+        Which gives $\psi_X(t) = E(e^{tX}) = \exp\left(t \mu + \frac{\sigma^2 t^2}{2}\right)$.
+    \item[(e)] $X \sim \Gamma(\alpha, \beta)$.
+        This is a lenghty calculation.
+        The idea is to rewrite the integral to the Gamma function $\Gamma(\alpha) = \int_0^{\infty} u^{\alpha - 1} e^{-u} du$.
+        Use substitution $u = (\frac{1}{\beta} - t)x$, such that $dx = \frac{\beta}{1 - t\beta} du$.
+        We calculate
+        \begin{equation*}
+            \begin{split}
+                E(e^{tX})
+                    &= \int_0^{\infty} e^{xt} \frac{1}{\beta^{\alpha} \Gamma(\alpha)} x^{\alpha - 1} e^{-\frac{x}{\beta}} dx \\
+                    &= \frac{1}{\beta^{\alpha} \Gamma(\alpha)} \int_0^{\infty} x^{\alpha - 1} e^{-(\frac{1}{\beta} - t)x} dx \\
+                    &= \frac{1}{\beta^{\alpha} \Gamma(\alpha)} \int_0^{\infty} \left(\frac{\beta}{1 - t\beta}\right)^{\alpha - 1} u^{\alpha - 1} e^{-u} \frac{\beta}{1 - t\beta} du \\
+                    &= \frac{1}{\beta^{\alpha} \Gamma(\alpha)} \left(\frac{\beta}{1 - t\beta}\right)^{\alpha} \int_0^{\infty} u^{\alpha - 1}e^{-u} du
+                    = \left( \frac{1}{1 - t\beta} \right)^{\alpha}.
+            \end{split}
+        \end{equation*}
+\end{itemize}
