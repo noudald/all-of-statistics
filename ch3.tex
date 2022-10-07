@@ -576,3 +576,21 @@ We do the whole list.
             \end{split}
         \end{equation*}
 \end{itemize}
+
+
+\subsection*{Solution 24}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Exp}(\beta)$.
+We have
+\begin{equation*}
+    \begin{split}
+        \psi_{X_i}(t) &= E(e^{X_i t}) \\
+            &= \int_0^{\infty} e^{xt} \frac{1}{\beta} e^{-\frac{x}{\beta}} dx \\
+            &= \frac{1}{1 - \beta t} \int_0^{\infty} \frac{1 - \beta t}{\beta} \exp\left( -\left(\frac{1 - \beta t}{\beta} x \right)\right) dx \\
+            &= \frac{1}{1 - \beta t} \left[ -\exp( -\left(\frac{1 - \beta t}{\beta}\right) x\right]_{x = 0}^{\infty}
+            = \frac{1}{1 - \beta t}.
+    \end{split}
+\end{equation*}
+Let $Y = \sum_{i = 1}^n X_i$.
+The moment generating function of $Y$ is $\psi_Y(t) = E(e^{Y t}) = \prod E(e^{t X_i}) = \left( \frac{1}{1 - \beta t} \right)^n$.
+Because $\psi_Y(t) = (1 - \beta t)^{-n}$ is the moment generating function for the Gamma distribution, we have $Y \sim \mathrm{Gamma}(n, \beta)$.
