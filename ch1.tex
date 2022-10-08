@@ -222,3 +222,26 @@ Therefore, there exists an $A_i$ such that $P(A_i|B) > P(A_i)$.
         = \frac{P(I|W)P(W)}{P(I|W)P(W) + P(I|M)P(M) + P(I|L)P(L)}
         \approx 0.58.
 \end{equation*}
+
+
+\subsection*{Solution 20}
+
+\begin{itemize}
+    \item[(a)] \begin{equation*}
+            P(C_i | H) = \frac{P(H|C_i)P(C_i)}{\sum_i P(H|C_i)P(C_i)}
+                = \frac{p_i}{\sum_i p_i}.
+        \end{equation*}
+    \item[(b)] \begin{equation*}
+            P(H_2 | H_1)
+                = \frac{P(H_1 H_2)}{P(H_1)}
+                = \frac{\sum_i P(H_1 H_2 | C_i)}{\sum_j P(H_1 | C_j)}
+                = \frac{\sum_i p_i^2}{\sum_j p_j}.
+        \end{equation*}
+    \item[(c)] \begin{equation*}
+            P(C_i | B_4)
+                = \frac{P(B_4 | C_i)P(C_i)}{P(B_4)}
+                = \frac{P(B_4 | C_i)P(C_i)}{\sum_j P(B_4 | C_j) P(C_j)}
+                = \frac{(1 - p_i)^3 p_i}{\sum_j (1 - p_j)^3 p_j}.
+        \end{equation*}
+\end{itemize}
+TODO: fill in values for $p_1, p_2, p_3$, and $p_4$.
