@@ -324,7 +324,28 @@ V(X) = E(X^2) - E(X)^2
 
 \item[(k)] Student-t, $X \sim t(\nu)$.
 For $\nu > 1$, $xf(x;\nu)$ is odd, so $E(X) = 0$.
-Let $\nu > 2$, variance TODO.
+Let $\nu > 2$, because $E(X) = 0$ we have $V(X) = E(X^2)$.
+The pdf is given by
+\begin{equation*}
+    f(x; \nu) = \frac{1}{\sqrt{\nu}} \frac{\Gamma(\frac{\nu + 1}{2})}{\Gamma(\frac{1}{2}) \Gamma(\frac{\nu}{2})} \left(1 + \frac{x^2}{\nu}\right)^{-\frac{\nu + 1}{2}}.
+\end{equation*}
+Note that we have the equality
+\begin{equation*}
+    \int_0^1 y^{\alpha - 1} (1 - y)^{\beta - 1} dy = \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha + \beta)}.
+\end{equation*}
+We'll rewrite $E(X^2)$ into this integral using substition $y = \left(1 + \frac{x^2}{\nu}\right)^{-1}$, such that $x = \sqrt{\nu} y^{-\frac{1}{2}} (1 - y)^{\frac{1}{2}}$ and $x dx = -\frac{v}{2} y^2 dy$.
+The variance is calculated with the following tedious calculation
+\begin{equation*}
+    \begin{split}
+        E(X^2) &= \frac{1}{\sqrt{\nu}} \frac{\Gamma(\frac{\nu + 1}{2})}{\Gamma(\frac{1}{2}) \Gamma(\frac{\nu}{2})} \int_{-\infty}^{\infty} \left(1 + \frac{x^2}{\nu}\right)^{-\frac{\nu + 1}{2}} dx \\
+            &= \frac{2}{\sqrt{\nu}} \frac{\Gamma(\frac{\nu + 1}{2})}{\Gamma(\frac{1}{2}) \Gamma(\frac{\nu}{2})} \int_{0}^{\infty} \left(1 + \frac{x^2}{\nu}\right)^{-\frac{\nu + 1}{2}} dx \\
+            &= \frac{2}{\sqrt{\nu}} \frac{\Gamma(\frac{\nu + 1}{2})}{\Gamma(\frac{1}{2}) \Gamma(\frac{\nu}{2})} \int_{1}^{0} \sqrt{\nu} y^{-\frac{1}{2}} (1 - y)^{\frac{1}{2}} y^{\frac{\nu + 1}{2}} (-1) \frac{\nu}{2} y^2 dy \\
+            &= \nu \frac{\Gamma(\frac{\nu + 1}{2})}{\Gamma(\frac{1}{2}) \Gamma(\frac{\nu}{2})} \int_{0}^{1} y^{\frac{\nu - 2}{2} - 1} (1 - y)^{\frac{3}{2} - 1} dy \\
+            &= \nu \frac{\Gamma(\frac{\nu + 1}{2})}{\Gamma(\frac{1}{2}) \Gamma(\frac{\nu}{2})} \frac{\Gamma(\frac{\nu - 2}{2}) \Gamma(\frac{3}{2})}{\Gamma(\frac{\nu + 1}{2})} \\
+            &= \frac{\nu}{2} \frac{1}{\frac{\nu}{2} - 1}
+            = \frac{\nu}{\nu - 2}.
+    \end{split}
+\end{equation*}
 
 \item[($\ell$)] $\chi^2$ distribution, $X \sim \chi^2_p$.
 We calculate all moments of $X$.
