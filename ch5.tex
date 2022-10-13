@@ -39,3 +39,18 @@ Let $X_1, X_2, ...$ be a sequence of random variables.
     \item[$\leftarrow$)] Suppose $E(X_n) \to b$ and $V(X_n) \to 0$ as $n \to \infty$.
         Using (\ref{eqn:5.2.1}), $E((X_n - b)^2) = V(X_n) + (E(X_n) - b)^2 \to 0$ as $n \to \infty$.
 \end{itemize}
+
+
+\subsection*{Solution 3}
+
+Let $X_1, X_2, ..., X_n$ be i.i.d. random variables.
+Let $\mu = E(X)$ and $\sigma^2 = V(X)$ be finite.
+Take the sample mean $\overline{X}_n = \frac{1}{n} \sum X_i$.
+We have
+\begin{equation*}
+    E((\overline{X}_n - \mu)^2) = V(\overline{X}_n)
+        = \frac{1}{n^2} \sum_{i = 1}^n V(X_i)
+        = \frac{\sigma^2}{n} \to 0,
+\end{equation*}
+when $n \to \infty$.
+Therefore $X_n \xrightarrow{qm} \mu$ as $n \to \infty$.
