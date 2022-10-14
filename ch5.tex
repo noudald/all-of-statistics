@@ -63,7 +63,7 @@ Let $X_1, X_2, ...$ be i.i.d. random variables defined by $P(X_n = \frac{1}{n}) 
 \begin{itemize}
     \item[(a)] Note that $E(X_n) = \frac{1}{n}(1 - \frac{1}{n^2}) + n \frac{1}{n^2} = 2 \frac{1}{n} - \frac{1}{n^3} \to 0$ as $n \to \infty$.
         But $V(X_n) = E(X_n^2) - E(X_n)^2 = E(X_n^2) = \frac{1}{n^2}(1 - \frac{1}{n^2}) + n^2 \frac{1}{n^2} = 1 + \frac{1}{n^2} - \frac{1}{n^4} \to 1$ as $n \to \infty$.
-        Therefore by exercise 5.2 $X_n$ doesn't converge in quadratic mean.
+        Therefore, by exercise 5.2, $X_n$ cannot converge in quadratic mean.
     \item[(b)] Let $\epsilon > 0$, choose $n$ large enough such that $\frac{1}{n} < \epsilon$.
         We have $P(|X_n| > \epsilon) = \frac{1}{n^2} \to 0$ when $n \to \infty$.
         Therefore $X_n \xrightarrow{P} 0$.
