@@ -68,3 +68,24 @@ Let $X_1, X_2, ...$ be i.i.d. random variables defined by $P(X_n = \frac{1}{n}) 
         We have $P(|X_n| > \epsilon) = \frac{1}{n^2} \to 0$ when $n \to \infty$.
         Therefore $X_n \xrightarrow{P} 0$.
 \end{itemize}
+
+
+\subsection*{Solution 5}
+
+Let $X_1, X_2, ... \sim \mathrm{Bernoulli}(p)$ i.i.d.
+Note
+\begin{equation*}
+    E(\frac{1}{n} \sum_{i = 1}^n X_i^2) = \frac{1}{n} \sum_{i = 1}^n E(X_i^2)
+        = \frac{1}{n} \sum_{i = 1}^n p
+        = p,
+\end{equation*}
+and
+\begin{equation*}
+    V(\frac{1}{n} \sum_{i = 1}^n X_i^2) = \frac{1}{n^2} \sum_{i = 1}^n V(X_i^2)
+        = \frac{1}{n^2} \sum_{i = 1}^n (E(X_i^2) - E(X_i)^2)
+        = \frac{1}{n^2} \sum_{i = 1}^n p(p - 1)
+        = \frac{p(p - 1)}{n}.
+\end{equation*}
+So $E(\frac{1}{n} \sum X_i^2) \to p$ and $V(\frac{1}{n} \sum X_i^2) \to 0$ as $n \to \infty$.
+By Exercise 5.2 we have $\frac{1}{n} \sum X_i^2 \xrightarrow{qm} p$.
+By Theorem 5.4 we have $\frac{1}{n} \sum X_i^2 \xrightarrow{P} p$.
