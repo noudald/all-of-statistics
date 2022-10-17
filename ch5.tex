@@ -89,3 +89,18 @@ and
 So $E(\frac{1}{n} \sum X_i^2) \to p$ and $V(\frac{1}{n} \sum X_i^2) \to 0$ as $n \to \infty$.
 By Exercise 5.2 we have $\frac{1}{n} \sum X_i^2 \xrightarrow{qm} p$.
 By Theorem 5.4 we have $\frac{1}{n} \sum X_i^2 \xrightarrow{P} p$.
+
+
+\subsection*{Solution 6}
+
+Let $X_1, X_2, ..., X_{100}$ be i.i.d. random samples with $E(X_i) = 68$ and $V(X_i) = 26^2$.
+By the Central Limit Theorem
+\begin{equation*}
+    Z_{100} = \sqrt{100}\, \frac{\overline{X}_{100} - 68}{26} \approx \mathrm{Normal}(0, 1).
+\end{equation*}
+Therefore
+\begin{equation*}
+    P(\overline{X}_{100} > 68) = P\left(\frac{26}{\sqrt{100}} Z_{100} + 26 > 26\right)
+        = P(Z_{100} > 0)
+        \approx 0.5.
+\end{equation*}
