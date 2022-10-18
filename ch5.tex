@@ -104,3 +104,12 @@ Therefore
         = P(Z_{100} > 0)
         \approx 0.5.
 \end{equation*}
+
+
+\subsection*{Solution 7}
+
+Let $\lambda_n = \frac{1}{n}$ and $X_n \sim \mathrm{Poisson}(\lambda_n)$ for $n = 1, 2, ...$.
+\begin{itemize}
+    \item[(a)] $P(|X_n| > \epsilon) = 1 - P(|X_n| \leq \epsilon) < 1 - P(X_n = 0) = 1 - e^{-\frac{1}{n}} \to 0$ as $n \to \infty$.
+    \item[(b)] Almost the same, $P(|Y_n| > \epsilon) = P(|X_n| > \frac{\epsilon}{n}) = 1 - P(|X_n| \leq \frac{\epsilon}{n}) < 1 - P(X_n = ) \to 0 = 1 - e^{-\frac{1}{n}}$ when $n \to \infty$
+\end{itemize}
