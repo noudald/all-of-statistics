@@ -113,3 +113,17 @@ Let $\lambda_n = \frac{1}{n}$ and $X_n \sim \mathrm{Poisson}(\lambda_n)$ for $n 
     \item[(a)] $P(|X_n| > \epsilon) = 1 - P(|X_n| \leq \epsilon) < 1 - P(X_n = 0) = 1 - e^{-\frac{1}{n}} \to 0$ as $n \to \infty$.
     \item[(b)] Almost the same, $P(|Y_n| > \epsilon) = P(|X_n| > \frac{\epsilon}{n}) = 1 - P(|X_n| \leq \frac{\epsilon}{n}) < 1 - P(X_n = ) \to 0 = 1 - e^{-\frac{1}{n}}$ when $n \to \infty$
 \end{itemize}
+
+
+\subsection*{Solution 8}
+
+Let $X_1, X_2, ..., X_{100}$ be i.i.d. random variables such that $X_i \sim \mathrm{Poisson}(1)$.
+Let $Y = \sum X_i = n \overline{X}_n$.
+By the Central Limit Theorem $\frac{\sqrt{n}}{\sigma} (\overline{X}_n - \mu) \approx Z \sim \mathrm{Normal}(0, 1)$.
+We have
+\begin{equation*}
+    P(Y < 90) = P(\overline{X}_n < 0.9)
+        \approx P(\frac{\sigma}{\sqrt{n}} Z + \mu < 0.9)
+        = P(Z < \frac{\sqrt{n}}{\sigma} (0.9 - \mu))
+        = \Phi(-1).
+\end{equation*}
