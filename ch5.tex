@@ -127,3 +127,39 @@ We have
         = P(Z < \frac{\sqrt{n}}{\sigma} (0.9 - \mu))
         = \Phi(-1).
 \end{equation*}
+
+
+\subsection*{Solution 9}
+
+Let $X$ be a discrete random variable such that $P(X = 1) = P(X = -1) = \frac{1}{2}$.
+Define $X_n$ by $P(X_n = X) = 1 - \frac{1}{n}$ and $P(X_n = e^n) = \frac{1}{n}$.
+\begin{itemize}
+    \item[(a)] (Quadratic convergence)
+        $E(X_n) = (1 - \frac{1}{n}) E(X) + \frac{1}{n} E(e^n) = \frac{1}{n}e^n \to \infty$ when $n \to \infty$.
+        By exercise 5.2 $X_n$ doesn't converge quadratic to any distribution.
+    \item[(b)] (Probability convergence)
+        Let $\epsilon > 0$ and take $n$ such that $\frac{1}{n} < \epsilon$.
+        Then $P(|X_n| > \epsilon) = 1$.
+        So $P(X_n > \epsilon)$ does not converge to $0$ when $n \to \infty$.
+        Therefore $X_n$ doesn't converge in probability.
+    \item[(c)] (Distribution convergence)
+        Let
+        \begin{equation*}
+            F_n(x) = \left\{ \begin{array}{lll}
+                0 & \textrm{if} & x < -1, \\
+                \frac{1}{2} - \frac{1}{2n} & \textrm{if} & -1 \leq x < 1, \\
+                1 - \frac{1}{n} & \textrm{if} & 1 \leq x < e^n, \\
+                1 & \textrm{if} & e^n < x,
+            \end{array} \right.
+            \quad
+            F(x) = \left\{ \begin{array}{lll}
+                0 & \textrm{if} & x < -1, \\
+                \frac{1}{2} & \textrm{if} & -1 \leq x < 1, \\
+                1 & \textrm{if} & 1 \leq x.
+            \end{array} \right.
+        \end{equation*}
+        We have $X_n \sim F_n$.
+        Let $X \sim \mathrm{Uniform}(-1, 1)$, then $X \sim F$.
+        Note that $\lim_{n \to \infty} F_n(x) = F(x)$ for all $x$.
+        Therefore $X_n \xrightarrow{D} X$.
+\end{itemize}
