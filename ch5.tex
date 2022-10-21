@@ -163,3 +163,29 @@ Define $X_n$ by $P(X_n = X) = 1 - \frac{1}{n}$ and $P(X_n = e^n) = \frac{1}{n}$.
         Note that $\lim_{n \to \infty} F_n(x) = F(x)$ for all $x$.
         Therefore $X_n \xrightarrow{D} X$.
 \end{itemize}
+
+
+\subsection*{Solution 10}
+
+Let $Z \sim \mathrm{Normal}(0, 1)$.
+Let $t > 0$ and $k \geq 1$ (I think this is wrong in the book).
+From Markov's inequality
+\begin{equation*}
+    P(|Z| > t) = P(|Z|^k > t^k)
+        \leq \frac{E(|Z|^k)}{t^k}.
+\end{equation*}
+From Mill's inequality we have
+\begin{equation*}
+    P(|Z| > t) \leq \sqrt{\frac{2}{\pi}} \frac{e^{-t^2/2}}{t}.
+\end{equation*}
+Note that $\frac{E(|Z|)}{t} \leq \frac{E(|Z|^k)}{t^k}$.
+So we only have to compare $E(|Z|)$ with $\sqrt{\frac{2}{\pi}} e^{-t^2/2}$.
+We have
+\begin{equation*}
+    E(|Z|) = \int_{-\infty}^{\infty} |z| \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz
+        = \frac{2}{\sqrt{2\pi}} \int_0^{\infty} z e^{-z^2/2} dz
+        \geq \frac{2}{\sqrt{2\pi}} \int_t^{\infty} z e^{-z^2/2} dz
+        = \sqrt{\frac{2}{\pi}} \left[ -e^{-z^2/2} \right]_{t}^{\infty}
+        = \sqrt{\frac{2}{\pi}} e^{\frac{t^2}{2}}.
+\end{equation*}
+So Mill's inequality is always sharper than Markov's inequality.
