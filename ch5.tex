@@ -189,3 +189,20 @@ We have
         = \sqrt{\frac{2}{\pi}} e^{\frac{t^2}{2}}.
 \end{equation*}
 So Mill's inequality is always sharper than Markov's inequality.
+
+
+\subsection*{Solution 11}
+
+Let $X_1, X_2, ...$ be i.i.d. random variables defined by $X_n \sim \mathrm{Normal}(0, \frac{1}{n})$.
+Let $X \sim F$ where the cumulative distribution function is defined by $F(x) = 0$ if $x < 0$ and $F(x) = 1$ if $x \geq 0$.
+In other words $X = 0$.
+Let $\epsilon > 0$, then by Mill's inequality
+\begin{equation*}
+    P(|X_n - X| > \epsilon) = P(|\sqrt{n} Z| > \epsilon)
+        = P(|Z| > \frac{\epsilon}{\sqrt{n}})
+        \leq \sqrt{\frac{2}{\pi}} \frac{1}{\epsilon} \frac{\sqrt{n}}{e^{-\frac{1}{2\epsilon} \sqrt{n}}}
+        \to 0,
+\end{equation*}
+when $n \to \infty$.
+So $X_n \xrightarrow{P} X$ as $n \to \infty$.
+By Theorem 5.4 we have $X_n \xrightarrow{D} X$ as $n \to \infty$.
