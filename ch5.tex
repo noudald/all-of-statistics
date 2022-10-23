@@ -206,3 +206,34 @@ Let $\epsilon > 0$, then by Mill's inequality
 when $n \to \infty$.
 So $X_n \xrightarrow{P} X$ as $n \to \infty$.
 By Theorem 5.4 we have $X_n \xrightarrow{D} X$ as $n \to \infty$.
+
+
+\subsection*{Solution 12}
+
+Let $X$ and $X_1, X_2, ...$ be positive integer values random variables.
+\begin{itemize}
+    \item[($\rightarrow$)] Suppose $X_n \xrightarrow{D} X$, then $\lim_{n \to \infty} F_n(k) = F(k)$ for all $k \in \mathbb{N}$.
+        Note that $P_n(X_n = k) = F_n(k) - F_n(k - 1)$.
+        So we have
+        \begin{equation*}
+            \lim_{n \to \infty} P(X_n = k) = \lim_{n \to \infty} (F_n(k) - F_n(k - 1))
+                = F(k) - F(k - 1)
+                = P(X = k).
+        \end{equation*}
+    \item[($\leftarrow$)] Suppose that $\lim_{n \to \infty} P(X_n = k) = P(X = k)$ for all $k$.
+        We have
+        \begin{equation*}
+            F(k) - F(k - 1) = P(X = k)
+                = \lim_{n \to \infty} P(X_n = k)
+                = \lim_{n \to \infty} (F_n(k) - F_n(k - 1))
+                = \lim_{n \to \infty} F_n(k) - \lim_{n \to \infty} F_n(k - 1).
+        \end{equation*}
+        Rewriting the equation gives us $F(k) - \lim_{n \to \infty} F_n(k) = F(k - 1) - \lim_{n \to \infty} F_n(k - 1)$.
+        Recursively applying the equation above gives
+        \begin{equation*}
+            F(k) - \lim_{n \to \infty} F_n(k) = ...
+                = F(-1) - \lim_{n \to \infty} F_n(-1)
+                = 0.
+        \end{equation*}
+        So $F(k) = \lim_{n \to \infty} F_n(k)$.
+\end{itemize}
