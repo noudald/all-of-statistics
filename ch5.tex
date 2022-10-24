@@ -237,3 +237,40 @@ Let $X$ and $X_1, X_2, ...$ be positive integer values random variables.
         \end{equation*}
         So $F(k) = \lim_{n \to \infty} F_n(k)$.
 \end{itemize}
+
+
+\subsection*{Solution 13}
+
+Let $Z_1, Z_2, ...$ be i.i.d. random variables with probability density function $f$.
+Suppose that $P(Z_i > 0) = 1$ and $\lambda = \lim_{x \downarrow 0} f(x) > 0$.
+Let $X_n = n \min(Z_1, Z_2, ..., Z_n$.
+Note that
+\begin{equation*}
+    F(x) = \int_{-\infty}^{x} f(t) dt
+        = 1 - \int_{x}^{\infty} f(t) dt
+        \quad \rightarrow \quad
+    F'(0) = \left( 1 - \int_{x}^{\infty} f(t) dt \right)'
+        = \lim_{x \downarrow 0} f(x)
+        = \lambda > 0.
+\end{equation*}
+By the Taylor expension of $F$ in $0$ we have
+\begin{equation*}
+    P(Z_i \geq \frac{x}{n}) = 1 - P(Z_i \leq \frac{x}{n})
+        = 1 - F(\frac{x}{n})
+        = 1 - (F(0) + \frac{x}{n} F'(0) + O(\frac{x^2}{n^2}))
+        = 1 - \frac{x}{n} \lambda + O(\frac{x^2}{n^2}).
+\end{equation*}
+Such that
+\begin{equation*}
+    \begin{split}
+        F_n(x)
+            &= P\left(X_n \leq x\right) \\
+            &= P\left(\min(Z_1, Z_2, ..., Z_n) \leq \frac{x}{n}\right) \\
+            &= 1 - \prod_{i = 1}^n P\left(Z_i \geq \frac{x}{n}\right) \\
+            &= 1 - \prod_{i = 1}^n \left(1 - \frac{x \lambda}{n} + O(\frac{x^2}{n^2})\right) \\
+            &= 1 - \left(1 - \frac{x \lambda}{n}\right)^n + O\left(\frac{x^2}{n^2}\right)
+            \to 1 - e^{-\lambda x},
+    \end{split}
+\end{equation*}
+as $n \to \infty$.
+So $X_n \xrightarrow{D} Z \sim \mathrm{Exp}(\frac{1}{\lambda})$.
