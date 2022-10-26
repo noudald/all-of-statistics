@@ -282,3 +282,45 @@ Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, 1)$.
 Define $Y_n = (\overline{X}_n)^2$.
 From the weak law of large numbers $\overline{X}_n \xrightarrow{P} \mu = \frac{1}{2}$, hence $\overline{X}_n \xrightarrow{D} \frac{1}{2}$.
 Let $g(x) = x^2$, by Theorem 5.5.(g), $Y_n = g(\overline{X}_n) \xrightarrow{D} g(\frac{1}{2}) = \frac{1}{4}$.
+
+
+\subsection*{Solution 15}
+
+Let
+\begin{equation*}
+    \left( \begin{array}{cc} X_{11} \\ X_{12} \end{array} \right),
+    \left( \begin{array}{cc} X_{21} \\ X_{22} \end{array} \right),
+    ...,
+    \left( \begin{array}{cc} X_{n1} \\ X_{n2} \end{array} \right),
+\end{equation*}
+be i.i.d. random vectors with mean $\mu = (\mu_1, \mu_2)$ and variance $\Sigma$.
+Define
+\begin{equation*}
+    \overline{X}_1 = \frac{1}{n} \sum_{i = 1}^n X_{1i}, \quad
+    \overline{X}_2 = \frac{1}{n} \sum_{i = 1}^n X_{2i},
+\end{equation*}
+and $Y_n = \overline{X}_1 / \overline{X}_2$.
+
+We'll use the delta method.
+Let $g(x_1, x_2) = x_1 / x_2$ such that $\nabla g(x_1, x_2) = \left( \begin{array}{cc} 1 / x_2 \\ -x_1 / x_2^2 \end{array} \right)$.
+We have
+\begin{equation*}
+    \nabla g(\mu)^t \Sigma \nabla g(\mu)
+        = \frac{\sigma_{11}}{\mu_1^2} - \frac{\sigma_{21}}{\mu_2^2} - \frac{\sigma_{12}}{\mu_2^2} + \frac{\mu_1^2}{\mu_2^4} \sigma_{22}
+        = \frac{\sigma_{11}}{\mu_1^2} - 2 \frac{\sigma_{12}}{\mu_2^2} + \frac{\mu_1^2}{\mu_2^4} \sigma_{22}.
+\end{equation*}
+So we have
+\begin{equation*}
+    \sqrt{n}\left(Y_n - \frac{\mu_1}{\mu_2}\right)
+        \xrightarrow{D} \mathrm{Normal}\left(
+            0,
+            \frac{\sigma_{11}}{\mu_1^2} - 2 \frac{\sigma_{12}}{\mu_2^2} + \frac{\mu_1^2}{\mu_2^4} \sigma_{22}
+        \right),
+\end{equation*}
+and
+\begin{equation*}
+    Y_n \xrightarrow{D} \mathrm{Normal}\left(
+        \frac{\mu_1}{\mu_2},
+        \frac{1}{n} \left(\frac{\sigma_{11}}{\mu_1^2} - 2 \frac{\sigma_{12}}{\mu_2^2} + \frac{\mu_1^2}{\mu_2^4} \sigma_{22}\right)
+    \right).
+\end{equation*}
