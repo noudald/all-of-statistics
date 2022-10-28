@@ -55,3 +55,47 @@ By the central limit theorem
         = \sqrt{n} \frac{\hat{F}(x) - F(x)}{\sqrt{F(x)(1 - F(x))}}.
 \end{equation*}
 In other words, when $n \to \infty$, $\hat{F}(x)$ behaves as a random variable from the distribution $\mathrm{Normal}(F(x), \frac{1}{n} F(x)(1 - F(x)))$.
+
+
+\subsection*{Solution 5}
+
+Let $x \neq y$.
+We have
+\begin{equation*}
+    \mathrm{Cov}(\hat{F}(x), \hat{F}(y))
+        = \frac{1}{n^2} \mathrm{Cov}(\sum_{i = 1}^n I(X_i \leq x), \sum_{j = 1}^n I(X_j \leq y))
+        = \frac{1}{n^2} \sum_{i = 1}^n \sum_{j = 1}^n \mathrm{Cov}(I(X_i \leq x), I(X_j \leq y)).
+\end{equation*}
+Now, to find
+\begin{equation*}
+    \begin{split}
+        \mathrm{Cov}(I(X_i \leq x), I(X_j \leq y))
+            &= E(I(X_i \leq x) I(X_j \leq y)) - E(I(X_i \leq x)) E((X_j \leq y)) \\
+            &= E(I(X_i \leq x) I(X_j \leq y)) - F(x) F(y).
+    \end{split}
+\end{equation*}
+If $i \neq j$, we have
+\begin{equation*}
+    \begin{split}
+        E(I(X_i \leq x) I(X_j \leq y))
+            &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} I(s \leq x) I(t \leq y) f(s) f(t) ds dt \\
+            &= \int_{-\infty}^{\infty} I(s \leq x) f(s) ds \int_{-\infty}^{\infty} I(t \leq y) f(t) dt
+            = F(x) F(y),
+    \end{split}
+\end{equation*}
+and if $i = j$,
+\begin{equation*}
+    E(I(X_i \leq x) I(X_i \leq y))
+        = E(I(X_i \leq \min(x, y))^2)
+        = F(\min(x, y)).
+\end{equation*}
+Therefore, we ahve
+\begin{equation*}
+    \mathrm{Cov}(\hat{F}(x), \hat{F}(y))
+        = \left\{
+            \begin{array}{lll}
+                0 & \text{if} & i \neq j, \\
+                F(\min(x, y)) - F(x)F(y) & \text{if} & i = j.
+            \end{array}
+        \right.
+\end{equation*}
