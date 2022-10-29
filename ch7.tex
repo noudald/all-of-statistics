@@ -99,3 +99,55 @@ Therefore, we ahve
             \end{array}
         \right.
 \end{equation*}
+
+
+\subsection*{Solution 6}
+
+Let $X_1, X_2, ..., X_n \sim F$, and define the emperical distribution function $\hat{F}_n(x) = \frac{1}{n} \sum_{i = 1}^n I(X_i \leq x)$.
+Take $a < b$ and $\theta = T(F) = F(b) - F(a)$.
+Let $\hat{\theta} = T(\hat{F}) = \hat{F}(b) - \hat{F}(a)$ be the plug-in estimator of $\theta$.
+We have
+\begin{equation*}
+    \begin{split}
+        E(\hat{\theta})
+            &= E(\hat{F}(b) - \hat{F}(a))
+            = F(b) - F(a)
+            = \theta, \\
+        E(\hat{F}(a)^2)
+            &= V(\hat{F}(a)) + E(\hat{F}(a))^2
+            = \frac{1}{n} F(a)(1 - F(a)) + F(a)^2
+            = \frac{1}{n} F(a) (1 + (n - 1)F(a)), \\
+        E(\hat{F}(b)^2)
+            &= \frac{1}{n} F(b) (1 + (n - 1)F(b)), \\
+        E(\hat{F}(a)\hat{F}(b))
+            &= \mathrm{Cov}(\hat{F}(a), \hat{F}(b)) + E(\hat{F}(a))E(\hat{F}(b)) \\
+            &\quad = \frac{1}{n}(F(a) - F(a)F(b)) + F(a)F(b)
+            = \frac{1}{n}F(a) + \frac{n - 1}{n}F(a)F(b),
+    \end{split}
+\end{equation*}
+where we used Solution 7.5 to calculate the covariance in the last equation.
+We now have
+\begin{equation*}
+    \begin{split}
+        E(\hat{\theta}^2)
+            &= E(F(b)^2 - 2F(b)F(a) + F(a)^2) \\
+            &= \frac{1}{n} F(b)(1 + (n - 1)F(b)) - \frac{2}{n}F(a)(1 - (n - 1)F(b)) + \frac{1}{n}F(a)(1 + (n - 1)F(a)) \\
+            &= \frac{1}{n} (F(b) - F(a)) + \frac{n - 1}{n} (F(b) - F(a))^2 \\
+            &= \frac{1}{n} \theta + \frac{n - 1}{n} \theta^2,
+    \end{split}
+\end{equation*}
+so that
+\begin{equation*}
+    V(\hat{\theta}) = E(\hat{\theta}^2) - E(\hat{\theta})^2
+        = \frac{1}{n} \theta + \frac{n - 1}{n} \theta^2 - \theta^2
+        = \frac{1}{n} \theta (1 - \theta).
+\end{equation*}
+The plugin-estimator for the standard error becomes
+\begin{equation*}
+    \hat{\mathrm{se}}(\hat{\theta}) = \sqrt{\frac{1}{n}\hat{\theta}(1 - \hat{\theta})},
+\end{equation*}
+and the $1 - \alpha$ confidence interval is given by
+\begin{equation*}
+    \hat{\theta} \pm z_{\frac{\alpha}{2}} \hat{se}(\hat{\theta})
+        = \hat{\theta} \pm z_{\frac{\alpha}{2}} \sqrt{\frac{1}{n}\hat{\theta}(1 - \hat{\theta})}.
+\end{equation*}
