@@ -18,9 +18,10 @@ See code.
 \subsection*{Solution 8.4}
 
 Regard $X_1, X_2, ..., X_n$ as $n$ different buckets.
-Let $y_i$ the number of times $X_i$ is selected in a random bootstrap sampling.
-We look for all solutions $(y_1, y_2, ..., y_n)$ such that $y_1 + y_2 + ... + y_n = n$ and $y_i \geq 0$.
-Or equivalent, all $(\tilde{y}_1, \tilde{y}_2, ..., \tilde{y}_n)$ such that $\tilde{y}_1 + \tilde{y}_2 + ... + \tilde{y}_n = 2n$ and $\tilde{y}_i = y_1 + 1 \geq 1$.
+A bootstrap sample $X_1*, X_2^*, ..., X_n^*$ can be seen as a non-negative integer valued vector $(y_1, y_2, ..., y_n)$ where $y_i$ represents the number of times $X_i$ is chosen.
+Or, in other words, $y_i$ is the number of times a ball is put in bucket $X_i$.
+We look for all non-negative valued vector solutions $(y_1, y_2, ..., y_n)$ such that $y_1 + y_2 + ... + y_n = n$ and $y_i \geq 0$.
+Or, equivalent, all $(\tilde{y}_1, \tilde{y}_2, ..., \tilde{y}_n)$ such that $\tilde{y}_1 + \tilde{y}_2 + ... + \tilde{y}_n = 2n$ and $\tilde{y}_i = y_1 + 1 \geq 1$.
 This is the stars and bars problem.
 Consider $2n$ stars $\star \star \ldots \star$ which we want to partition into $n$ non-empty sets.
 There are $2n - 1$ places between the stars where we can put $n$ bars to split the stars.
