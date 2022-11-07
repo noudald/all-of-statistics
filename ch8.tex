@@ -13,3 +13,17 @@ See code.
 \subsection*{Solution 8.3}
 
 See code.
+
+
+\subsection*{Solution 8.4}
+
+Regard $X_1, X_2, ..., X_n$ as $n$ different buckets.
+Let $y_i$ the number of times $X_i$ is selected in a random bootstrap sampling.
+We look for all solutions $(y_1, y_2, ..., y_n)$ such that $y_1 + y_2 + ... + y_n = n$ and $y_i \geq 0$.
+Or equivalent, all $(\tilde{y}_1, \tilde{y}_2, ..., \tilde{y}_n)$ such that $\tilde{y}_1 + \tilde{y}_2 + ... + \tilde{y}_n = 2n$ and $\tilde{y}_i = y_1 + 1 \geq 1$.
+This is the stars and bars problem.
+Consider $2n$ stars $\star \star \ldots \star$ which we want to partition into $n$ non-empty sets.
+There are $2n - 1$ places between the stars where we can put $n$ bars to split the stars.
+Therefore, there are $\binom{2n - 1}{n}$ possible $n$ non-empty partitions of $2n$ stars.
+Equivalent, there are $\binom{2n - 1}{n}$ unique vectors $(y_1, y_2, ..., y_n)$ such that $y_1 + y_2 + ... + y_n = n$ with $y_n \geq 0$.
+Which gives the number of unique bootstrap draws of $Y_1, Y_2, ..., Y_n$ with replacement.
