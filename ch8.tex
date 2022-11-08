@@ -28,3 +28,53 @@ There are $2n - 1$ places between the stars where we can put $n$ bars to split t
 Therefore, there are $\binom{2n - 1}{n}$ possible $n$ non-empty partitions of $2n$ stars.
 Equivalent, there are $\binom{2n - 1}{n}$ unique vectors $(y_1, y_2, ..., y_n)$ such that $y_1 + y_2 + ... + y_n = n$ with $y_n \geq 0$.
 Which gives the number of unique bootstrap draws of $Y_1, Y_2, ..., Y_n$ with replacement.
+
+
+\subsection*{Solution 8.5}
+
+Let $X_1, X_2, ..., X_n$ be i.i.d. random variables with $E(X_i) = \mu$ and $V(X_i) = \sigma^2$.
+Let $X_1^*, X_2^*, ..., X_n^*$ be the bootstrap sample.
+Define $\overline{X}_n^* = \frac{1}{n} \sum_{i=1}^n X_i^*$.
+Note that
+\begin{equation*}
+    E(X^*_i | X_1, X_2, ..., X_n)
+        = \sum_{i = 1}^n \frac{1}{n} X_i
+        = \overline{X}_n.
+\end{equation*}
+Therefore,
+\begin{equation*}
+    E(\overline{X}_n^* | X_1, X_2, ..., X_n)
+        = \frac{1}{n} \sum_{i = 1}^n E(X_i^* | X_1, X_2, ..., X_n)
+        = \frac{1}{n} \sum_{i = 1}^n \overline{X}_n
+        = \overline{X}_n.
+\end{equation*}
+By the rule of iterated expectations, Theorem 3.24,
+\begin{equation*}
+    E(\overline{X}_n^*)
+        = E(E(\overline{X}_n^* | X_1, X_2, ..., X_n))
+        = E(\overline{X}_n)
+        = \mu.
+\end{equation*}
+Next we have
+\begin{equation*}
+    V(\overline{X}_n^*|X_1, X_2, ..., X_n)
+        = \frac{1}{n^2} \sum_{i = 1}^n V(X_i^*|X_1, X_2, ..., X_n)
+        = \frac{1}{n^2} \sum_{i = 1}^n \sum_{j = 1}^n \frac{1}{n} (X_j - E(X_j))^2
+        = \frac{1}{n^2} \sum_{i = 1}^n (X_i - \overline{X}_n)^2.
+\end{equation*}
+By Theorem 3.27 we have
+\begin{equation*}
+    \begin{split}
+        V(\overline{X}_n^*)
+            &= E(V(\overline{X}_n^*|X_1, X_2, ..., X_n)) + V(E(\overline{X}_n^*|X_1, X_2, ..., X_n)) \\
+            &= E\left(\frac{1}{n^2} \sum_{i = 1}^n (X_i - \overline{X}_n)^2\right) + V(\overline{X}_n) \\
+            &= \frac{n - 1}{n^2} \sigma^2 + \frac{\sigma^2}{n}
+            = \frac{2n - 1}{n^2} \sigma^2,
+    \end{split}
+\end{equation*}
+where we used Theorem 3.17 to calculate
+\begin{equation*}
+    E\left(\frac{1}{n^2} \sum_{i = 1}^n (X_i - \overline{X}_n)^2\right)
+        = \frac{n - 1}{n^2} E\left( \frac{1}{n - 1} \sum_{i = 1}^n (X_i - \overline{X}_n)^2 \right)
+        = \frac{n - 1}{n^2} \sigma^2.
+\end{equation*}
