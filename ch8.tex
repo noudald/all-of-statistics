@@ -78,3 +78,23 @@ where we used Theorem 3.17 to calculate
         = \frac{n - 1}{n^2} E\left( \frac{1}{n - 1} \sum_{i = 1}^n (X_i - \overline{X}_n)^2 \right)
         = \frac{n - 1}{n^2} \sigma^2.
 \end{equation*}
+
+
+\subsection*{Solution 8.6}
+
+See code.
+For the true distribution of $\hat{\theta} = e^{\overline{X}_n}$ note that $\overline{X}_n \sim \mathrm{Normal}(\mu, \frac{1}{n})$, and
+\begin{equation*}
+    F(t)
+        = P(\hat{\theta} < t)
+        = P\left(e^{\overline{X}_n} < t\right)
+        = P(\overline{X} < \log(t))
+        = P(Z < \sqrt{n}(\log(t) - \mu))
+        = \Phi(\sqrt{n}(\log(t) - \mu)),
+\end{equation*}
+such that
+\begin{equation*}
+    f(t)
+        = F(t)'
+        = \frac{\sqrt{n}}{t} \phi(\sqrt{n}(\log(t) - \mu)).
+\end{equation*}
