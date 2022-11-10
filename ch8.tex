@@ -98,3 +98,24 @@ such that
         = F(t)'
         = \frac{\sqrt{n}}{t} \phi(\sqrt{n}(\log(t) - \mu)).
 \end{equation*}
+
+
+\subsection*{Solution 8.7}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, \theta)$.
+Let $\hat{theta} = \max(X_1, X_2, ..., X_n)$.
+Let $\theta = 1$.
+\begin{itemize}
+    \item[(a)] We have $P(\hat{\theta} < t) = \prod_i P(X_i < t) = t^n$.
+        So the probability density function is given by $f(t) = nt^{n-1}$.
+        See code for simulation with $\theta = 1$.
+    \item[(b)] Note that the pdf for $\hat{\theta}$ is continuous, hence $P(\hat{\theta}^* = \hat{\theta}) = 0$.
+        We have
+        \begin{equation*}
+            P(\hat{\theta}^* = \hat{\theta})
+                = 1 - \prod_{i = 1}^n P(X_i^* \neq \hat{\theta})
+                = 1 - \left(1 - \frac{1}{n}\right)^n
+                \to 1 - \frac{1}{e} \approx 0.632,
+        \end{equation*}
+        as $n \to \infty$.
+\end{itemize}
