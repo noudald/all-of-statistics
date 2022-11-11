@@ -1,0 +1,24 @@
+\section*{Chapter 9 - Parametric Inference}
+
+\subsection*{Solution 9.1}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Gamma}(\alpha, \beta)$.
+We have
+\begin{equation*}
+    \begin{split}
+        E(X^n)
+            &= \int_0^{\infty} x^n \frac{x^{\alpha - 1}}{\beta^{\alpha} \Gamma(\alpha)} e^{-\frac{x}{\alpha}} dx \\
+            &= \frac{(\alpha + n - 1)!}{(\alpha - 1)!} \beta \int_0^{\infty} \frac{x^{\alpha + n - 1}}{\beta^{\alpha + n} \Gamma(\alpha + n)} e^{-\frac{x}{\alpha}} dx \\
+            &= \frac{(\alpha + n - 1)!}{(\alpha - 1)!} \beta \int_0^{\infty} f(x; \alpha + n, \beta + n) dx
+            = \frac{(\alpha + n - 1)!}{(\alpha - 1)!} \beta.
+    \end{split}
+\end{equation*}
+In particular, $\alpha_1 = E(X) = \alpha \beta$ and $\alpha_2 = E(X^2) = (\alpha + 1) \alpha \beta^2$.
+Solving these two equations leads to
+\begin{equation*}
+    \alpha = \frac{\alpha_1^2}{\alpha_2 - \alpha_1^2}, \quad \beta = \frac{\alpha_2 - \alpha_1^2}{\alpha_1^2}.
+\end{equation*}
+When we take $\hat{\alpha}_1 = \frac{1}{n} \sum X_i$ and $\hat{\alpha}_2 = \frac{1}{n} \sum X_i^2$, the methods of moment estimators for $\alpha$ and $\beta$ become
+\begin{equation*}
+    \hat{\alpha} = \frac{\alpha_1^2}{\alpha_2 - \alpha_1^2}, \quad \hat{\beta} = \frac{\alpha_2 - \alpha_1^2}{\alpha_1^2}.
+\end{equation*}
