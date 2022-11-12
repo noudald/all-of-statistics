@@ -22,3 +22,62 @@ When we take $\hat{\alpha}_1 = \frac{1}{n} \sum X_i$ and $\hat{\alpha}_2 = \frac
 \begin{equation*}
     \hat{\alpha} = \frac{\alpha_1^2}{\alpha_2 - \alpha_1^2}, \quad \hat{\beta} = \frac{\alpha_2 - \alpha_1^2}{\alpha_1^2}.
 \end{equation*}
+
+
+\subsection*{Solution 9.2}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(a, b)$.
+\begin{itemize}
+    \item[(a)] We calculate the moments
+        \begin{equation*}
+            E(X^n)
+                = \int_a^b x^n f(x;a,b) dx
+                = \left. \frac{1}{b - a} \frac{x^{n+1}}{n + 1} \right|_a^b
+                = \frac{1}{n + 1} \frac{b^{n+1} - a^{n+1}}{b - a}.
+        \end{equation*}
+        In particular, $\alpha_1 = E(X) = \frac{a + b}{2}$ and $\alpha_2 = E(X^2) = \frac{a^2 + ab + b^2}{3}$.
+        From $\alpha_1$ we have $\hat{b} = 2\hat{\alpha}_1 - \hat{a}$.
+        Combined with $\alpha_2$ we get a second order equation
+        \begin{equation*}
+            3\hat{\alpha}_2
+                = \hat{a}^2 + \hat{a}(2\hat{\alpha}_1 - \hat{a}) + (2\hat{\alpha}_1 - \hat{a})^2
+                = \hat{a}^2 - 2\hat{a}\hat{\alpha}_1 + 4\hat{\alpha}_1^2,
+        \end{equation*}
+        with the (only possible) solution
+        \begin{equation*}
+            \hat{a} = \hat{\alpha}_1 - \sqrt{3(\hat{\alpha_2} - \hat{\alpha_1}^2)}, \quad
+            \hat{b} = \hat{\alpha}_1 + \sqrt{3(\hat{\alpha_2} - \hat{\alpha_1}^2)}.
+        \end{equation*}
+    \item[(b)] The likelihood estimator is
+        \begin{equation*}
+            \mathcal{L}_n(a, b)
+                = \prod_{i = 1}^n f(X_i;a,b)
+                = \left\{ \begin{array}{lll}
+                    (b - a)^{-n} & \text{if} & a \leq X_1, X_2, ..., X_n \leq b \\
+                    0 & \text{otherwise}
+                \end{array} \right.
+        \end{equation*}
+        We cannot differentiate the likelihood estimator.
+        However, let $\hat{a} = \min(X_1, X_2, ..., X_n)$ and $\hat{b} = \max(X_1, X_2, ..., X_n)$.
+        If $a' < \hat{a}$ or $\hat{b} < b'$, then $\mathcal{L}_n(a', b') = 0 \leq \mathcal{L}_n(\hat{a}, \hat{b})$.
+        If $\hat{a} \leq a'$ and $b' \leq \hat{b}$, then $\mathcal{L}_n(a', b') = (b' - a')^{-n} \leq (\hat{b} - \hat{a})^{-n} = \mathcal{L}_n(\hat{a}, \hat{b})$.
+        Therefore, $\mathcal{L}_n(a, b)$ is maximized in $\hat{a}, \hat{b}$.
+    \item[(c)] Let $\tau = \int x dF(x) = E(X) = \frac{a + b}{2}$.
+        The MLE is $\hat{\tau} = \frac{\hat{a} + \hat{b}}{2}$.
+    \item[(d)] The plugin-estimator for $\tau$ is $\tilde{\tau} = \frac{1}{n} \sum X_i$, also see examples 7.10 and 7.11.
+        We have
+        \begin{equation*}
+            \begin{split}
+                E((\tilde{\tau} - \tau)^2)
+                    &= E((\tilde{\tau} - E(\tilde{\tau}))^2) \\
+                    &= V(\tilde{\tau}) \\
+                    &= E(\tilde{\tau}^2) - E(\tilde{\tau}^2) \\
+                    &= \frac{1}{n^2} E\left(\sum_{i = 1}^n \sum_{j = 1}^n X_i X_j\right) - \left(\frac{a + b}{2}\right)^2 \\
+                    &= \frac{1}{n^2} \left(\sum_{i = 1}^n E(X_i^2) - \sum_{i \neq j} E(X_i) E(X_j)\right) - \left(\frac{a + b}{2}\right)^2 \\
+                    &= \frac{1}{n^2} \left(\sum_{i = 1}^n (V(X_i) + E(X_i)^2) - \sum_{i \neq j} \left(\frac{a + b}{2}\right)^2\right) - \left(\frac{a + b}{2}\right)^2 \\
+                    &= \frac{1}{n^2} \left(\frac{n}{12}(b - a)^2 + n\left(\frac{a + b}{2}\right)^2 + n(n - 1)\left(\frac{a + b}{2}\right)^2\right) - \left(\frac{a + b}{2}\right)^2 \\
+                    &= \frac{(b - a)^2}{12 n}
+                    = \frac{V(X)}{n}.
+            \end{split}
+        \end{equation*}
+\end{itemize}
