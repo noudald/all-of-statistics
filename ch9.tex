@@ -81,3 +81,42 @@ Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(a, b)$.
             \end{split}
         \end{equation*}
 \end{itemize}
+
+
+\subsection*{Solution 9.3}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Normal}(\mu, \sigma^2)$.
+Let $\tau$ be the $95\%$ percentile, i.e., $P(X > \tau) = 0.95$.
+\begin{itemize}
+    \item[(a)] Note that
+        \begin{equation*}
+            0.95
+                = P(X < \tau)
+                = P(\sigma Z + \mu < \tau)
+                = P\left(Z < \frac{\tau - \mu}{\sigma}\right)
+                = \Phi\left(\frac{\tau - \mu}{\sigma}\right).
+        \end{equation*}
+        Hence $\tau = z_{0.95} \sigma + \mu$.
+        Therefore, the MLE for $\tau$ is $\hat{\tau} = z_{0.95} \hat{\sigma} + \hat{\mu}$.
+    \item[(b)] We use the Delta method.
+        $\tau = g(\mu, \sigma) = z_{0.95} \sigma + \mu$, such that $\bigtriangledown g = (1, z_{0.95})^t$.
+        The Fisher information matrix becomes
+        \begin{equation*}
+            I_n(\mu, \sigma) = \left( \begin{matrix}
+                \frac{n}{\sigma^2} & 0 \\
+                0 & \frac{2n}{\sigma^2}
+            \end{matrix} \right).
+        \end{equation*}
+        Let $J_n = I_n^{-1}$ be the inverse of the Fisher information matrix.
+        Then
+        \begin{equation*}
+            \hat{se}(\hat{\tau})^2
+                = \hat{\bigtriangledown} g^t \hat{J}_n \hat{\bigtriangledown} g
+                = \frac{\sigma^2}{n}\left(1 + \frac{1}{2} z_{0.95}^2\right).
+        \end{equation*}
+        Therefore, the (approximated) $1 - \alpha$ confidence interval for $\hat{\tau}$ is
+        \begin{equation*}
+            (\hat{\mu} + z_{0.95}\hat{\sigma}) \pm z_{\frac{\alpha}{2}} \sigma \sqrt{\frac{2 + z_{0.95}}{2}}.
+        \end{equation*}
+    \item[(c)] See code.
+\end{itemize}
