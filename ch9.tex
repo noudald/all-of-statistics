@@ -120,3 +120,18 @@ Let $\tau$ be the $95\%$ percentile, i.e., $P(X > \tau) = 0.95$.
         \end{equation*}
     \item[(c)] See code.
 \end{itemize}
+
+
+\subsection*{Solution 9.4}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, \theta)$.
+The MLE of $\theta$ is given by $\hat{\theta} = \max(X_1, X_2, ..., X_n)$.
+For every $\epsilon > 0$, we have
+\begin{equation*}
+    P(|\theta - \hat{\theta}| < \epsilon)
+        = P(X_1 < \theta - \epsilon, X_2 < \theta - \epsilon, ..., X_n < \theta - \epsilon)
+        = \prod_{i = 1}^n \frac{\theta - \epsilon}{\theta}
+        = \left(1 - \frac{\epsilon}{\theta}\right)^n
+        \to 0,
+\end{equation*}
+when $n \to \infty$, so $\hat{\theta} \xrightarrow{P} \theta$ and $\hat{\theta}$ is consistant.
