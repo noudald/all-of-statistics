@@ -1,6 +1,6 @@
 \section*{Chapter 1 - Probability of Finite Sample Spaces}
 
-\subsection*{Solution 1}
+\subsection*{Solution 1.1}
 
 Let $A_1 \subset A_2 \subset A_3 \subset ...$.
 Define $B_i = A_i \backslash \cup_{j < i} A_j$.
@@ -20,7 +20,7 @@ Therfore $b \in A_n$, hence $b \in \cup_{i=1}^{\infty} A_n$.
 So $\cup_{i=1}^{\infty} A_i = \cup_{i=1}^n B_i$.
 
 
-\subsection*{Solution 2}
+\subsection*{Solution 1.2}
 
 \begin{itemize}
     \item[(i)] Let $A_1 = \emptyset$, $A_2 = \Omega$, then $A_1 \cap A_2 = \emptyset$ and $1 = P(\Omega) = P(A_1 \cup A_2) = P(A_1) + P(A_2) = P(\emptyset) + P(\Omega) = P(\emptyset) + 1$.
@@ -34,7 +34,7 @@ So $\cup_{i=1}^{\infty} A_i = \cup_{i=1}^n B_i$.
 \end{itemize}
 
 
-\subsection*{Solution 3}
+\subsection*{Solution 1.3}
 
 \begin{itemize}
     \item[(a)] Let $b \in B_{n+1}$, then $b \in A_m$ for all $m \geq n + 1 > n$, so $b \in B_n$.
@@ -55,7 +55,7 @@ So $\cup_{i=1}^{\infty} A_i = \cup_{i=1}^n B_i$.
 \end{itemize}
 
 
-\subsection*{Solution 4}
+\subsection*{Solution 1.4}
 
 \begin{itemize}
     \item[(a)] $x \in (\cup A_i)^c$, iff $x \notin \cup A_i$, iff $x \notin A_i$ for all $i$, iff $x \in A_i^c$ for all $i$, iff $x \in \cap A_i^c$.
@@ -63,7 +63,7 @@ So $\cup_{i=1}^{\infty} A_i = \cup_{i=1}^n B_i$.
 \end{itemize}
 
 
-\subsection*{Solution 5}
+\subsection*{Solution 1.5}
 
 The sample space is $S = \{ x_1 x_2 ... x_k : \exists i > n, x_i = H, x_n = H, \forall j \neq i, j \neq n, x_j = T\}$.
 The probability that $k$ tosses are required is
@@ -74,7 +74,7 @@ The probability that $k$ tosses are required is
 \end{equation*}
 
 
-\subsection*{Solution 6}
+\subsection*{Solution 1.6}
 
 Assume there exists a uniform probability $P$ on the discrete infinite sample space $\Omega$.
 Because $\sum_{x \in \Omega} P(x) = 1$, there is a $y \in \Omega$ such that $P(y) = c > 0$.
@@ -84,7 +84,7 @@ But this contradicts with the assumption that $\Omega$ is an infinite set.
 So there doesn't exist a uniform probability $P$ on a discrete infinite sample space.
 
 
-\subsection*{Solution 7}
+\subsection*{Solution 1.7}
 
 Define $B_n = A_n \backslash \cup_{i = 1}^n A_i$.
 Then $B_i \cap B_j = \emptyset$ when $i \neq j$, and $\cup B_n = \cup A_n$.
@@ -93,7 +93,7 @@ As $B_n \subset A_n$, $P(B_n) \leq P(A_n)$.
 Therefore we have $P(\cup A_n) = \sum P(B_n) \leq \sum P(A_n)$.
 
 
-\subsection*{Solution 8}
+\subsection*{Solution 1.8}
 
 Proving $P(\cap A_i) = 1$ is equivalent to proving $P((\cap A_i)^c) = P(\cup A_i^c) = 0$.
 Take disjoint sets $B_n = A_n^c \backslash \cup_{i < n} A_i^c$.
@@ -107,7 +107,7 @@ So
 \end{equation*}
 
 
-\subsection*{Solution 9}
+\subsection*{Solution 1.9}
 
 \begin{itemize}
     \item[1.] $P(X, B) \geq 0$ and $P(B) \geq 0$, so $P(X|B) = P(X, B) / P(B) \geq 0$.
@@ -122,7 +122,7 @@ So
 \end{itemize}
 
 
-\subsection*{Solution 10}
+\subsection*{Solution 1.10}
 
 When we always pick door 1, the sample space is $\Omega = \{(1, 2), (1, 3), (2, 3), (3, 2)\}$, with probabilities $P(1, 2) = 1/6$, $P(1, 3) = 1/6$, $P(2, 3) = 1/3$, and $P(3, 2) = 1/3$.
 We have
@@ -137,7 +137,7 @@ We have
 We conclude that it's better to switch to doors.
 
 
-\subsection*{Solution 11}
+\subsection*{Solution 1.11}
 
 Suppose $A \bot B$, i.e. $P(AB) = P(A)P(B)$, then
 \begin{equation*}
@@ -149,13 +149,13 @@ Suppose $A \bot B$, i.e. $P(AB) = P(A)P(B)$, then
 \end{equation*}
 
 
-\subsection*{Solution 12}
+\subsection*{Solution 1.12}
 
 I think this question is not well-defined and similar to the boy-girl paradox.
 We could intrepid the questions in multiple ways and get both right answers $\frac{1}{2}$ and $\frac{1}{3}$.
 
 
-\subsection*{Solution 13}
+\subsection*{Solution 1.13}
 
 \begin{itemize}
     \item[(a)] $\Omega = \{ HH^kT, TT^kH: k \geq 0 \}$.
@@ -163,7 +163,7 @@ We could intrepid the questions in multiple ways and get both right answers $\fr
 \end{itemize}
 
 
-\subsection*{Solution 14}
+\subsection*{Solution 1.14}
 
 Let $A \subset \Omega$ such that $P(A) = 0$ or $P(A) = 1$.
 \begin{itemize}
@@ -175,14 +175,14 @@ Let $A \subset \Omega$ such that $P(A) = 0$ or $P(A) = 1$.
 \end{itemize}
 
 
-\subsection*{Solution 15}
+\subsection*{Solution 1.15}
 
 We have the same problem as exercise 2.12.
 This question is not well-defined and similar to the boy-girl paradox.
 Depending on how you intrepid the question you can get different answers.
 
 
-\subsection*{Solution 16}
+\subsection*{Solution 1.16}
 
 Follows almost from the definition.
 If $A \bot B$, then $P(AB) = P(A)P(B)$, and
@@ -191,12 +191,12 @@ If $A \bot B$, then $P(AB) = P(A)P(B)$, and
 \end{equation*}
 
 
-\subsection*{Solution 17}
+\subsection*{Solution 1.17}
 
 $P(ABC) = P(A|BC) P(BC) = P(A|BC) P(B|C) P(C)$.
 
 
-\subsection*{Solution 18}
+\subsection*{Solution 1.18}
 
 Let $A_1, A_2, ..., A_k$ disjoint subsets such that $\cup A_i = \Omega$.
 Let $P(B) > 0$ such that $P(A_1|B) < P(A_1)$.
@@ -215,7 +215,7 @@ which is a contradiction.
 Therefore, there exists an $A_i$ such that $P(A_i|B) > P(A_i)$.
 
 
-\subsection*{Solution 19}
+\subsection*{Solution 1.19}
 
 \begin{equation*}
     P(W|I) = \frac{P(I|W)P(W)}{P(I)}
@@ -224,7 +224,7 @@ Therefore, there exists an $A_i$ such that $P(A_i|B) > P(A_i)$.
 \end{equation*}
 
 
-\subsection*{Solution 20}
+\subsection*{Solution 1.20}
 
 \begin{itemize}
     \item[(a)] \begin{equation*}
@@ -247,17 +247,17 @@ Therefore, there exists an $A_i$ such that $P(A_i|B) > P(A_i)$.
 TODO: fill in values for $p_1, p_2, p_3$, and $p_4$.
 
 
-\subsection*{Solution 21}
+\subsection*{Solution 1.21}
 
 See code.
 
 
-\subsection*{Solution 22}
+\subsection*{Solution 1.22}
 
 See code.
 
 
-\subsection*{Solution 23}
+\subsection*{Solution 1.23}
 
 Take $\Omega = \{1, 2\}$ with $P(\{1\}) = \frac{1}{2} = P(\{2\})$.
 For the dependent events, take $A = \{1\}$, $B = \{1\}$.
