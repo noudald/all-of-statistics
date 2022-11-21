@@ -135,3 +135,42 @@ For every $\epsilon > 0$, we have
         \to 0,
 \end{equation*}
 when $n \to \infty$, so $\hat{\theta} \xrightarrow{P} \theta$ and $\hat{\theta}$ is consistant.
+
+
+\subsection*{Solution 9.5}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Poisson}(\lambda)$.
+\begin{itemize}
+    \item[(a)] Let $X \sim \mathrm{Poisson}(\lambda)$.
+        We have $\alpha_1 = E(X) = \lambda$, so the moments estimator is $\hat{\lambda} = \hat{\alpha}_1$.
+    \item[(b)] The Likelihood function is
+        \begin{equation*}
+            \mathcal{L}_n(\lambda)
+                = \prod_{i = 1}^n e^{-\lambda} \frac{\lambda^{X_i}}{x_i!}
+                = e^{-n\lambda} \frac{\lambda^{\sum_{i = 1}^n X_i}}{x_1! x_2! \dots x_n!}.
+        \end{equation*}
+        Let $F_n(\lambda) = e^{-n\lambda} \lambda^{\sum X_i}$.
+        To find the maximum likelihood estimator $\hat{\lambda}$ it's sufficient to maximize $F_n(\lambda)$, as the rest of $\mathcal{L}_n(\theta)$ is independent of $\theta$.
+        We have
+        \begin{equation*}
+            f_n(\lambda)
+                = \log(F_n(\lambda))
+                = -n\lambda + \log(\lambda) \sum_{i = 1}^n X_i
+                = 0,
+        \end{equation*}
+        if and only if $\lambda = \frac{1}{n} \sum_{i = 1}^n X_i$ ($= \hat{\alpha}_1$).
+    \item[(c)] To calculate the Fisher matrix we first calculate the score function
+        \begin{equation*}
+            \frac{\partial^2 \ell_n(\lambda)}{\partial \lambda^2}
+                = \frac{\partial^2 f_n(\lambda)}{\partial \lambda^2}
+                = -\frac{\sum_{i = 1}^n X_i}{\lambda^2},
+        \end{equation*}
+        such that
+        \begin{equation*}
+            I_n(\lambda)
+                = -E_{\lambda}\left(\frac{\partial^2 \ell_n(\lambda)}{\partial \lambda^2}\right)
+                = \frac{n\lambda}{\lambda^2}
+                = \frac{n}{\lambda}.
+        \end{equation*}
+        In particular, the Fisher Information matrix is given by $I(\lambda) = \frac{1}{n} I_n(\lambda) = \frac{1}{\lambda}$.
+\end{itemize}
