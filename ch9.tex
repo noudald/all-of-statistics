@@ -174,3 +174,31 @@ Let $X_1, X_2, ..., X_n \sim \mathrm{Poisson}(\lambda)$.
         \end{equation*}
         In particular, the Fisher Information matrix is given by $I(\lambda) = \frac{1}{n} I_n(\lambda) = \frac{1}{\lambda}$.
 \end{itemize}
+
+
+\subsection*{Solution 9.6}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Normal}(\theta, 1)$.
+Define $Y_i = 1$ if $X_i \geq 0$ and $Y_i = 0$ otherwise.
+Let $\psi = P(Y_1 = 1)$.
+\begin{itemize}
+    \item[(a)] $\psi = P(Y_1 = 1) = P(X_1 \geq 0) = P(Z \geq -\theta) = P(Z < \theta) = \Phi(\theta)$.
+        So the MLE of $\psi$ is $\hat{\psi} = \Phi(\hat{\theta})$, where $\hat{\theta}$ is the MLE of $\theta$.
+    \item[(b)] We use Delta method of Theorem 9.24.
+        $\hat{\psi} = g(\hat{\theta}) = \Psi(\hat{\theta})$, so $g'(\hat{\theta}) = \phi(\hat{\theta})$.
+        Moreover, $\hat{se}(\hat{\theta})^2 = \frac{\sigma^2}{n} = \frac{1}{n}$.
+        So the $95\%$ confidence interval is
+        \begin{equation*}
+            \Phi(\hat{\theta}) \pm z_{0.025} \frac{\phi(\hat{\theta})}{\sqrt{n}}.
+        \end{equation*}
+    \item[(c)] Let $\tilde{\psi}_n = \frac{1}{n} \sum_{i = 1}^{n} Y_i$.
+        By the weak law of large numbers $\tilde{\psi}_n \xrightarrow{P} E(Y_1) = P(X > 0) = \psi$.
+    \item[(d)] We have $\sqrt{n}(\hat{\psi} - \psi) \xrightarrow{D} \mathrm{Normal}(0, \phi(\theta))$.
+        Note that $V(\tilde{\psi}_n) = \frac{1}{n^2} \sum V(Y_i) = \frac{1}{n} \psi(1 - \psi)$.
+        So $\sqrt{n}(\tilde{\psi}_n - \psi) \xrightarrow{D} \mathrm{Normal}(0, \psi(1 - \psi))$.
+        Which leads to
+        \begin{equation*}
+            \mathrm{ARE}(\hat{\psi}, \tilde{\psi}) = \frac{\phi(\theta)}{\psi(1 - \psi)}.
+        \end{equation*}
+    \item[(e)] $\hat{\psi} = \Phi(\hat{\theta})$ will converge to $\Psi(\mu)$ as $\hat{\theta}$ will converge to mean $\mu$.
+\end{itemize}
