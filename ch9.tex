@@ -202,3 +202,60 @@ Let $\psi = P(Y_1 = 1)$.
         \end{equation*}
     \item[(e)] $\hat{\psi} = \Phi(\hat{\theta})$ will converge to $\Psi(\mu)$ as $\hat{\theta}$ will converge to mean $\mu$.
 \end{itemize}
+
+
+\subsection*{Solution 9.7}
+
+Let $X_1 \sim \mathrm{Binomial}(n_1, p_1)$ and $X_2 \sim \mathrm{Binomial}(n_2, p_2)$.
+Take $\psi = p_1 - p_2$.
+
+\begin{itemize}
+    \item[(a)] The probability density function for $X_1$ and $X_2$ is $f(x;p) = \binom{n}{x} p^x (1 - p)^{n-x}$.
+        The Likelihood function is given by
+        \begin{equation*}
+            \mathcal{L}_1(p) = f(x;p) = \binom{n}{x} p^x (1 - p)^{n - x}.
+        \end{equation*}
+        So $\ell_1(p) = \log\binom{n}{x} + x\log(p) + (n - x)\log(p)$.
+        Maximizing $\ell_1(p)$ yields $\hat{p} = x/n$.
+        The MLE of $\psi = p_1 - p_2$ is $\hat{\psi} = \hat{p}_1 - \hat{p}_2 = \frac{X_1}{n_1} - \frac{X_2}{n_2}$.
+    \item[(b)] The probability density function is $f(x;p_1,p_2) = \binom{n_1}{x} p_1^x (1 - p_1)^{n-x} \binom{n_2}{x} p_2^x (1 - p_2)^{n_2 - x}$.
+        We have $\ell(p_1, p_2) = x\log(p_1) + (n_1 - x)\log(1 - p_1) + x\log(p_2) + (n_2 - x)\log(1 - p_2) + C$, where $C$ is a constant independent of $p_1$ and $p_2$.
+        The second order differentials are
+        \begin{equation*}
+            \frac{\partial^2 \ell(p_1, p_2)}{\partial p_i^2} = -\frac{X_i}{p_i^2} + \frac{X_i - n_i}{(1 - p_i)^2}, \quad
+            \frac{\partial^2 \ell(p_1, p_2)}{\partial p_1 \partial p_2} = 0.
+        \end{equation*}
+        Which gives
+        \begin{equation*}
+            -E\left(\frac{\partial^2 \ell(p_1, p_2)}{\partial p_i^2}\right)
+                = \frac{n_i p_i}{p_i^2} - \frac{n_i p_i - n_i}{(1 - p_i)^2}
+                = \frac{n_i}{p_i} - \frac{n_i}{(1 - p_i)}
+                = \frac{n_i}{p_i(1 - p_i)}.
+        \end{equation*}
+        The Fisher Information matrix is
+        \begin{equation*}
+            I(p_1, p_2) = \left( \begin{matrix}
+                \frac{n_1}{p_1(1 - p_1)} & 0 \\
+                0 & \frac{n_2}{p_2(1 - p_2)}
+            \end{matrix} \right).
+        \end{equation*}
+    \item[(c)] Let $g(p_1, p_2) = p_1 - p_2$.
+        We have $\nabla g = (1, -1)^t$.
+        The inverse Information matrix is given by
+        \begin{equation*}
+            J_n(p_1, p_2)
+                = I_n^{-1}(p_1, p_2)
+                = \frac{1}{n} I(p_1, p_2)
+                = \frac{1}{n} \left( \begin{matrix}
+                    \frac{p_1(1 - p_1)}{n_1} & 0 \\
+                    0 & \frac{p_2(1 - p_2)}{n_2}
+                \end{matrix} \right).
+        \end{equation*}
+        Set $n = 1$, with the Delta method,
+        \begin{equation*}
+            \hat{se}(\hat{\psi})^2
+                = \nabla \hat{g}^t \hat{J}_1 \nabla \hat{g}
+                = \frac{\hat{p}_1(1 - \hat{p}_1)}{n_1} + \frac{\hat{p}_2(1 - \hat{p}_2)}{n_2}.
+        \end{equation*}
+    \item[(d)] See code.
+\end{itemize}
