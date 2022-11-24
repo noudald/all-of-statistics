@@ -259,3 +259,43 @@ Take $\psi = p_1 - p_2$.
         \end{equation*}
     \item[(d)] See code.
 \end{itemize}
+
+
+\subsection*{Solution 9.8}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Normal}(\mu, \sigma^2)$.
+The Likelihood estimator is given by
+\begin{equation*}
+    \mathcal{L}_n(\mu, \sigma) = C \frac{1}{\sigma^n} \exp\left(-\frac{1}{2\sigma^2} \sum_{i=1}^n (X_i - \mu)^2\right).
+\end{equation*}
+Therefore,
+\begin{equation*}
+    \ell_n(\mu, \sigma) = \log(C) - n\log(\sigma) - \frac{1}{2\sigma^2} \sum_{i = 1}^n (X_i - \mu)^2.
+\end{equation*}
+The partial derivatives are
+\begin{equation*}
+    \begin{split}
+        \frac{\partial \ell_n}{\partial \mu} &= \frac{1}{\sigma^2} \sum_{i = 1}^n (X_i - \mu), \quad
+        \frac{\partial^2 \ell_n}{\partial \mu^2} = -\frac{1}{\sigma^2} \sum_{i = 1}^n X_i, \\
+        \frac{\partial^2 \ell_n}{\partial \mu \partial \sigma} &= -\frac{2}{\sigma^3} \sum_{i = 1}^n (X_i - \mu) = \frac{\partial^2 \ell_n}{\partial \sigma \partial \mu}, \\
+        \frac{\partial \ell_n}{\partial \sigma} &= -\frac{n}{\sigma} + \frac{1}{\sigma^3} \sum_{i = 1}^n (X_i - \mu)^2, \quad
+        \frac{\partial^2 \ell_n}{\partial \sigma^2} = \frac{n}{\sigma^2} - \frac{3}{\sigma^4} \sum_{i = 1}^n (X_i - \mu)^2.
+    \end{split}
+\end{equation*}
+The expected values become
+\begin{equation*}
+    E\left(-\frac{\partial^2 \ell_n}{\partial \mu^2}\right)
+        = \frac{n}{\sigma^2}, \quad
+    E\left(-\frac{\partial^2 \ell_n}{\partial \mu \partial \sigma}\right)
+        = 0, \quad
+    E\left(-\frac{\partial^2 \ell_n}{\partial \sigma^2}\right)
+        = -\frac{n}{\sigma^2} + \frac{3}{\sigma^3} n\sigma^2
+        = \frac{2n}{\sigma^2}.
+\end{equation*}
+The Fisher information matrix is
+\begin{equation*}
+    I_n(\mu, \sigma) = \left( \begin{matrix}
+        \frac{n}{\sigma^2} & 0 \\
+        0 & \frac{2n}{\sigma^2}
+    \end{matrix} \right).
+\end{equation*}
