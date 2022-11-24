@@ -1,6 +1,6 @@
 \section*{Chapter 2 - Random Variables}
 
-\subsection*{Solution 1}
+\subsection*{Solution 2.1}
 
 Let $x^+_1 > x^+_2 > ...$ and $x^-_1 < x^-_2 < ...$ such that $x^+_i \downarrow x$ and $x^-_i \uparrow x$.
 Let $A_i = [x^-_i, x^+_i]$ for all $i > 0$.
@@ -10,13 +10,13 @@ $$
 P(x) = \lim_{i \to \infty} P(A_i) = \lim_{i \to \infty} (F(x^+_i) - F(x^-_i)) = F(x^+) - F(x^-).
 $$
 
-\subsection*{Solution 1 - Alternative}
+\subsection*{Solution 2.1 - Alternative}
 
 By lemma 2.15.1 $P(x) = F(x) - F(x^-)$.
 By Theorem 2.8.iii $F$ is right continuous, i.e. $F(x) = F(x^+)$, so $P(x) = F(x^+) - F(x^-)$.
 
 
-\subsection*{Solution 2}
+\subsection*{Solution 2.2}
 
 The CDF is given by
 $$
@@ -30,7 +30,7 @@ $$
 So $P(2 \leq X \leq 4.8) = F(4.8) - F(2^-) = \frac{2}{10}$.
 
 
-\subsection*{Solution 3}
+\subsection*{Solution 2.3}
 
 \begin{enumerate}
 \item Let $x^-_1 < x^-_2 < ...$ such that $x^-_i \to x$ and $A_i = (x^-_i, x]$.
@@ -46,7 +46,7 @@ $P(x < X) = P(x \leq X)$ if $P$ is continuous.
 \end{enumerate}
 
 
-\subsection*{Solution 4}
+\subsection*{Solution 2.4}
 
 \begin{itemize}
     \item[(a)]
@@ -71,7 +71,7 @@ $P(x < X) = P(x \leq X)$ if $P$ is continuous.
 \end{itemize}
 
 
-\subsection*{Solution 5}
+\subsection*{Solution 2.5}
 
 Almost straight from the definition.
 As $X$ and $Y$ are discrete random variables:
@@ -81,7 +81,7 @@ As $X$ and $Y$ are discrete random variables:
 \end{itemize}
 
 
-\subsection*{Solution 6}
+\subsection*{Solution 2.6}
 
 $Y = I_A(X)$ takes the value $1$ if $X \in A$ and $0$ if $X \notin A$.
 So $P(Y = 0) = 1 - F_X(A)$ and $P(Y = 1) = F_X(A)$.
@@ -95,7 +95,7 @@ F_Y(y) = \left\{ \begin{array}{ll}
 $$
 
 
-\subsection*{Solution 7}
+\subsection*{Solution 2.7}
 
 Let $Z = \mathrm{min}(X, Y)$, $X, Y \sim \mathrm{Uniform}(0, 1)$, then
 \begin{equation*}
@@ -114,7 +114,7 @@ f_Z(z) = 2 (1 - z).
 $$
 
 
-\subsection*{Solution 8}
+\subsection*{Solution 2.8}
 
 Let $X$ be a random variable with CDF $F$.
 Define $X^+ = \mathrm{max}(0, X)$.
@@ -128,7 +128,7 @@ Therefore
 \end{equation*}
 
 
-\subsection*{Solution 9}
+\subsection*{Solution 2.9}
 
 Let $X \sim \mathrm{Exp}(\beta)$.
 We have $f(x) = \beta^{-1} \exp(-\beta^{-1}x)$.
@@ -141,7 +141,7 @@ $$
 Solving $x$ for $q = F_X(x) = 1 - \exp(-\beta^{-1}x)$ yields $x = F_X^{-1}(q) = -\beta \log(1 - q)$.
 
 
-\subsection*{Solution 10}
+\subsection*{Solution 2.10}
 
 Follows almost from the definition.
 \begin{equation*}
@@ -154,7 +154,7 @@ P(g(X) \in A, h(Y) \in B)
 \end{equation*}
 
 
-\subsection*{Solution 11}
+\subsection*{Solution 2.11}
 
 (a) $P(X = 1, Y = 0) = p$, but $P(X = 1) = p$ and $P(Y = 0) = p$, so $P(X = 1)P(Y = 1) = p^2 \neq p$ (assuming $p > 0$).
 Therefore $X$ and $Y$ are dependent.
@@ -204,7 +204,7 @@ The number of heads will give you absolutely no information about the number of 
 This is an extreme case where a small change, going from $N = 50$ to $N \sim \mathrm{Poisson}(50)$, turns entirely dependent random variables into completely independent random variables.
 
 
-\subsection*{Solution 12}
+\subsection*{Solution 2.12}
 
 Let $f(x, y) = g(x) h(y)$ for all $x, y$.
 Note
@@ -221,7 +221,7 @@ Now
 We have $f(x, y) = g(x) h(y) = A_g A_h g(x) h(y) = (A_h g(x))(A_g h(y)) = f_X(x) f_Y(y)$, which shows that $X$ and $Y$ are independent.
 
 
-\subsection*{Solution 13}
+\subsection*{Solution 2.13}
 
 Let $X \sim \mathrm{Normal}(0, 1)$ and $Y = \exp(X)$.
 
@@ -240,14 +240,14 @@ $$
 (b) See code.
 
 
-\subsection*{Solution 14}
+\subsection*{Solution 2.14}
 
 Let $A_r = \{(x, y) : x^2 + y^2 \leq r^2\}$ be the circle with radius $r$.
 We have $F_R(r) = \mathrm{Opp}(A_r) / \mathrm{Opp}(A_1) = r^2 \pi / \pi = r^2$.
 So $f_R(r) = 2r$.
 
 
-\subsection*{Solution 15}
+\subsection*{Solution 2.15}
 
 Let $X \sim F$ and $F$ continuous, strictly increasing, i.e., $x_1 < x_2$, then $F(x_1) < F(x_2)$.
 Let $Y = F(X)$.
@@ -264,7 +264,7 @@ So if $U \sim \mathrm{Uniform}(0, 1)$, then $X = F^{-1}(U) = -\beta \log(1 - U) 
 See code for an implementation.
 
 
-\subsection*{Solution 16}
+\subsection*{Solution 2.16}
 
 $X \sim \mathrm{Poisson}(\lambda)$, $Y \sim \mathrm{Poisson}(\mu)$.
 Let $n = X + Y$.
@@ -281,7 +281,7 @@ where
 So $X|X+Y \sim \mathrm{Binomial}(n, \theta)$.
 
 
-\subsection*{Solution 17}
+\subsection*{Solution 2.17}
 
 We have
 \begin{equation*}
@@ -297,7 +297,7 @@ Using the definition of the conditional probability density function
 \end{equation*}
 
 
-\subsection*{Solution 18}
+\subsection*{Solution 2.18}
 
 Note that $X = 4Z - 3$, where $Z \sim \mathrm{Normal}(0, 1)$.
 \begin{itemize}
@@ -309,7 +309,7 @@ Note that $X = 4Z - 3$, where $Z \sim \mathrm{Normal}(0, 1)$.
 \end{itemize}
 
 
-\subsection*{Solution 19}
+\subsection*{Solution 2.19}
 
 Let $r$ be strictly increasing.
 Let $s = r^{-1}$ and $Y = r(X)$.
@@ -323,7 +323,7 @@ So we have
 If $r$ would be strictly decreasing the same calculation holds, but with a minus sign, as $F_Y(y) = 1 - F_X(s(y))$.
 
 
-\subsection*{Solution 20}
+\subsection*{Solution 2.20}
 
 Let $Z_1 = X - Y$, $Z_2 = X/Y$.
 This is an exercise in drawing squares.
