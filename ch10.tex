@@ -37,6 +37,8 @@ With this definition, we have
 \end{equation*}
 So $P$ has the identify function as cumulative distribution function.
 This is only possible if $P \sim \mathrm{Uniform}(0, 1)$, proving Theorem 10.14.
+\subsection*{Solution 10.6}
+
 I'm not sure if I understand the question correctly.
 Phillips and King are interested in testing the null hypothesis $\theta \leq \frac{1}{2}$, not $\theta = \frac{1}{2}$.
 The first one is statistically significant, the latter is not as you will see in the solution.
@@ -70,7 +72,7 @@ C = (\hat{\theta} - \hat{se} z_{0.025}, \hat{\theta} + \hat{se} z_{0.025})
 $$
 as $\hat{se} = \sqrt{\hat{\theta}(1 - \hat{\theta})/n}$.
 
-\subsection*{Solution 6. Alternative solution}
+\subsection*{Solution 10.6 - Alternative solution}
 
 We can calculate the probability directly from the biomial distribution.
 The null hypothese $H_0: \theta_0 = \frac{1}{2}$.
@@ -84,7 +86,7 @@ $$
 $$
 
 
-\subsection*{Solution 7.}
+\subsection*{Solution 10.7}
 
 See code for explicit calculations.
 
@@ -97,7 +99,7 @@ The approximate p-value is $0.00089$.
 We reject the null hypothesis that the distributions of $X$ and $Y$ are the same.
 
 
-\subsection*{Solution 8.}
+\subsection*{Solution 10.8}
 
 (a) We have to find $c$ such that
 $$
@@ -123,7 +125,7 @@ $$
 As $\Phi^{-1}(\alpha)$ is fixed $\beta(1) \to 1$ as $n \to \infty$.
 
 
-\subsection*{Solution 9.}
+\subsection*{Solution 10.9}
 \begin{equation*}
 \begin{split}
 \beta(\theta_1) &= P_{\theta_1}(|Z| < z_{\frac{\alpha}{2}}) \\
@@ -136,20 +138,20 @@ As $n \to \infty$, $\frac{\hat{\theta} - \theta_1}{\hat{se}} \to 0$ and $\frac{\
 Therefore $\beta(\theta_1) \to 1$ as $n \to \infty$.
 
 
-\subsection*{Solution 10.}
+\subsection*{Solution 10.10}
 
 See code.
 We use three different tests: Walk test per week, binomial test per week, and the $\chi^2$-test.
 All three of them suggest that in week -1 and 1 a significant change in elderly Chinese woman took place.
 
 
-\subsection*{Solution 11.}
+\subsection*{Solution 10.11}
 
 See code.
 The only drugs that seems to have any significant effect is Chlorpromazine.
 
 
-\subsection*{Solution 12.}
+\subsection*{Solution 10.12}
 
 (a) Let $X_1, X_2, ..., X_n \sim \mathrm{Poison}(\lambda_0)$.
 Let $\hat{\lambda} = \overline{X}$ be the MLE of $X$.
@@ -169,7 +171,7 @@ This is not exactly equal to 5\% as the Poisson distribution is only approximate
 When $n \to \infty$ the rejection rate will go to exactly 5\%.
 
 
-\subsection*{Solution 13.}
+\subsection*{Solution 10.13}
 
 Let $X_1, X_2, ..., X_n \sim \mathcal{N}(\mu, \sigma^2)$.
 We will construct a likelihood ratio test for null hypothesis $H_0: \mu = \mu_0$ against $H_1: \mu \neq \mu_0$.
@@ -191,7 +193,7 @@ So
 Observe that the likelihood ration and Wald statistics are related, because $\lambda = W^2$.
 
 
-\subsection*{Solution 14.}
+\subsection*{Solution 10.14}
 
 Let $X_1, X_2, ..., X_n \sim \mathcal{N}(\mu, \sigma^2)$.
 We will construct a likelihood ratio test for null hypothesis $H_0: \sigma = \sigma_0$ against $H_1: \sigma \neq \sigma_0$.
