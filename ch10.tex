@@ -21,6 +21,22 @@ Therefore, we have
     \end{split}
 \end{equation*}
 
+
+\subsection*{Solution 10.2}
+
+Some definitions are missing in the book.
+Let $T$ be the test statistic with the continuous cumulative distribution function $F$.
+We can consider the $p$-value (of a left-sided one-tailed hypothesis) as a distribution taking $P = F(T)$, such that when we observe $t_{\mathrm{obs}}$, the $p$-value is $p = F(t_{\mathrm{obs}})$.
+With this definition, we have
+\begin{equation*}
+    P_{\theta_0}(P < t)
+        = P_{\theta_0}(F(T) < t)
+        = P_{\theta_0}(T < F^{-1}(t))
+        = F(F^{-1}(t))
+        = t.
+\end{equation*}
+So $P$ has the identify function as cumulative distribution function.
+This is only possible if $P \sim \mathrm{Uniform}(0, 1)$, proving Theorem 10.14.
 I'm not sure if I understand the question correctly.
 Phillips and King are interested in testing the null hypothesis $\theta \leq \frac{1}{2}$, not $\theta = \frac{1}{2}$.
 The first one is statistically significant, the latter is not as you will see in the solution.
