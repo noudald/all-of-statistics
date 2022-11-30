@@ -46,6 +46,23 @@ We reject $H_0$ if and only if $|W| > z_{\frac{\alpha}{2}}$ which is equivalent 
 \begin{equation*}
     \theta_0 \notin (\hat{\theta} - \hat{se} z_{\frac{\alpha}{2}}, \hat{\theta} + \hat{se} z_{\frac{\alpha}{2}}).
 \end{equation*}
+
+
+\subsection*{Solution 10.4}
+
+We reject $H_0$ if and only if $T(X^n) \geq c_{\alpha}$.
+From the definition
+\begin{equation*}
+    \begin{split}
+        p &= \inf_{\alpha}(\alpha : T(x^n) \in R_{\alpha}) \\
+            &= \inf_{\alpha}(\alpha : T(x^n) \geq c_{\alpha}) \\
+            &= \inf_{\alpha}(\sup_{\theta} \beta(\theta) : T(x^n) \geq c_{\alpha}) \\
+            &= \inf_{\alpha}(\sup_{\theta} P_{\theta}(T(X^n) \geq c_{\alpha}) : T(x^n) \geq c_{\alpha}) \\
+            &= \sup_{\theta} P_{\theta}(T(x^n) \geq T(X^n)),
+    \end{split}
+\end{equation*}
+as $P_{\theta}(T(X^n) \geq c_{\alpha})$ is smalles when $c_{\alpha}$ is as large as possible, which happens when $c_{\alpha} = T(x^n)$.
+In particular, when $\Theta_0 = \{\theta_0\}$, we have $p = P_{\theta_0}(T(X^n) \geq T(x^n))$.
 \subsection*{Solution 10.6}
 
 I'm not sure if I understand the question correctly.
