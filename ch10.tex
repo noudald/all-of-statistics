@@ -63,6 +63,25 @@ From the definition
 \end{equation*}
 as $P_{\theta}(T(X^n) \geq c_{\alpha})$ is smalles when $c_{\alpha}$ is as large as possible, which happens when $c_{\alpha} = T(x^n)$.
 In particular, when $\Theta_0 = \{\theta_0\}$, we have $p = P_{\theta_0}(T(X^n) \geq T(x^n))$.
+
+
+\subsection*{Solution 10.5}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, \theta)$.
+Let $Y = \max(X_1, X_2, ..., X_n)$.
+We want to test $H_0: \theta = \frac{1}{2}$ against $H_1: \theta \neq \frac{1}{2}$.
+
+\begin{itemize}
+    \item[(a)] We generalize $H_0: \theta = c$ against $H_1: \theta \neq c$.
+        The power function is given by $\beta(\theta) = P_{\theta}(Y > c) = 1 - P_{\theta}(Y \leq c) = 1 - \left(\frac{c}{\theta}\right)^n$.
+    \item[(b)] We calculate $\alpha = \sup_{\theta \in \Theta_0} \beta(\theta) = 1 - \left(\frac{c}{\theta_0}\right)^n$, which leads to $c_{\alpha} = \theta_0(1 - \alpha)^{\frac{1}{n}}$.
+        With a test size of $0.05$ under $H_0: \theta = \frac{1}{2}$ we have $c_{0.05} = \frac{1}{2} 0.95^{\frac{1}{n}}$.
+    \item[(c)] If $n = 20$ and $Y = 0.48$, we have $p = P_{\theta_0}(Y \geq 0.48) = 1 - \left(\frac{0.48}{0.5}\right)^{20} \approx 0.56$.
+        We would not reject the null hypothesis $H_0: \theta = \frac{1}{2}$.
+    \item[(d)] If $n = 20$ and $Y = 0.52$, then $Y > \frac{1}{2} = \theta$, so we would reject the null hypothesis $H_0: \theta = \frac{1}{2}$ immediately.
+\end{itemize}
+
+
 \subsection*{Solution 10.6}
 
 I'm not sure if I understand the question correctly.
