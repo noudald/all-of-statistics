@@ -1,0 +1,32 @@
+\section*{Chapter 11 - Bayesian Inference}
+
+\subsection*{Solution 11.1}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Normal}(\theta, \sigma^2)$ with $\sigma$ known.
+As prior take $\theta \sim \mathrm{Normal}(a, b^2)$.
+By Bayes' Theorem we have
+\begin{equation*}
+    f(\theta|X^n) = \frac{f(X^n|\theta) f(\theta)}{\int f(X^n|\theta)f(\theta) d\theta}
+        \propto \mathcal{L}_n(\theta) f(\theta),
+\end{equation*}
+where
+\begin{equation*}
+    \begin{split}
+        \mathcal{L}_n(\theta)
+            = \prod_{i = 1}^n f(X_i|\theta)
+            &= \frac{1}{\sigma^n (\sqrt{2\pi})^n} \exp\left(-\frac{1}{2\sigma^2} \sum_{i = 1}^n (X_i - \theta)^2\right), \\
+        f(\theta) &= \frac{1}{b\sqrt{2\pi}} \exp\left(-\frac{1}{2b^2} (\theta - a)^2\right).
+    \end{split}
+\end{equation*}
+With a tedious calculation we get
+\begin{equation*}
+    \begin{split}
+        \mathcal{L}_n(\theta)f(\theta)
+            &\propto \exp\left(-\frac{1}{2\sigma^2} \sum_{i = 1}^n (X_i - \theta)^2 - \frac{1}{2b^2} (\theta - a)^2\right) \\
+            &\propto \exp\left(-\frac{(nb^2 + \sigma^2)\theta^2 - 2(n\overline{X}b^2 + a\sigma^2)\theta}{2\sigma^2b^2}\right) \\
+            &= \exp\left(-\frac{(nb^2 + \sigma^2)}{2\sigma^2b^2}\left(\theta^2 - 2\frac{nb^2\overline{X} + a\sigma^2}{nb^2 + \sigma^2}\theta\right)\right) \\
+            &\propto \exp\left(-\frac{1}{2}\left(\frac{n}{\sigma^2} + \frac{1}{b^2}\right)\left(\theta - \frac{b^2\overline{X} + a\frac{\sigma^2}{n}}{b^2 + \frac{\sigma^2}{n}}\right)^2\right) \\
+            &=\exp\left(-\frac{1}{2\tau^2}(\theta - \overline{\theta})^2\right).
+    \end{split}
+\end{equation*}
+Therefore, $\theta|X^n \sim \mathrm{Normal}(\theta, \overline{\theta})$.
