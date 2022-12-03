@@ -30,3 +30,46 @@ With a tedious calculation we get
     \end{split}
 \end{equation*}
 Therefore, $\theta|X^n \sim \mathrm{Normal}(\theta, \overline{\theta})$.
+
+
+\subsection*{Solution 11.2}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Normal}(\mu, 1)$.
+
+\begin{itemize}
+    \item[(a)] See code.
+    \item[(b)] Let $f(\mu) = 1$, then
+        \begin{equation*}
+            f(\mu|X^n) \propto f(X^n|\mu) f(\mu)
+                = \prod_{i = 1}^n \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}(X_i - \mu)^2\right)
+                \propto \exp\left(-\frac{n}{2}(\mu - \overline{X})^2\right),
+        \end{equation*}
+        such that we have $\mu|X^n \sim \mathrm{Normal}(\overline{X}, \frac{1}{n})$.
+    \item[(c)] See code.
+    \item[(d)] Let $\theta = e^{\mu}$, we calculate the cumulative distribution function
+        \begin{equation*}
+            \begin{split}
+                P_{\theta}(\theta < T | X^n)
+                    &= P_{\theta}(e^{\mu} < T | X^n) \\
+                    &= P_{\theta}(\mu < \log(T) | X^n) \\
+                    &= P_{\theta}(Z < \sqrt{n}(\log(T) - \overline{X})) \\
+                    &= \Phi(\sqrt{n}(\log(T) - \overline{X})).
+            \end{split}
+        \end{equation*}
+        Differentiate with respect to $T$ gives the probability density function
+        \begin{equation*}
+            f(\theta|X^n) = \frac{\sqrt{n}}{\theta} \phi\left(\sqrt{n}(\log(\theta) - \overline{X})\right).
+        \end{equation*}
+        For the simulation see code.
+    \item[(e)] We have $\mu|X^n \sim \mathrm{Normal}(\overline{X}, \frac{1}{n})$, so the 95\% posterior interval is
+        \begin{equation*}
+            \left(\overline{X} - \frac{z_{0.025}}{\sqrt{n}}, \overline{X} + \frac{z_{0.025}}{\sqrt{n}}\right).
+        \end{equation*}
+    \item[(f)] We use the Delta method.
+        Let $\theta = g(\mu) = e^{\mu}$, then $g'(\mu) = e^{\mu}$, so $\hat{se}(\hat{\theta}) = |g'(\hat{\mu})|\hat{se}(\hat{\mu})$.
+        The 95\% confidence interval is given by
+        \begin{equation*}
+            \left(e^{\overline{X}} - z_{0.025} \frac{e^{\overline{X}}}{\sqrt{n}}, e^{\overline{X}} + z_{0.025} \frac{e^{\overline{X}}}{\sqrt{n}}\right)
+            = \left(e^{\overline{X}}(1 - \frac{z_{0.025}}{\sqrt{n}}), e^{\overline{X}}(1 + \frac{z_{0.025}}{\sqrt{n}})\right).
+        \end{equation*}
+\end{itemize}
