@@ -73,3 +73,32 @@ Let $X_1, X_2, ..., X_n \sim \mathrm{Normal}(\mu, 1)$.
             = \left(e^{\overline{X}}(1 - \frac{z_{0.025}}{\sqrt{n}}), e^{\overline{X}}(1 + \frac{z_{0.025}}{\sqrt{n}})\right).
         \end{equation*}
 \end{itemize}
+
+
+\subsection*{Solution 11.3}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, \theta)$ and prior $f(\theta) \propto 1/\theta$.
+The likelihood is
+\begin{equation*}
+    \mathcal{L}_n(\theta)
+        = \prod_{i = 1}^n f(X_i | \theta)
+        = \prod_{i = 1}^n \frac{1}{\theta} I(X_i \leq \theta)
+        = \frac{1}{\theta^n} I(X^+ \leq \theta).
+\end{equation*}
+The posterior becomes
+\begin{equation*}
+    \theta | X^n \propto \mathcal{L}_n(\theta) f(\theta)
+        \propto \frac{1}{\theta^{n+1}} I(X^+ \leq \theta).
+\end{equation*}
+Finally, to calculate the normalization coefficient
+\begin{equation*}
+    \int_{-\infty}^{\infty} \frac{1}{\theta^{n+1}} I(X^+ \leq \theta) d\theta
+        = \int_{X^+}^{\infty} \frac{1}{\theta^{n+1}} d\theta
+        = \left.-\frac{1}{n\theta^n}\right|_{\theta = X^+}^{\infty}
+        = \frac{1}{n (X^+)^n}.
+\end{equation*}
+So, the probability density function is
+\begin{equation*}
+    f(\theta|X^n) = \frac{1}{n} \frac{1}{(X^+)^n} \frac{1}{\theta^{n+1}},
+\end{equation*}
+for $\theta \geq X^+$.
