@@ -195,3 +195,17 @@ Define $\tau = p_1 - p_2$.
     \item[(e)] See code.
         We can use the algorithm above, replacing $\tau$ with $\psi$.
 \end{itemize}
+
+
+\subsection*{Solution 11.5}
+
+Let $X_1, X_2, ..., X_{n} \sim \mathrm{Bernoulli}(p)$.
+Take prior $p \sim \mathrm{Beta}(a, b)$.
+The posterior $p|X^n$ is
+\begin{equation*}
+    f(p|X^n) \sim \mathcal{L}_n(p) f(p)
+        = \left(\prod_{i = 1}^n p^{X_i}(1 - p)^{1 - X_i}\right) p^{a - 1} (1 - p)^{b - 1}
+        = p^{\sum X_i + a - 1} (1 - p)^{n - \sum X_i + b - 1},
+\end{equation*}
+such that $p|X^n \sim \mathrm{Beta}(\sum X_i + a, \sum X_i + b)$.
+See code for probability density function plots of $p|X^n$.
