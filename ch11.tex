@@ -209,3 +209,46 @@ The posterior $p|X^n$ is
 \end{equation*}
 such that $p|X^n \sim \mathrm{Beta}(\sum X_i + a, \sum X_i + b)$.
 See code for probability density function plots of $p|X^n$.
+
+
+\subsection*{Solution 11.6}
+
+Let $X_1, X_2, ..., X_n \sim \mathrm{Poisson}(\lambda)$.
+\begin{itemize}
+    \item[(a)] Take prior $\lambda \sim \mathrm{Gamma}(a, b)$.
+        The likelihood is
+        \begin{equation*}
+            \mathcal{L}_n(\lambda) = \prod_{i = 1}^n \frac{\lambda^{X_i}}{X_i!} e^{-\lambda}
+                \propto \lambda^{\sum X_i} e^{-n\lambda}.
+        \end{equation*}
+        The posterior becomes
+        \begin{equation*}
+            \lambda|X^n \propto \mathcal{L}_n(\lambda) f(\lambda)
+                \propto \lambda^{\sum X_i} e^{-n\lambda} \lambda^{\alpha - 1} e^{-\lambda \beta}
+                = \lambda^{\sum X_i + \alpha - 1} e^{-\lambda (n + \beta)},
+        \end{equation*}
+        so that $\lambda|X^n \sim \mathrm{Gamma}(\sum X_i + \alpha, n + \beta)$.
+        The posterior mean is
+        \begin{equation*}
+            E(\lambda|X^n) = \frac{\sum X_i + \alpha}{n + \beta}.
+        \end{equation*}
+    \item[(b)] Let $f(\lambda) \propto \sqrt{I(\lambda)}$ be Jeffrey's prior.
+        We calculate
+        \begin{equation*}
+            \ell_n(\lambda) = \sum_{i = 1}^n \log(\lambda) X_i - n \lambda, \quad
+            \ell_n'(\lambda) = \sum_{i = 1}^n \frac{X_i}{\lambda} - n, \quad
+            \ell_n''(\lambda) = -\sum_{i = 1}^n \frac{X_i}{\lambda^2}.
+        \end{equation*}
+        The Fisher information matrix becomes
+        \begin{equation*}
+            I(\lambda) = \frac{1}{n} I_n(\lambda)
+                = -\frac{1}{n} E_{\lambda}(\ell_n''(\lambda))
+                = \frac{1}{\lambda}.
+        \end{equation*}
+        So we take prior $f(\lambda) \propto \frac{1}{\sqrt{\lambda}}$, and get posterior
+        \begin{equation*}
+            \lambda|X^n \propto \mathcal{L}_n(\lambda) f(\lambda)
+                \propto \lambda^{\sum X_i - \frac{1}{2}} e^{-n\lambda},
+        \end{equation*}
+        so that $\lambda|X^n \sim \mathrm{Gamma}\left(\sum X_i + \frac{1}{2}, n\right)$.
+\end{itemize}
