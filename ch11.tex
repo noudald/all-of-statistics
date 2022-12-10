@@ -252,3 +252,45 @@ Let $X_1, X_2, ..., X_n \sim \mathrm{Poisson}(\lambda)$.
         \end{equation*}
         so that $\lambda|X^n \sim \mathrm{Gamma}\left(\sum X_i + \frac{1}{2}, n\right)$.
 \end{itemize}
+
+
+\subsection*{Solution 11.7}
+
+Let $\theta = (\theta_1, \theta_2, ..., \theta_n) \in \mathbb{R}^n$ and $\xi = (\xi_1, \xi_2, ..., \xi_n) \in \mathbb{R}^n$.
+Let $X_i \sim \mathrm{Uniform}(\{1, 2, ..., B\})$ with $B >> 0$, $R_i \sim \mathrm{Bernoulli}(\xi_{X_i})$, and $Y_i \sim \mathrm{Bernoulli}(\theta_{X_i})$ if $R_i = 1$ and else don't draw $Y_i$.
+We frequentist approximate $\psi = P(Y = 1)$ with
+\begin{equation*}
+    \hat{\psi} = \frac{1}{n} \sum_{i = 1}^n \frac{R_i Y_i}{\xi_i}.
+\end{equation*}
+Note that
+\begin{equation*}
+    \begin{split}
+        E\left(\frac{R_i Y_i}{\xi_{X_i}}\right)
+            &= E\left(E\left(\left.\frac{R_i Y_i}{\xi_{X_i}}\right|X_i\right)\right) \\
+            &= \sum_{j = 1}^B \frac{1}{\xi_j} P(R_i|X_i=j) P(Y_i|X_i=j) P(X_i=j) \\
+            &= \sum_{j = 1}^B \frac{1}{\xi_j} \xi_j \theta_j \frac{1}{B} \\
+            &= \frac{1}{B} \sum_{j = 1}^B \theta_j
+            = \psi.
+    \end{split}
+\end{equation*}
+Furthermore,
+\begin{equation*}
+    \begin{split}
+        E\left(\left(\frac{R_i Y_i}{\xi_{X_i}}\right)^2\right)
+            &= E\left(E\left(\left.\left(\frac{R_i Y_i}{\xi_{X_i}}\right)^2\right|X_i\right)\right) \\
+            &= \sum_{j = 1}^B \frac{1}{\xi_j^2} P(R_i^2|X_i=j) P(Y_i^2|X_i=j) P(X_i=j) \\
+            &= \sum_{j = 1}^B \frac{1}{\xi_j^2} \xi_j \theta_j
+            = \frac{1}{B} \sum_{j = 1}^B \frac{\theta_j}{\xi_j}.
+    \end{split}
+\end{equation*}
+Take $\delta$ such that $\frac{\theta_j}{\xi_j} \leq \frac{1}{\delta^2}$ for all $j$.
+The variance is bounded by
+\begin{equation*}
+    \begin{split}
+        V(\hat{\psi}) &= \frac{1}{n^2} V\left(\sum_{i = 1}^n \frac{R_i Y_i}{\xi_{X_i}}\right) \\
+            &= \frac{1}{n^2} \sum_{i = 1}^n \left(E\left(\left(\frac{R_i Y_i}{\xi_{X_i}}\right)^2\right) - E\left(\frac{R_i Y_i}{\xi_{X_i}}\right)^2\right) \\
+            &= \frac{1}{n^2} \sum_{i = 1}^n \left(\frac{1}{B}\sum_{j = 1}^B \frac{\theta_j}{\xi_j} - \left(\frac{1}{B}\sum_{j = 1}^B \theta_j\right)^2\right) \\
+            &\leq \frac{1}{n^2} \sum_{i = 1}^n \frac{1}{B} \sum_{j = 1}^B \frac{1}{\delta^2}
+            = \frac{1}{n \delta^2}.
+    \end{split}
+\end{equation*}
