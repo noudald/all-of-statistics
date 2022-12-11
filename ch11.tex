@@ -294,3 +294,75 @@ The variance is bounded by
             = \frac{1}{n \delta^2}.
     \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 11.8}
+
+Let $X \sim \mathrm{Normal}(\mu. 1)$.
+We will test $H_0: \mu = 0$ against the alternative hypothesis $H_1: \mu \neq 0$.
+As prior of the tests take $P(H_0) = P(H_1) = \frac{1}{2}$.
+And let the prior of $\mu$ under $H_1$ be $\mu \sim \mathrm{Normal}(0, b^2)$.
+From Bayes' Theorem we have
+\begin{equation*}
+    P(H_0|X^n) = \frac{\mathcal{L}_n(\mu_0)}{\mathcal{L}_n(0) + \int \mathcal{L}_n(\mu) f(\mu) d\mu}
+        = \frac{1}{1 + \int \frac{\mathcal{L}_n(\mu)}{\mathcal{L}_n(0)} f(\mu) d\mu}.
+\end{equation*}
+We calculate the nominator and denominator in the integral seperately
+\begin{equation*}
+    \mathcal{L}_n(0)
+        = \left(\frac{1}{\sqrt{2\pi}}\right)^n \exp\left(-\frac{1}{2}\sum_{i = 1}^n X_i^2\right),
+\end{equation*}
+and
+\begin{equation*}
+    \mathcal{L}_n(\mu) f(\mu)
+        = \left(\frac{1}{\sqrt{2\pi}}\right)^{n + 1} \frac{1}{b}
+            \exp\left(-\frac{1}{2}\left(\sum_{i = 1}^n (X_i - \mu)^2 + \frac{\mu^2}{b^2}\right)\right).
+\end{equation*}
+Expanding and factorizing $\mu$ in the exponential term in $\mathcal{L}_n(\mu) f(\mu)$ gives
+\begin{equation*}
+    \sum_{i = 1}^n (X_i - \mu)^2 + \frac{\mu^2}{b^2}
+        = \sum_{i = 1}^n X_i^2 - 2n \overline{X} \mu + \left(n + \frac{1}{b^2}\right)\mu^2
+        = \frac{1}{\sigma^2}\left(\mu - \sigma^2 n \overline{X}\right)^2 - \sigma^2 n^2 \overline{X}^2 + \sum_{i = 1}^n X_i^2,
+\end{equation*}
+where $\sigma^2 = \frac{1}{n + 1/b^2} = \frac{b^2}{1 + nb^2}$.
+This brings us to
+\begin{equation*}
+    \mathcal{L}_n(\mu) f(\mu)
+        = \left(\frac{1}{\sqrt{2\pi}}\right)^{n + 1} \frac{1}{b}
+            \exp\left(-\frac{1}{2}\sum_{i = 1}^n X_i^2 + \frac{1}{2}\sigma^2 n^2 \overline{X}^2 \right)
+            \exp\left(-\frac{1}{2\sigma^2} \left(\mu - \sigma^2 n \overline{X}\right)^2\right).
+\end{equation*}
+With these expressions we can calculate the integral
+\begin{equation*}
+    \begin{split}
+        \int \frac{\mathcal{L}_n(\mu)}{\mathcal{L}_n(0)} f(\mu) d\mu
+            &= \int \frac{
+                    \left(\frac{1}{\sqrt{2\pi}}\right)^{n + 1} \frac{1}{b}
+                        \exp\left(-\frac{1}{2}\sum_{i = 1}^n X_i^2 + \frac{1}{2}\sigma^2 n^2 \overline{X}^2 \right)
+                        \exp\left(-\frac{1}{2\sigma^2} \left(\mu - \sigma^2 n \overline{X}\right)^2\right)
+                }{
+                    \left(\frac{1}{\sqrt{2\pi}}\right)^n \exp\left(-\frac{1}{2}\sum_{i = 1}^n X_i^2\right)
+                } d\mu \\
+            &= \int \frac{1}{\sqrt{2\pi}} \frac{1}{b} \exp\left(\frac{1}{2}\sigma^2 n^2 \overline{X}^2\right)
+                        \exp\left(-\frac{1}{2\sigma^2} \left(\mu - \sigma^2 n \overline{X}\right)^2\right) d\mu \\
+            &= \frac{\sigma}{b} \exp\left(\frac{1}{2}\sigma^2 n^2 \overline{X}^2\right)
+                        \int \frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{1}{2\sigma^2} \left(\mu - \sigma^2 n \overline{X}\right)^2\right) d\mu \\
+            &= \frac{\sigma}{b} \exp\left(\frac{1}{2}\sigma^2 n^2 \overline{X}^2\right) \\
+            &= \sqrt{\frac{b}{1 + n^2 b^2}} \exp\left(\frac{bn^2\overline{X}^2}{2(1 + n^2b^2)}\right) \\
+            &= \sqrt{\frac{b}{1 + n^2 b^2}} \exp\left(\frac{b\overline{X}^2}{2(\frac{1}{n^2} + b^2)}\right).
+    \end{split}
+\end{equation*}
+Therefore,
+\begin{equation*}
+    P(H_0|X^n) = \frac{1}{1 + \sqrt{\frac{b}{1 + n^2 b^2}} \exp\left(\frac{b\overline{X}^2}{2(\frac{1}{n^2} + b^2)}\right)}
+        \longrightarrow 1,
+\end{equation*}
+when $n \to \infty$.
+In other words, $P(H_0|X^n)$ goes to $1$ when $n$ goes to infinity, no matter if $H_0$ is true or false.
+This is called the Jeffreys-Lindley paradox.
+
+Frequentist would use the Wald's test instead, i.e.,
+$$
+    W = \frac{\overline{X}_n}{\hat{se}} = \sqrt{n}\,\overline{X}_n,
+$$
+and reject $H_0$ when $|W| \geq z_{\alpha/2}$.
