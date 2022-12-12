@@ -1,0 +1,42 @@
+\section*{Chapter 12 - Statistical Decision Theory}
+
+\subsection*{Solution 12.1}
+
+Note that the definition for Bayes risk is wrong.
+The Bayes risk should be
+\begin{equation*}
+    r(f, \hat{p}) = \int L(p, \hat{p}) f(p) dp.
+\end{equation*}
+
+\begin{itemize}
+\item[(a)] $X \sim \mathrm{Binomial}(n, p)$, $p \sim \mathrm{Beta}(\alpha, \beta)$.
+    Bayes risk is given by
+    \begin{equation*}
+        \begin{split}
+            r(f, \hat{p})
+                &= \int L(p, \hat{p}) f(p) dp \\
+                &= \int (p - \hat{p})^2 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} p^{\alpha - 1} (1 - p)^{\beta - 1} dp \\
+                &= \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} \int (p^2 - 2p\hat{p} + \hat{p}^2) p^{\alpha - 1} (1 - p)^{\beta - 1} dp \\
+                &= \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} \left(\frac{\Gamma(\alpha + 2)\Gamma(\beta)}{\Gamma(\alpha + \beta + 2)} - 2\hat{p}\frac{\Gamma(\alpha + 1)\Gamma(\beta)}{\Gamma(\alpha + \beta + 1)} + \hat{p}^2\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}\right) \\
+                &= \frac{\alpha(\alpha + 1)}{(\alpha + \beta + 1)(\alpha + \beta)} - \frac{2 \alpha}{\alpha + \beta} \hat{p} + \hat{p}^2 \\
+                &= \frac{\alpha(\alpha + 1) - 2 \alpha (\alpha + \beta + 1) \hat{p} + (\alpha + \beta + 1)(\alpha + \beta) \hat{p}^2}{(\alpha + \beta)(\alpha + \beta + 1)}.
+        \end{split}
+    \end{equation*}
+    According to Theorem 12.8, the Bayes estimator is given by
+    \begin{equation*}
+        \hat{\theta}(x^n) = \int \theta f(\theta|x^n) dx^n = E(\theta|X^n = x^n).
+    \end{equation*}
+    We calculate
+    \begin{equation*}
+        \begin{split}
+            \theta|X^n \propto \mathcal{L}_{\theta}(X^n) f(\theta)
+                &= \left(\prod_{i = 1}^m \binom{n}{X_i} p^{X_i} (1 - p)^{n - X_i}\right) \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} p^{\alpha - 1}(1 - p)^{\beta - 1} \\
+                &\propto p^{\alpha + \sum X_i - 1} (1 - p)^{\beta + mn - \sum X_i - 1} \\
+                &\sim \mathrm{Gamma}\left(\alpha + \sum_{i = 1}^n X_i, \beta + mn - \sum_{i = 1}^n X_i\right).
+        \end{split}
+    \end{equation*}
+    As the mean of $X \sim \mathrm{Gamma}(\alpha, \beta)$ is $E(X) = \frac{\alpha}{\alpha + \beta}$, the Bayes estimator is
+    \begin{equation*}
+        \hat{\theta}(x^n) = E(\theta|X^n = x^n) = \frac{\alpha + \sum_{i = 1}^n X_i}{\alpha + \beta + mn}.
+    \end{equation*}
+\end{itemize}
