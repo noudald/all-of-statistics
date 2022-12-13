@@ -39,4 +39,34 @@ The Bayes risk should be
     \begin{equation*}
         \hat{\theta}(x^n) = E(\theta|X^n = x^n) = \frac{\alpha + \sum_{i = 1}^n X_i}{\alpha + \beta + mn}.
     \end{equation*}
+\item[(b)] $X \sim \mathrm{Poisson}(\lambda)$, $\lambda \sim \mathrm{Gamma}(\alpha, \beta)$.
+    We use
+    \begin{equation*}
+        \int \lambda^{a - 1} e^{-b\lambda} d\lambda
+            = \int b^{-a + 1} y^{a - 1} e^{-y} \frac{1}{b} dy
+            = \frac{1}{b^a} int y^{a - 1} e^{-y} dy
+            = \frac{\Gamma(a)}{b^a},
+    \end{equation*}
+    where we substituted $y = b\lambda$, to show that the Bayes risk is given by
+    \begin{equation*}
+        \begin{split}
+            r(f, \hat{\lambda})
+                &= \int L(\lambda, \hat{\lambda}) f(\lambda) d\lambda \\
+                &= \int (\lambda - \hat{\lambda})^2 \frac{\beta^{\alpha}}{\Gamma(\alpha)} \lambda^{\alpha - 1} e^{-\beta \lambda} d\lambda \\
+                &= \frac{\beta^{\alpha}}{\Gamma(\alpha)} \left[
+                    \int \lambda^{2 + \alpha - 1} e^{-\beta \lambda} d\lambda - 2 \hat{\lambda} \int \lambda^{1 + \alpha - 1} e^{\beta \lambda} d\lambda + \int \lambda^{\alpha - 1} e^{\beta \lambda} d\lambda
+                \right] \\
+                &= \frac{\beta^{\alpha}}{\Gamma(\alpha)} \left[ \frac{\Gamma(\alpha + 2)}{\beta^{\alpha + 2}} - 2 \hat{\lambda} \frac{\Gamma(\alpha + 1)}{\beta^{\alpha + 1}} + \hat{\lambda}^2 \frac{\Gamma(\alpha)}{\beta^{\alpha}} \right] \\
+                &= \frac{\alpha(\alpha + 1)}{\beta^2} - 2\hat{\lambda} \frac{\alpha}{\beta} + \hat{\lambda}^2.
+        \end{split}
+    \end{equation*}
+    For the Bayes estimator we use Theorem 12.8 such that
+    \begin{equation*}
+        \begin{split}
+            f(\lambda|X^n) \propto \mathcal{L}_n(\lambda) f(\lambda)
+                &= \left( \prod_{i = 1}^n \frac{1}{X_i!} \lambda^{X_i} e^{-\lambda} \right) \frac{\beta^{\alpha}}{\Gamma(\alpha)} \lambda^{\alpha - 1} e^{-\beta \lambda} \\
+                &\propto \lambda^{\sum X_i + \alpha - 1} e^{-(\beta + n)\lambda}
+                \sim \mathrm{Gamma}\left(\sum_{i = 1}^n X_i + \alpha, \beta + n\right).
+        \end{split}
+    \end{equation*}
 \end{itemize}
