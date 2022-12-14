@@ -69,4 +69,30 @@ The Bayes risk should be
                 \sim \mathrm{Gamma}\left(\sum_{i = 1}^n X_i + \alpha, \beta + n\right).
         \end{split}
     \end{equation*}
+\item[(c)] $X \sim \mathrm{Normal}(\theta, \sigma^2)$, $\sigma^2$ known, $\theta \sim \mathrm{Normal}(a, b^2)$.
+    Bayes risk is
+    \begin{equation*}
+        \begin{split}
+            r(f, \hat{\theta})
+                &= \int (\hat{\theta} - \theta)^2 f(\theta) d\theta \\
+                &= \int (\hat{\theta}^2 - 2 \hat{\theta} \theta + \theta^2) \frac{1}{2\pi} \frac{1}{b} \exp\left(-\frac{1}{2b^2} (\theta - a)^2\right) d\theta \\
+                &= \hat{\theta}^2 - 2\hat{\theta} E(\theta) + E(\theta^2) \\
+                &= \hat{\theta}^2 - 2 \hat{\theta} a + a^2 + b^2,
+        \end{split}
+    \end{equation*}
+    as $V(\theta) = E(\theta^2) - E(\theta)^2$, we have $E(\theta^2) = V(\theta) - E(\theta)^2 = a^2 + b^2$.
+    Bayes estimator is, using Theorem 12.8,
+    \begin{equation*}
+        \begin{split}
+            f(\theta|X^n) &\propto \mathcal{L}_n(\theta) f(\theta) \\
+                &= \left(\prod_{i = 1}^n \frac{1}{\sqrt{2 \pi}} \frac{1}{\sigma} \exp\left(-\frac{1}{2\sigma^2} (X_i - \theta)^2\right)\right) \frac{1}{\sqrt{2\pi}} \frac{1}{b} \exp\left(-\frac{1}{2b^2} (\theta - a)^2\right) \\
+                &\propto \exp\left(-\frac{1}{2}\left(\left(\frac{n}{\sigma^2} + \frac{1}{b^2}\right) \theta^2 - (2n\overline{X} - 2a)\theta\right)\right) \\
+                &\propto \exp\left(-\frac{1}{2\hat{\sigma}^2} \left(\theta - \hat{\sigma}^2(n\overline{X} - a)\right)^2\right)
+                \sim \mathrm{Normal}(\hat{\mu}, \hat{\sigma}^2),
+        \end{split}
+    \end{equation*}
+    where
+    \begin{equation*}
+        \frac{1}{\hat{\sigma}^2} = \left(\frac{n}{\sigma^2} + \frac{1}{b^2}\right), \quad \hat{\mu} = \hat{\sigma}^2(n\overline{X} - a).
+    \end{equation*}
 \end{itemize}
