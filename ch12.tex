@@ -126,3 +126,26 @@ Moreover,
 \end{equation*}
 is constant.
 Therefore, by Theorem 12.21, $\overline{X}$ is minimax.
+
+
+\subsection*{Solution 12.3}
+
+Let $\Theta = \{\theta_1, \theta_2, ..., \theta_k\}$ be a finite parameter space.
+The zero-one loss is given by $L(\theta, \hat{\theta}) = 0$ if $\theta = \hat{\theta}$ and $L(\theta, \hat{\theta}) = 1$ otherwise.
+The posterior risk is defined by
+\begin{equation*}
+    r(\hat{\theta}|x) = \int L(\theta, \hat{\theta}(x)) f(\theta|x) dx
+        = \int \left(1 - I_{\theta, \hat{\theta}(x)}\right) f(\theta|x) dx
+        = 1 - \sum_{\theta = \hat{\theta}(x)} f(\theta|x) dx
+        = 1 - f(\hat{\theta}(x)|x),
+\end{equation*}
+where we use that $\Theta$ is finite.
+The Bayes estimator $\hat{\theta}$ is the minimal value of the posterior risk $r(\hat{\theta}|x)$.
+By Theorem 12.8, the Bayes estimator, under zero-one loss $L$, is the mode of the posterior $f(\theta|x)$.
+The mode of the posterior is not defined in the book, so I give it here.
+In the discrete case, the mode of the posterior is the value $\hat{\theta}_{\mathrm{MAP}}(x)$ at wich the probability mass function of the posterior $f(\theta|x)$ takes it's maximum value, i.e.,
+\begin{equation*}
+    \hat{\theta}_{\mathrm{MAP}}(x) = \mathrm{argmax}_{\theta} f(\theta|x),
+\end{equation*}
+where MAP estimator stands for Maximum A Posteriori estimator.
+Notice that $\hat{\theta}_{\mathrm{MAP}}(x)$ is the minimal value for $1 - f(\theta|x)$, so $\hat{\theta}_{\mathrm{MAP}}(x)$ is the Bayes estimator.
