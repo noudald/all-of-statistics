@@ -149,3 +149,28 @@ In the discrete case, the mode of the posterior is the value $\hat{\theta}_{\mat
 \end{equation*}
 where MAP estimator stands for Maximum A Posteriori estimator.
 Notice that $\hat{\theta}_{\mathrm{MAP}}(x)$ is the minimal value for $1 - f(\theta|x)$, so $\hat{\theta}_{\mathrm{MAP}}(x)$ is the Bayes estimator.
+
+
+\subsection*{Solution 12.4}
+
+Let $X_1, X_2, ..., X_n$ be samples from a distribution with variance $\sigma^2$.
+Consider the estimator $bS^2$, where
+\begin{equation*}
+    S^2 = \frac{1}{n - 1} \sum_{i = 1}^n (X_i - \overline{X}_i)^2.
+\end{equation*}
+Define loss
+\begin{equation*}
+    L(\sigma^2, \hat{\sigma}^2) = \frac{\hat{\sigma}^2}{\sigma^2} - \log\left(\frac{\hat{\sigma}^2}{\sigma^2}\right) - 1.
+\end{equation*}
+To find the optimal $b$ that minimizes the risk of $L$ simplify
+\begin{equation*}
+    L(\sigma^2, bS^2) = b \frac{S^2}{\sigma^2} - \log(b) - \log\left(\frac{S^2}{\sigma^2}\right) - 1.
+\end{equation*}
+The risk becomes
+\begin{equation*}
+    R(\sigma^2, bS^2) = E_{\sigma^2}(L(\sigma^2, bS^2))
+        = b - \log(b) + C,
+\end{equation*}
+where $C$ is a term independent of $b$.
+Differentiating $f(x) = x - \log(x)$ and setting the differential to zero gives $b = 1$.
+So $R(\sigma^2, bS^2)$ is minimal if $b = 1$.
