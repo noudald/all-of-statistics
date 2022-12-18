@@ -174,3 +174,33 @@ The risk becomes
 where $C$ is a term independent of $b$.
 Differentiating $f(x) = x - \log(x)$ and setting the differential to zero gives $b = 1$.
 So $R(\sigma^2, bS^2)$ is minimal if $b = 1$.
+
+
+\subsection*{Solution 12.5}
+
+Let $X \sim \mathrm{Binomial}(n, p)$.
+Define loss function
+\begin{equation*}
+    L(p, \hat{p}) = \left(1 - \frac{\hat{p}}{p}\right)^2,
+\end{equation*}
+where $0 < p < 1$.
+Take estimator $\hat{p}(X) = 0$.
+We calculate the risk
+\begin{equation*}
+    R(p, \hat{p}) = E_{p}(L(p, \hat{p}))
+        = E_p\left(\left(1 - \frac{\hat{p}}{p}\right)^2\right)
+        = E_p\left(1 - 2\frac{\hat{p}}{p} + \frac{\hat{p}^2}{p^2}\right)
+        = 1 - \frac{2}{p} E_p(\hat{p}) + \frac{1}{p^2} E(\hat{p}^2).
+\end{equation*}
+When $\hat{p}(X) = 0$ we have $R(p, \hat{p}(X)) = 1$.
+Let $\hat{p}'(X) > 0$, then $E(\hat{p}'(X)) > 0$.
+Take $p$ such that
+\begin{equation*}
+    0 < p < \frac{1}{2} \frac{E(\hat{p}'(X)^2)}{E(\hat{p}'(X))}.
+\end{equation*}
+In particular we have
+\begin{equation*}
+    \frac{1}{p^2} E(\hat{p}'(X)^2) - \frac{2}{p} E(\hat{p}'(X)) > 0,
+\end{equation*}
+such that $R(p, \hat{p}'(X)) > 1 = R(p, \hat{p}(X))$.
+In other words, $\hat{p}(X)$ is minimax.
