@@ -1,0 +1,53 @@
+\section*{Chapter 13 - Linear and Logistic Regression}
+
+\subsection*{Solution 13.1}
+
+I tried to calculate the equations directly from the formula, but it's significantly easier to do it with matrix differentiation.
+Therefore, we develop a set of matrix differentiation tools.
+
+For the rest of this section, let $\psi: \mathbb{R}^n \to \mathbb{R}^m$, $\bm{x} \in \mathbb{R}^m$ and $\bm{y} \in \mathbb{R}^n$, such that $\bm{y} = \bm{y}(\bm{x}) = \psi(\bm{x})$.
+We define
+\begin{equation*}
+    \frac{\partial \psi(\bm{x})}{\partial \bm{x}}
+        = \frac{\partial \bm{y}}{\partial \bm{x}}
+        = \left( \frac{\partial y_i}{\partial x_j} \right)_{\substack{1 \leq i \leq m \\ 1 \leq j \leq n}}
+        = \left( \begin{matrix}
+            \frac{\partial y_1}{\partial x_1} & \frac{\partial y_1}{\partial x_2} & \ldots & \frac{\partial y_1}{\partial x_n} \\
+            \frac{\partial y_2}{\partial x_1} & \frac{\partial y_2}{\partial x_2} & \ldots & \frac{\partial y_2}{\partial x_n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            \frac{\partial y_m}{\partial x_1} & \frac{\partial y_m}{\partial x_2} & \ldots & \frac{\partial y_m}{\partial x_n}
+        \end{matrix} \right)
+        \in \mathbb{R}^{m \times n}.
+\end{equation*}
+
+
+\begin{theorem} \label{md1}
+If $\psi = A \in \mathbb{R}^{m \times n}$, such that $\bm{y}(\bm{x}) = A\bm{x}$, and $A$ is independent of $\bm{x}$, then $\frac{\partial \bm{y}}{\partial \bm{x}} = A$.
+\end{theorem}
+
+\begin{proof}
+We have $y_i = \sum_{j = 1}^n a_{ij} x_j$, so $\frac{\partial y_i}{\partial x_j} = a_{ij}$, and therefore, $\frac{\partial \bm{y}}{\partial \bm{x}} = A$.
+\end{proof}
+
+
+\begin{theorem} \label{md2}
+Let $\bm{y}(\bm{x}, \bm{z}) = A\bm{x}(\bm{z})$, where $\bm{x}$ is a vector values function in vector $\bm{z}$, and $A$ is independent of $\bm{x}$ and $\bm{z}$, then $\frac{\partial \bm{y}}{\partial \bm{z}} = A \frac{\partial \bm{x}}{\partial \bm{z}}$.
+\end{theorem}
+
+\begin{proof}
+We have $y_i = \sum_{j = 1}^n a_{ij} x_j(\bm{z})$, so $\frac{\partial y_i}{\partial z_j} = \sum_{k = 1}^n a_{ik} \frac{\partial x_k}{\partial z_j} = \left(A \frac{\partial \bm{x}}{\partial \bm{z}}\right)_{ij}$.
+Hence, $\frac{\partial \bm{y}}{\partial \bm{z}} = A \frac{\partial \bm{x}}{\partial \bm{z}}$.
+\end{proof}
+
+
+\begin{theorem} \label{md3}
+Let $\alpha(\bm{x}, \bm{y}) = \bm{y}^t A \bm{x}$ be a real valued function, where $A$ is a matrix indepedent of $\bm{x}$ and $\bm{y}$.
+We have $\frac{\partial \alpha}{\partial \bm{x}} = \bm{y}^t A$ and $\frac{\partial \alpha}{\partial \bm{y}} = (A \bm{x})^t$.
+\end{theorem}
+
+\begin{proof}
+Let $\bm{z}^t = \bm{y}^t A$, so that $\alpha = \bm{z}^t \bm{x}$.
+By Theorem \ref{md1} we have $\frac{\partial \alpha}{\partial \bm{x}} = \bm{z}^t = \bm{y}^t A$.
+Because $\alpha$ is a scalar, $\alpha = \alpha^t = \bm{x}^t A \bm{y}$.
+Applying the same method for $\bm{x}^t A$ we get $\frac{\partial \alpha}{\partial \bm{y}} = \frac{\partial \alpha^t}{\partial \bm{y}} = \bm{x}^t A^t = (A \bm{x})^t$.
+\end{proof}
