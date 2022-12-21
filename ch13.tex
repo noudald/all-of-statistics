@@ -51,3 +51,35 @@ By Theorem \ref{md1} we have $\frac{\partial \alpha}{\partial \bm{x}} = \bm{z}^t
 Because $\alpha$ is a scalar, $\alpha = \alpha^t = \bm{x}^t A \bm{y}$.
 Applying the same method for $\bm{x}^t A$ we get $\frac{\partial \alpha}{\partial \bm{y}} = \frac{\partial \alpha^t}{\partial \bm{y}} = \bm{x}^t A^t = (A \bm{x})^t$.
 \end{proof}
+
+
+\begin{theorem} \label{md4}
+Let $\alpha(\bm{x}) \bm{x}^t A \bm{x}$, where $A$ is independent of $\bm{x}$, then $\frac{\partial \alpha}{\partial \bm{x}} = \bm{x}^t(A + A^t)$.
+\end{theorem}
+
+\begin{proof}
+We have $\alpha(\bm{x}) = \sum_{i = 1}^n \sum_{j = 1}^n x_i \alpha_{ij} x_j$, so $\frac{\partial \alpha}{\partial x_k} = \sum_{i = 1}^n x_i \alpha_{ik} + \sum_{j = 1}^n x_j \alpha_{kj} = \left(\bm{x}^t (A + A^t)\right)_{k}$.
+\end{proof}
+
+Directly from Theorem \ref{md4} we have,
+
+\begin{theorem} \label{md5}
+If $A$ is symmetic, i.e., $A^t = A$, then $\frac{\partial}{\partial \bm{x}} \bm{x}^t A \bm{x} = 2 \bm{x}^t A$.
+\end{theorem}
+
+
+\begin{theorem} \label{md6}
+Let $\alpha(\bm{x}, \bm{y}, \bm{z}) = \bm{y}(\bm{z})^t \bm{x}(\bm{z})$, then $\frac{\partial \alpha}{\partial \bm{z}} = \bm{x}^t \frac{\partial \bm{y}}{\partial \bm{z}} + \bm{y}^t \frac{\partial \bm{x}}{\partial \bm{z}}$.
+\end{theorem}
+
+\begin{proof}
+We have $\alpha(\bm{x}, \bm{y}, \bm{z}) = \sum_{i = 1}^n y_i(\bm{z}) x_i(\bm{z})$, so $\frac{\partial \alpha}{\partial z_j} = \sum_{i = 1}^n \frac{\partial y_j}{\partial z_j} x_i + \sum_{i = 1}^n y_i \frac{\partial x_i}{\partial z_j}$.
+Hence $\frac{\partial \alpha}{\partial \bm{z}} = \bm{x}^t \frac{\partial \bm{y}}{\partial \bm{z}} + \bm{y}^t \frac{\partial \bm{x}}{\partial \bm{z}}$.
+\end{proof}
+
+
+Directly from Theorem \ref{md6} we have,
+
+\begin{theorem} \label{md7}
+    Let $\alpha(\bm{x}, \bm{z}) = \bm{x}(\bm{z})^t \bm{x}(\bm{z})$, then $\frac{\partial \alpha}{\partial \bm{z}} = 2 \bm{x}^t \frac{\partial \bm{x}}{\partial \bm{z}}$.
+\end{theorem}
