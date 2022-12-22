@@ -83,3 +83,33 @@ Directly from Theorem \ref{md6} we have,
 \begin{theorem} \label{md7}
     Let $\alpha(\bm{x}, \bm{z}) = \bm{x}(\bm{z})^t \bm{x}(\bm{z})$, then $\frac{\partial \alpha}{\partial \bm{z}} = 2 \bm{x}^t \frac{\partial \bm{x}}{\partial \bm{z}}$.
 \end{theorem}
+
+
+\begin{theorem} \label{md8}
+    Let $\alpha(\bm{x}, \bm{y}, \bm{z}) = \bm{y}(\bm{z})^t A \bm{x}(\bm{z})$, where $A$ is independent of $\bm{x}$ and $\bm{y}$, then $\frac{\partial \alpha}{\partial \bm{z}} = \bm{x}(\bm{z})^t A^t \frac{\partial \bm{y}}{\bm{z}} + \bm{y}(\bm{z})^t A \frac{\partial \bm{x}}{\partial \bm{z}}$.
+\end{theorem}
+
+\begin{proof}
+    Let $\bm{w}(\bm{z}) = A^t \bm{y}(\bm{z})$, such that $\alpha(\bm{x}, \bm{z}, \bm{w}) = \bm{w}(\bm{z})^t \bm{x}(\bm{z})$.
+    By Theorem \ref{md2}, $\frac{\partial \bm{w}}{\partial \bm{z}} = A^t \frac{\partial \bm{y}^t}{\partial \bm{z}}$.
+    By Theorem \ref{md6}, $\frac{\partial \alpha}{\partial \bm{z}} = \bm{x}(\bm{z})^t \frac{\partial \bm{w}}{\partial \bm{z}} + \bm{w}(\bm{z})^t \frac{\partial \bm{x}}{\partial \bm{z}} = \bm{x}(\bm{z})^t A^t \frac{\partial \bm{y}(\bm{z})}{\bm{z}} + \bm{y}(\bm{z})^t A \frac{\partial \bm{x}(\bm{z})}{\partial \bm{z}}$.
+\end{proof}
+
+
+\begin{theorem} \label{md9}
+    Let $\alpha(\bm{x}, \bm{z}) = \bm{x}(\bm{z})^t A \bm{x}$, where $A$ is independent of $\bm{x}$, then $\frac{\partial \alpha}{\partial \bm{z}} = \bm{x}(\bm{z}) (A + A^t) \frac{\partial \bm{x}}{\partial \bm{z}}$.
+\end{theorem}
+
+\begin{proof}
+    Directly from Theorem \ref{md8}.
+\end{proof}
+
+
+\begin{theorem} \label{md10}
+    Let $\alpha(\bm{x}, \bm{z}) = \bm{x}(\bm{z})^t A \bm{x}$, where $A$ is independent of $\bm{x}$.
+    If $A$ is symmetric, i.e., $A^t = A$, then $\frac{\partial \alpha}{\partial \bm{z}} = 2 \bm{x}^t A \frac{\partial \bm{x}}{\partial \bm{z}}$.
+\end{theorem}
+
+\begin{proof}
+    Directly from Theorem \ref{md9}
+\end{proof}
