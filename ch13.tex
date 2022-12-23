@@ -113,3 +113,18 @@ Directly from Theorem \ref{md6} we have,
 \begin{proof}
     Directly from Theorem \ref{md9}
 \end{proof}
+
+
+Now we can follow Hasty.
+Let
+\begin{equation*}
+    \mathrm{RSS}(\bm{\beta}) = (\bm{y} - X\bm{\beta})^t (\bm{y} - X\bm{\beta}).
+\end{equation*}
+We want to minimize $\mathrm{RSS}(\bm{\beta})$.
+To do so we differentiate with respect to $\bm{\beta}$, using matrix differentiation.
+\begin{equation*}
+    \frac{\partial \mathrm{RSS}(\bm{\beta})}{\partial \bm{\beta}}
+        = (\bm{y} - X\bm{\beta})^t(-X) + (\bm{y} - X\bm{\beta})^t(-X)
+        = -2(\bm{y} - X\bm{\beta})^t X.
+\end{equation*}
+Solving the equation to zero gives estimate $\hat{\bm{\beta}} = (X^t X)^{-1} X^t \bm{y}$.
