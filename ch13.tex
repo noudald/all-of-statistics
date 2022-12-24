@@ -115,7 +115,7 @@ Directly from Theorem \ref{md6} we have,
 \end{proof}
 
 
-Now we can follow Hasty.
+Now we can follow Hasty, with a lot of extra calculations.
 Let
 \begin{equation*}
     \mathrm{RSS}(\bm{\beta}) = (\bm{y} - X\bm{\beta})^t (\bm{y} - X\bm{\beta}).
@@ -128,3 +128,88 @@ To do so we differentiate with respect to $\bm{\beta}$, using matrix differentia
         = -2(\bm{y} - X\bm{\beta})^t X.
 \end{equation*}
 Solving the equation to zero gives estimate $\hat{\bm{\beta}} = (X^t X)^{-1} X^t \bm{y}$.
+
+In the case of $n = 1$, we have
+\begin{equation*}
+    X = \begin{pmatrix}
+        1 & X_1 \\
+        1 & X_2 \\
+        \ldots & \ldots \\
+        1 & X_m
+    \end{pmatrix}, \quad
+    \bm{y} = \begin{pmatrix}
+        Y_1 \\
+        Y_2 \\
+        \ldots \\
+        Y_m
+    \end{pmatrix}, \quad
+    X^t \bm{y} = \begin{pmatrix}
+        \sum Y_i \\
+        \sum X_i Y_i
+    \end{pmatrix}, \quad
+    X^t X = \begin{pmatrix}
+        n & \sum X_i \\
+        \sum X_i & \sum X_i^2
+    \end{pmatrix},
+\end{equation*}
+so that
+\begin{equation*}
+    \begin{split}
+        \hat{\bm{\beta}}
+            &= (X^t X)^{-1} X^t \bm{y} \\
+            &=  \frac{1}{n \sum X_i^2 - \left(\sum X_i\right)^2}
+                \begin{pmatrix}
+                    \sum X_i^2 & -\sum X_i \\
+                    -\sum X_i & n
+                \end{pmatrix}
+                \begin{pmatrix}
+                    \sum Y_i
+                    \sum X_i Y_i
+                \end{pmatrix} \\
+            &= \frac{1}{n \sum X_i^2 - \left(\sum X_i\right)^2}
+                \begin{pmatrix}
+                    \left(\sum X_i^2\right)\left(\sum Y_i\right) - \left(\sum X_i\right)\left(\sum X_i Y_i\right) \\
+                    n \left(\sum X_i Y_i\right) - \left(\sum X_i\right)\left(\sum Y_i\right)
+                \end{pmatrix}.
+    \end{split}
+\end{equation*}
+In particular,
+\begin{equation*}
+    \begin{split}
+        \hat{\beta}_1
+            &= \frac{
+                n \left(\sum X_i Y_i\right) - \left(\sum X_i\right)\left(\sum Y_i\right)
+            }{
+                n \sum X_i^2 - \left(\sum X_i\right)^2
+            }
+            = \frac{
+                \sum X_i Y_i - \frac{1}{n}\left(\sum X_i\right)\left(\sum Y_i\right)
+            }{
+                \sum X_i^2 - \frac{1}{n}\left(\sum X_i\right)\left(\sum X_i\right)
+            }
+            = \frac{
+                \sum (X_i - \overline{X}_n)(Y_i - \overline{Y}_n)
+            }{
+                \sum (X_i - \overline{X}_n)^2
+            }, \\
+        \hat{\beta}_0
+            &= \frac{
+                \left(\sum X_i^2\right)\left(\sum Y_i\right) - \left(\sum X_i\right)\left(\sum X_i Y_i\right)
+            }{
+                n \sum X_i^2 - \left(\sum X_i\right)^2
+            } \\
+            &= \frac{
+                \left(\sum X_i^2\right)\left(\sum Y_i\right) - \left(\sum X_i\right)\left(\sum X_i Y_i\right)
+                    + \frac{1}{n} (\sum X_i) (n \sum X_i Y_i - (\sum X_i) (\sum Y_i))
+            }{
+                n \sum X_i^2 - \left(\sum X_i\right)^2
+            } - \hat{\beta}_1 \overline{X}_n \\
+            &= \frac{
+                \left(\sum X_i^2\right)\left(\sum Y_i\right)
+                    - (\sum X_i)^2 \frac{1}{n} \sum Y_i
+            }{
+                n \sum X_i^2 - \left(\sum X_i\right)^2
+            } - \hat{\beta}_1 \overline{X}_n \\
+            &= \overline{Y}_n - \hat{\beta}_1 \overline{X}_n.
+    \end{split}
+\end{equation*}
