@@ -213,3 +213,50 @@ In particular,
             &= \overline{Y}_n - \hat{\beta}_1 \overline{X}_n.
     \end{split}
 \end{equation*}
+The residual is defined by $\bm{\epsilon} = Y - X \bm{\beta}$ and $\hat{\bm{\epsilon}} = Y - X \hat{\bm{\beta}}$.
+Note that
+\begin{equation*}
+    (I - X(X^tX)^{-1}X^t)X\bm{\beta} = X\bm{\beta} - X\bm{\beta} = 0, \quad
+    (X\bm{\beta})^t(I - X(X^tX)^{-1}X^t) = \bm{\beta}^tX^t - \bm{\beta}^tX^t = 0.
+\end{equation*}
+Therefore, to find the relationship of $\hat{\bm{\epsilon}}$ with $\bm{\epsilon}$, note that
+\begin{equation*}
+    E(\bm{\epsilon}^t\bm{\epsilon}|X^n)
+         = \frac{1}{n} \sum_{i = 1}^n E(\epsilon_i^2|X_i)
+         = \frac{1}{n} \sum_{i = 1}^n (V(\epsilon_i|X_i) - E(\epsilon_i|X_i)^2)
+         = \sigma^2,
+\end{equation*}
+and
+\begin{equation*}
+    \begin{split}
+        \hat{\bm{\epsilon}}^t\hat{\bm{\epsilon}}
+            &= (Y - X\bm{\beta})^t(Y - X\bm{\beta}) \\
+            &= Y^t (I - X(X^tX)^{-1}X^t)^t (I - X(X^tX)^{-1}X^t) Y \\
+            &= Y^t (I - X(X^tX)^{-1}X^t)^2 Y \\
+            &= Y^t (I - 2X(X^tX)^{-1}X^t + (X(X^tX)^{-1}X^t)^2) Y \\
+            &= Y^t (I - X(X^tX)^{-1}X^t) Y \\
+            &= (X\bm{\beta} + \bm{\epsilon})^t (I - X(X^tX)^{-1}X^t) (X\bm{\beta} + \bm{\epsilon}) \\
+            &= \bm{\epsilon}^t (I - X(X^tX)^{-1}X^t) \bm{\epsilon}.
+    \end{split}
+\end{equation*}
+We apply a trick, used somewhere further up in the book as well, to calculate $\hat{\bm{\epsilon}}^t\bm{\epsilon}$.
+Note that $\hat{\bm{\epsilon}}^t\bm{\epsilon} \in \mathbb{R}$, so $\mathrm{tr}(\hat{\bm{\epsilon}}^t\bm{\epsilon}) = \hat{\bm{\epsilon}}^t\bm{\epsilon}$ and $E(\hat{\bm{\epsilon}}^t\hat{\bm{\epsilon}}|X^n) = \hat{\bm{\epsilon}}^t\hat{\bm{\epsilon}}$.
+So,
+\begin{equation*}
+    \begin{split}
+        E(\hat{\bm{\epsilon}}^t\hat{\bm{\epsilon}}|X^n)
+            &= E(\mathrm{tr}(\hat{\bm{\epsilon}}^t\hat{\bm{\epsilon}})|X^n) \\
+            &= E(\mathrm{tr}(\bm{\epsilon}^t(I - X(X^tX)^{-1}X^t)\bm{\epsilon})|X^n) \\
+            &= E(\mathrm{tr}(\bm{\epsilon}^t\bm{\epsilon}(I - X(X^tX)^{-1}X^t)|X^n) \\
+            &= \sigma^2 E(\mathrm{tr}(I - X(X^tX)^{-1}X^t)|X^n) \\
+            &= \sigma^2 (\mathrm{tr}(I_n) - \mathrm{tr}(X(X^tX)^{-1}X^t)) \\
+            &= \sigma^2 (\mathrm{tr}(I_n) - \mathrm{tr}(I_k)) \\
+            &= \sigma^2 (n - k),
+    \end{split}
+\end{equation*}
+and therefore an unbias estimator of $\sigma^2$ is
+\begin{equation*}
+    \hat{\sigma}^2 = \frac{1}{n - k} \bm{\hat{\epsilon}}^t \bm{\hat{\epsilon}}
+        = \frac{1}{n - k} \sum_{i = 1}^k \hat{\epsilon}_i^2.
+\end{equation*}
+In particular for this exercise, $k = 2$, which gives the final result.
