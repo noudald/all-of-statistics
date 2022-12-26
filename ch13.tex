@@ -260,3 +260,23 @@ and therefore an unbias estimator of $\sigma^2$ is
         = \frac{1}{n - k} \sum_{i = 1}^k \hat{\epsilon}_i^2.
 \end{equation*}
 In particular for this exercise, $k = 2$, which gives the final result.
+
+
+\subsection*{Solution 13.2}
+
+Note that $E(\hat{\bm{\beta}}|X) = \bm{\beta}$, so from the definition of the variance and $X\bm{\beta} + \bm{\epsilon} = Y$,
+\begin{equation*}
+    \begin{split}
+        V(\hat{\bm{\beta}}|X)
+            &= E((\hat{\bm{\beta}} - \bm{\beta})(\hat{\bm{\beta}} - \bm{\beta})^t|X^n) \\
+            &= E(((X^tX)^{-1}X^tY - \bm{\beta})((X^tX)^{-1}X^tY - \bm{\beta})^t|X^n) \\
+            &= E(((X^tX)^{-1}X^t(X\bm{\beta} + \bm{\epsilon}) - \bm{\beta})((X^tX)^{-1}X^t(X\bm{\beta} + \bm{\epsilon}) - \bm{\beta})^t|X^n) \\
+            &= E((X^tX)^{-1}X^t \bm{\epsilon}\bm{\epsilon}^t X(X^tX)^{-1}|X^n) \\
+            &= (X^tX)^{-1}X^t E(\bm{\epsilon}\bm{\epsilon}^t|X^n) X(X^tX)^{-1} \\
+            &= \sigma^2 (X^tX)^{-1} \\
+            &= \frac{\sigma^2}{n S_X^2} \begin{pmatrix}
+                \frac{1}{n}\sum X_i^2 & -\overline{X}_n \\
+                -\overline{X}_n & 1
+            \end{pmatrix}.
+    \end{split}
+\end{equation*}
