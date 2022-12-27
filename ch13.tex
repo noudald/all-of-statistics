@@ -280,3 +280,20 @@ Note that $E(\hat{\bm{\beta}}|X) = \bm{\beta}$, so from the definition of the va
             \end{pmatrix}.
     \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 13.3}
+
+With all the previous work this exercise is almost trivial.
+We have
+\begin{equation*}
+    \hat{\beta} = (X^tX)^{-1}X^tY
+        = \frac{\sum_{i = 1}^n X_i Y_i}{\sum_{i = 1}^n X_i^2}.
+\end{equation*}
+The standard error is given by
+\begin{equation*}
+    \mathrm{se}(\hat{\beta})
+        = \sqrt{V(\hat{\beta}|X^n)}
+        = \sqrt{\sigma^2(X^tX)^{-1}}
+        = \frac{\sigma}{||X||_2}.
+\end{equation*}
