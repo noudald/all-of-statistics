@@ -297,3 +297,32 @@ The standard error is given by
         = \sqrt{\sigma^2(X^tX)^{-1}}
         = \frac{\sigma}{||X||_2}.
 \end{equation*}
+
+
+\subsection*{Solution 13.4}
+
+The bias is defined by $\mathrm{bias}(\hat{\theta}) = E_{\theta}(\hat{\theta}) - \theta$, so by definition
+\begin{equation*}
+    \mathrm{bias}(\hat{R}_{\mathrm{tr}}(S)) = E_{R(S)}(\hat{R}_{\mathrm{tr}}(S)) - R(S).
+\end{equation*}
+Firstly, as $\epsilon^* \perp \epsilon_{\mathrm{tr}}$, we have $\hat{Y}_i(S) = X_i \beta(S) + \epsilon_{\mathrm{tr}} \perp X_i \beta + \epsilon^* = Y_i^*$, hence $E(\hat{Y}_i(S) Y_i^*) = E(\hat{Y}_i(S))E(Y_i^*)$.
+Secondly, $E(Y_i^*) = E(X_i \beta + \epsilon^*) = X_i \beta + E(\epsilon^*) = X_i \beta + E(\epsilon) = E(X_i \beta + \epsilon) = E(Y_i)$, and similar $E((Y_i^*)^2) = E(Y_i^2)$.
+Therefore,
+\begin{equation*}
+    \begin{split}
+        E_{R(S)}(\hat{R}_{\mathrm{tr}}(S)) - R(S)
+            &= \sum_{i = 1}^n \left(
+                    E((\hat{Y}_i(S) - Y_i)^2) - E((\hat{Y}_i(S) - Y_i^*)^2)
+                \right) \\
+            &= \sum_{i = 1}^n \left(
+                    E(\hat{Y}_i(S)^2) - 2E(\hat{Y}_i(S)Y_i) + E(Y_i^2) - E(\hat{Y}_i(S)^2) + 2E(\hat{Y}_i(S)Y_i^*) - E((Y_i^*)^2)
+                \right) \\
+            &= \sum_{i = 1}^n \left(
+                    -2E(\hat{Y}_i(S) Y_i) + 2E(\hat{Y}_i(S))E(Y_i)
+                \right) \\
+            &= -2 \sum_{i = 1}^n \left(
+                    E(\hat{Y}_i(X) Y_i) - E(\hat{Y}_i(S))E(Y_i)
+                \right) \\
+            &= -2 \sum_{i = 1}^n \mathrm{Cov}(\hat{Y}_i(S), Y_i).
+    \end{split}
+\end{equation*}
