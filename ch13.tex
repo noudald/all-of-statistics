@@ -326,3 +326,20 @@ Therefore,
             &= -2 \sum_{i = 1}^n \mathrm{Cov}(\hat{Y}_i(S), Y_i).
     \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 13.5}
+
+Let generalize the exercise a little bit.
+Let $a \neq 0$, we test $H_0: \beta_1 = a \beta_0$ against $H_1: \beta_1 \neq a \beta_0$.
+Take $\theta = \beta_1 - a \beta_0$, then $\hat{\theta} = \hat{\beta}_1 - a \hat{\beta}_0$, and
+\begin{equation*}
+    V(\hat{\theta})
+        = V(\hat{\beta}) + a^2 V(\hat{\beta}_0)
+        = \frac{\sigma^2}{n S_X^2} \left(\frac{1}{n} \sum_{i = 1}^n X_i^2 + a^2 \right).
+\end{equation*}
+So $\hat{\mathrm{se}}(\hat{\theta}) = \sqrt{V(\hat{\theta})}$.
+For the Wald test we reject $H_0$ when $|W| > z_{\frac{\alpha}{2}}$, where
+\begin{equation*}
+    W = \frac{\hat{\beta}_1 - a \hat{\beta}_0}{\sqrt{\frac{1}{n}\sum_{i = 1}^n X_i^2 + a^2}} \frac{\sqrt{n} S_X}{\hat{\sigma}}.
+\end{equation*}
