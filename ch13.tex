@@ -348,3 +348,17 @@ For the Wald test we reject $H_0$ when $|W| > z_{\frac{\alpha}{2}}$, where
 \subsection*{Solution 13.6}
 
 See code.
+
+
+\subsection*{Solution 13.7}
+
+See code.
+Note that for BIC,
+\begin{equation*}
+    \mathrm{BIC}(S) = \ell_n(S) - \frac{1}{2}|S|\log(n)
+        = -\frac{n}{2}\log(2\pi) - n\log(\sigma) - \frac{1}{2\sigma^2} \sum_{i = 1}^n (\hat{Y}_i(S) - Y_i)^2 - \frac{1}{2}|S| \log(n).
+\end{equation*}
+So minimizing $\mathrm{BIC}(S)$ is equivalent to maximizing
+\begin{equation*}
+    \frac{1}{\sigma^2}\sum_{i = 1}^n (\hat{Y}_i(S) - Y_i)^2 + |S|\log(n).
+\end{equation*}
