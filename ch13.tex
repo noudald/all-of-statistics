@@ -362,3 +362,20 @@ So minimizing $\mathrm{BIC}(S)$ is equivalent to maximizing
 \begin{equation*}
     \frac{1}{\sigma^2}\sum_{i = 1}^n (\hat{Y}_i(S) - Y_i)^2 + |S|\log(n).
 \end{equation*}
+
+
+\subsection*{Solution 13.8}
+
+As $\sigma$ is known, $\hat{\sigma} = \sigma$.
+Mallow's $C_p$ statistic and AIC are connected through,
+\begin{equation*}
+    \begin{split}
+        \hat{R}(S)
+            &= \hat{R}_{\mathrm{tr}}(S) + 2|S|\sigma^2 \\
+            &= \sum_{i = 1}^n (\hat{Y}_i(S) - Y_i)^2 + 2|S|\sigma^2 \\
+            &= -2\sigma^2 \left( -\frac{1}{2\sigma^2} \sum_{i = 1}^n (\hat{Y}_i(S) - Y_i)^2 - |S| \right) \\
+            &= -2\sigma^2 \left( \ell_n(S) + \frac{n}{2} \log(2\pi\sigma^2) - |S| \right) \\
+            &\propto -\mathrm{AIC}(S).
+    \end{split}
+\end{equation*}
+So maximizing $\hat{R}(S)$ is equivalent to minimizing $\mathrm{AIC}(S)$.
