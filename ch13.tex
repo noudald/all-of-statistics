@@ -379,3 +379,92 @@ Mallow's $C_p$ statistic and AIC are connected through,
     \end{split}
 \end{equation*}
 So maximizing $\hat{R}(S)$ is equivalent to minimizing $\mathrm{AIC}(S)$.
+
+
+\subsection*{Solution 13.9}
+
+Let $X_1, X_2, ..., X_n$ i.i.d. random variables.
+Consider two models: $\mathcal{M}_0$ assumes $X_i \sim \mathrm{Normal}(0, 1)$, $\mathcal{M}_1$ assumes $X_i \sim \mathrm{Normal}(\theta, 1)$ where $\theta \neq 0$.
+We have $\mathrm{AIC}(\mathcal{M}_0) = \ell_n(0)$ and $\mathrm{AIC}(\mathcal{M}_1) = \ell_n(\hat{\theta}) - 1$, as $\mathcal{M}_1$ has one extra parameter (i.e., $\theta$).
+Define
+\begin{equation*}
+    J_n = \left\{\begin{matrix}
+        0 & \text{if} & \mathrm{AIC}(\mathcal{M}_0) > \mathrm{AIC}(\mathcal{M}_1), \\
+        1 & \text{if} & \mathrm{AIC}(\mathcal{M}_0) \leq \mathrm{AIC}(\mathcal{M}_0).
+    \end{matrix}\right.
+\end{equation*}
+
+\begin{itemize}
+    \item[(a)] We calculate
+        \begin{equation*}
+            \mathrm{AIC}(\mathcal{M}_0) - \mathrm{AIC}(\mathcal{M}_1)
+                 = -\frac{1}{2}\sum_{i = 1}^n X_i^2 + \frac{1}{2} \sum_{i = 1}^n (X_i - \hat{\theta})^2 + 1
+                 = \frac{n}{2} \hat{\theta}^2 - \hat{\theta} \sum_{i = 1}^n X_i + 1
+                 = -\frac{n}{2} \hat{\theta}^2 + 1,
+        \end{equation*}
+        where we've used that $\hat{\theta} = \frac{1}{n} \sum_{i = 1}^n X_i$.
+        So for $\mathrm{AIC}(\mathcal{M}_0) > \mathrm{AIC}(\mathcal{M}_1)$, we need $\hat{\theta}^2 < \frac{2}{n}$.
+        We know that $\hat{\theta} \sim \mathrm{Normal}(\theta, \frac{1}{n})$, and therefore,
+        \begin{equation*}
+            \begin{split}
+                P(\mathrm{AIC}(\mathcal{M}_0) > \mathrm{AIC}(\mathcal{M}_1))
+                    &= P\left(-\sqrt{\frac{2}{n}} < \hat{\theta} < \sqrt{\frac{2}{n}}\right) \\
+                    &= P\left(-\sqrt{\frac{2}{n}} < \frac{Z + \theta}{\sqrt{n}} < \sqrt{\frac{2}{n}}\right) \\
+                    &= \Phi(\sqrt{2} - \sqrt{n}\theta) - \Phi(-\sqrt{2} - \sqrt{n}\theta).
+            \end{split}
+        \end{equation*}
+        Under the assumption of $\mathcal{M}_0$ we have $\theta = 0$ and
+        \begin{equation*}
+            P(\mathrm{AIC}(\mathcal{M}_0) > \mathrm{AIC}(\mathcal{M}_1))
+                = \Phi(\sqrt{2}) - \Phi(-\sqrt{2})
+                \approx 0.84.
+        \end{equation*}
+        Under the assumption of $\mathcal{M}_1$ we have $\theta = 0$ and
+        \begin{equation*}
+            P(\mathrm{AIC}(\mathcal{M}_0) > \mathrm{AIC}(\mathcal{M}_1))
+                = \Phi(\sqrt{2} - \sqrt{n}\theta) - \Phi(-\sqrt{2} - \sqrt{n}\theta)
+                < \Phi(\sqrt{2} - \sqrt{n}\theta)
+                \to 0,
+        \end{equation*}
+        as $n \to \infty$.
+    \item[(b)] Define
+        \begin{equation*}
+            \hat{f}_n(x) = \left\{ \begin{matrix}
+                \phi_0(x) & \text{if} & J_n = 0, \\
+                \phi_{\hat{\theta}}(x) & \text{if} & J_n = 1.
+            \end{matrix} \right.
+        \end{equation*}
+        Let $D(f, g)$ be the Kullback-Leibner distance.
+        We have
+        \begin{equation*}
+            D(\phi_{\theta}, \hat{f}_n)
+                = \int \phi_{\theta}(x) \log\left(\frac{\phi_{\theta}(x)}{\hat{f}_n(x)}\right) dx
+                = \int \phi_{\theta}(x) \left(\log(\phi_{\theta}(x)) - \log(\hat{f}_n(x))\right) dx.
+        \end{equation*}
+        Suppose $\theta \neq 0$, then from (a) we know $J_n \xrightarrow{P} 1$, hence $\hat{f}_n \xrightarrow{P} \phi_{\theta}$.
+        But, because $\log$ is continuous almost everywhere, $\log(\hat{f}_n) \xrightarrow{P} \log(\phi_{\theta})$.
+        Hence, $D(\phi_{\theta}, \hat{f}_n) \xrightarrow{P} 0$ as $n \to \infty$.
+    \item[(c)] We have $\mathrm{BIC}(\mathcal{M}_0) = \ell_n(0)$ and $\mathrm{BIC}(\mathcal{M}_1) = \ell_n(\hat{\theta}) - \frac{1}{2}\log(n)$.
+        We calculate
+        \begin{equation*}
+            \begin{split}
+                \mathrm{BIC}(\mathcal{M}_0) - \mathrm{BIC}(\mathcal{M}_1)
+                    &= \ell_n(0) - \ell_n(\hat{\theta}) + \frac{1}{2}\log(n) \\
+                    &= -\frac{1}{2}\sum_{i = 1}^n X_i^2 + \frac{1}{2} \sum_{i = 1}^n (X_i - \hat{\theta})^2 + \frac{1}{2}\log(n) \\
+                    &= -\frac{n}{2} \hat{\theta}^2 + \frac{1}{2}\log(n).
+            \end{split}
+        \end{equation*}
+        So $\mathrm{BIC}(\mathcal{M}_0) > \mathrm{BIC}(\mathcal{M}_1)$ if and only if $\hat{\theta}^2 < \frac{1}{n}\log(n)$.
+        Therefore,
+        \begin{equation*}
+            \begin{split}
+                P(\hat{\theta}^2 < \frac{1}{n}\log(n))
+                    &= P\left(-\sqrt{\frac{1}{n}\log(n)} < \frac{Z}{\sqrt{n}} + \theta < \sqrt{\frac{1}{n}\log(n)}\right) \\
+                    &= \Phi\left(\sqrt{\log(n)} - \sqrt{n}\theta\right) - \Phi\left(-\sqrt{\log(n)} - \sqrt{n}\theta\right)
+                    \rightarrow \left\{ \begin{matrix}
+                        1 & \text{if} & \theta = 0, \\
+                        0 & \text{if} & \theta \neq 0.
+                    \end{matrix} \right.
+            \end{split}
+        \end{equation*}
+\end{itemize}
