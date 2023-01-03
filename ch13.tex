@@ -468,3 +468,53 @@ Define
             \end{split}
         \end{equation*}
 \end{itemize}
+
+
+\subsection*{Solution 13.10}
+
+Let $\theta = \beta_0 + \beta_1 X_*$, and $\hat{theta} = \hat{\beta}_0 + \hat{\beta}_1 X_*$, such that $Y_* = \theta + \epsilon_*$ and $\hat{Y}_* = \hat{\theta}$.
+
+\begin{itemize}
+    \item[(a)] Let $s = \sqrt{V(\hat{Y}_*)}$, we have
+        \begin{equation*}
+            P\left(\hat{Y}_* - 2s < Y_* < \hat{Y}_* + 2s\right)
+                = P\left(-2 < \frac{Y_* - \hat{Y}}{s} < 2\right).
+        \end{equation*}
+        The variance is
+        \begin{equation*}
+            V\left(\frac{Y_* - \hat{Y}}{s}\right)
+                = \frac{1}{s^2}V\left(\hat{\theta} - \theta\right) + \frac{1}{s^2}V(\epsilon)
+                = \frac{1}{s^2}V(\hat{\theta}) + \frac{1}{s^2}V(\epsilon)
+                = 1 + \frac{\sigma^2}{s^2}.
+        \end{equation*}
+        So $(Y_* - \hat{Y})/s \sim \mathrm{Normal}(0, 1 + \sigma^2/s^2)$, and
+        \begin{equation*}
+            P\left(\hat{Y}_* - 2s < Y_* < \hat{Y}_* + 2s\right)
+                = \Phi\left(2\left(1 + \frac{\sigma^2}{s^2}\right)\right) - \Phi\left(-2\left(1 + \frac{\sigma^2}{s^2}\right)\right)
+                \neq 0.95,
+        \end{equation*}
+        if not $\sigma^2 \approx 0$.
+    \item[(b)] Introduce the correction factor
+        \begin{equation*}
+            \hat{\xi}_n^2 = V(\hat{Y}_*) + \hat{\sigma}^2
+                = \left(\frac{1}{n} \frac{\sum_{i = 1}^n (X_i - X_*)^2}{\sum_{i = 1}^n (X_i - \overline{X})^2} + 1\right) \hat{\sigma}^2.
+        \end{equation*}
+        We have
+        \begin{equation*}
+            P\left(\hat{Y}_* - 2\hat{\xi}_n < Y_* < \hat{Y}_* + 2\hat{\xi}_n\right)
+                = P\left(-2 < \frac{Y_* - \hat{Y}}{\hat{\xi}_n} < 2\right),
+        \end{equation*}
+        and
+        \begin{equation*}
+            V\left(\frac{Y_* - \hat{Y}}{\hat{\xi}_n}\right)
+                = \frac{1}{\hat{\xi}_n^2} V(Y_* - \hat{Y}_*)
+                = \frac{V(\hat{Y}_*) + \sigma^2}{V(\hat{Y}_*) + \hat{\sigma}^2}
+                \approx 1.
+        \end{equation*}
+        So $(Y_* - \hat{Y})/\hat{\xi}_n \sim \mathrm{Normal}(0, 1)$ (approximately), and
+        \begin{equation*}
+            P\left(\hat{Y}_* - 2\hat{\xi}_n < Y_* < \hat{Y}_* + 2\hat{\xi}_n\right)
+                \approx P(-2 < \mathrm{Normal}(0, 1) < 2)
+                \approx 0.95.
+        \end{equation*}
+\end{itemize}
