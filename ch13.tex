@@ -523,3 +523,26 @@ Let $\theta = \beta_0 + \beta_1 X_*$, and $\hat{theta} = \hat{\beta}_0 + \hat{\b
 \subsection*{Solution 13.11}
 
 See code.
+
+The proposed reweighted least squares algorithm in the book contains many mistakes that make it not possible to implement.
+\begin{itemize}
+    \item[1.] The starting value $\bm{\beta}$ should not be random, as the initial value is of much importance.
+        It's generally accepted that $\bm{\beta} = \bm{0}$ is a good initial value.
+    \item[2.] You get an floating point overflow when you calculate (13.32), instead use
+        \begin{equation*}
+            p_i = \frac{1}{1 + \exp(-\beta_0 - \sum_{j = 1}^k \beta_j x_{ij})}.
+        \end{equation*}
+    \item[3.] The formula for the updated $\hat{\bm{\beta}}^s$ in step 3 contains a typo an is missing a $Z$.
+        The correct formula is
+        \begin{equation*}
+            \hat{\bm{\beta}}^s = (X^t W X)^{-1} X^t W Z.
+        \end{equation*}
+    \item[4.] Before step 4 you should check for convergence.
+        Calculate the log likelihood
+        \begin{equation*}
+            \ell_n(\hat{\bm{\beta}}^s) = \sum_{i = 1}^n \left(
+                Y_i \log(p_i(\hat{\bm{\beta}}^s)) + (1 - Y_i) \log(1 - p_i(\hat{\bm{\beta}^s}))
+            \right).
+        \end{equation*}
+        If $|\ell_n(\hat{\bm{\beta}}^{s - 1} - \ell_n(\hat{\bm{\beta}}^s)| < \epsilon$ (I use $\epsilon = 10^{-7}$) stop the iteration.
+\end{itemize}
