@@ -59,3 +59,9 @@ plt.scatter(samples[:,0], samples[:,1])
 plt.show()
 
 estimates(samples)
+
+
+# Solution 14.6
+print('\nSolution 14.6')
+samples = rng.multivariate_normal(mean, cov, size=1000)
+estimates(samples)
