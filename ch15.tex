@@ -1,0 +1,42 @@
+\section*{Chapter 15 - Inference About Independence}
+
+\subsection*{Solution 15.1}
+
+\begin{itemize}
+    \item[$1 \rightarrow 2$)] If $Y \bot Z$, then $P(Y, Z) = P(Y)P(Z)$, so
+        \begin{equation*}
+            \psi = \frac{p_{00}p_{11}}{p_{01}p_{10}}
+                = \frac{P(Y=0,Z=0)P(Y=1,Z=1)}{P(Y=0,Z=1)P(Y=1,Z=0)}
+                = 1.
+        \end{equation*}
+    \item[$2 \leftrightarrow 3$)] $\gamma = \log(\psi) = \log(1) = 0$.
+    \item[$2 \rightarrow 4$)] If $\psi = 1$, then $p_{01}p_{10} = p_{00}p_{11}$.
+        We have two cases.
+        Suppose $i \neq j$.
+        Without loss of generality, let $i = 0$ and $j = 1$.
+        We have
+        \begin{equation*}
+            \begin{split}
+                p_{i\_} p_{\_j}
+                    &= (p_{i0} + p_{i1})(p_{0j} + p_{1j}) \\
+                    &= p_{00}p_{01} + p_{00}p_{11} + p_{01}p_{01} + p_{01}p_{11} \\
+                    &= p_{00}p_{01} \frac{p_{10}p_{01}}{p_{11}}p_{11} + p_{01}p_{01} + p_{01}p_{11} \\
+                    &= p_{01}(p_{00} + p_{10} + p_{01} + p_{01}) \\
+                    &= p_{01}.
+            \end{split}
+        \end{equation*}
+        Suppose $i = j$.
+        Without loss of generality, let $i = 0$ and $j = 0$.
+        We have
+        \begin{equation*}
+            \begin{split}
+                p_{i\_} p_{\_j}
+                    &= (p_{i0} + p_{i1})(p_{0j} + p_{1j}) \\
+                    &= p_{00}p_{00} + p_{00}p_{10} + p_{01}p_{00} + p_{01}p_{10} \\
+                    &= p_{00}(p_{00} + p_{10} + p_{01} + \frac{p_{11}}{p_{10}} p_{10}) \\
+                    &= p_{00}.
+            \end{split}
+        \end{equation*}
+        Which shows that in all cases $p_{ij} = p_ip_j$.
+    \item[$1 \leftrightarrow 4$)] $Y \bot Z$ iff $p_{ij} = P(Y=i,Z=j) = P(Y=i)P(Z=j) = p_ip_j$.
+\end{itemize}
