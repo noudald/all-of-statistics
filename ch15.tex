@@ -40,3 +40,35 @@
         Which shows that in all cases $p_{ij} = p_ip_j$.
     \item[$1 \leftrightarrow 4$)] $Y \bot Z$ iff $p_{ij} = P(Y=i,Z=j) = P(Y=i)P(Z=j) = p_ip_j$.
 \end{itemize}
+
+
+\subsection*{Solution 15.2}
+
+Under the assumption of $H_0$, the maximum likelihood estimator for $p$ is
+\begin{equation*}
+    \hat{p}_0 = \left(\frac{E_{00}}{n}, \frac{E_{01}}{n}, \frac{E_{10}}{n}, \frac{E_{11}}{n}\right).
+\end{equation*}
+Moreover,
+\begin{equation*}
+    \hat{p}_0 = \left(\frac{X_{0\_}X_{\_0}}{n}, \frac{X_{0\_}X_{\_1}}{n}, \frac{X_{1\_}X_{\_0}}{n}, \frac{X_{1\_}X_{\_1}}{n}\right),
+\end{equation*}
+because
+\begin{equation*}
+    E_{ij} = E(Y=i, Z=j)
+        = n P(Y=i, Z=j)
+        = n P(Y=i) P(Z=j)
+        = \frac{X_{i\_}X_{\_j}}{n},
+\end{equation*}
+were we have used that $H_0: Y \bot Z$.
+We have
+\begin{equation*}
+    \mathcal{L}_n(\hat{p}_0) = \prod_{i=0}^1 \prod_{j=0}^1 \left(\frac{X_{i\_}X_{\_j}}{n^2}\right)^{X_{ij}}, \quad
+    \mathcal{L}_n(p_0) = \prod_{i=0}^1 \prod_{j=0}^1 \left(\frac{X_{ij}}{n}\right)^{X_{ij}}.
+\end{equation*}
+Using Theorem 10.22 we have that the ratio test is
+\begin{equation*}
+    T = 2\log\left(\frac{\mathcal{L}_n(\hat{p}_0)}{\mathcal{L}_n(p_0)}\right)
+        = 2 \sum_{i=0}^1 \sum_{j=0}^1 X_{ij} \log\left(\frac{X_{ij} n}{X_{i\_}X_{\_j}}\right),
+\end{equation*}
+and under $H_0: Y \bot Z$, $T \xrightarrow{D} \chi_1^2$.
+So we reject $H_0$ when $T > \chi_1^2(\alpha)$.
