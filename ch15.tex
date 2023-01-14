@@ -72,3 +72,51 @@ Using Theorem 10.22 we have that the ratio test is
 \end{equation*}
 and under $H_0: Y \bot Z$, $T \xrightarrow{D} \chi_1^2$.
 So we reject $H_0$ when $T > \chi_1^2(\alpha)$.
+
+
+\subsection*{Solution 15.3}
+
+We have $\gamma = \log(\psi) = \log(p_{00}) + \log(p_{11}) - \log(p_{01}) - \log(p_{10})$.
+Such that, for $i \neq j$,
+\begin{equation*}
+    \frac{\partial \gamma}{\partial p_{ii}} = \frac{1}{p_{ii}}, \quad
+    \frac{\partial \gamma}{\partial p_{ij}} = -\frac{1}{p_{ij}},
+\end{equation*}
+and the gradient is
+\begin{equation*}
+    \nabla \gamma = \left(\frac{1}{p_{00}}, \frac{1}{p_{01}}, \frac{1}{p_{10}}, \frac{1}{p_{11}}\right)^t.
+\end{equation*}
+Fisher's information matrix can be calculated as follows,
+\begin{equation*}
+    \mathcal{L}_n(p) = \prod_{i = 0}^1 \prod_{j = 0}^1 p_{ij}^{X_{ij}},
+\end{equation*}
+such that
+\begin{equation*}
+    \ell_n(p) = \sum_{i = 0}^1 \sum_{j = 0}^1 X_{ij} \log(p_{ij}).
+\end{equation*}
+We have
+\begin{equation*}
+    \frac{\partial \ell_n(p)}{\partial p_{ij}} = \frac{X_{ij}}{p_{ij}}, \quad
+    \frac{\partial^2 \ell_n(p)}{\partial p_{ij}^2} = -\frac{X_{ij}}{p_{ij}^2}.
+\end{equation*}
+Note that $E(X_{ij}) = np_{ij}$, which gives information matrix
+\begin{equation*}
+    I(p) = \frac{1}{n} I_n(p) = \textrm{diag}\left(\frac{1}{p_{00}}, \frac{1}{p_{01}}, \frac{1}{p_{10}}, \frac{1}{p_{11}}\right),
+\end{equation*}
+and $J(p) = I^{-1}(p) = \textrm{diag}(p_{00}, p_{01}, p_{10}, p_{11})$.
+Therefore, we have
+\begin{equation*}
+    \mathrm{se}(\gamma)^2 = \nabla g^t J_n(p) \nabla g
+        = \frac{p_{00}}{np_{00}^2} + \frac{np_{01}}{p_{01}^2} + \frac{p_{10}}{np_{10}^2} + \frac{p_{11}}{np_{11}^2}
+        = \frac{1}{np_{00}} + \frac{1}{np_{01}} + \frac{1}{np_{10}} + \frac{1}{np_{11}}.
+\end{equation*}
+Finally, putting everything together, we get the results
+\begin{equation*}
+    \hat{\mathrm{se}}(\hat{\gamma}) = \frac{1}{X_{00}} + \frac{1}{X_{01}} + \frac{1}{X_{10}} + \frac{1}{X_{11}},
+\end{equation*}
+and
+\begin{equation*}
+    \hat{\mathrm{se}}(\hat{\psi}) = \hat{\mathrm{se}}(e^{\hat{\gamma}})
+        = |e^{\hat{\gamma}}|\,\hat{\mathrm{se}}(\hat{\gamma})
+        = \hat{\psi}\,\hat{\mathrm{se}}(\hat{\gamma}).
+\end{equation*}
