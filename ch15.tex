@@ -120,3 +120,20 @@ and
         = |e^{\hat{\gamma}}|\,\hat{\mathrm{se}}(\hat{\gamma})
         = \hat{\psi}\,\hat{\mathrm{se}}(\hat{\gamma}).
 \end{equation*}
+
+
+\subsection*{Solution 15.4}
+
+We use the likelihood ratio test
+\begin{equation*}
+    \begin{split}
+        T &= 2 \cdot 14 \log\left(1311 \cdot \frac{14}{655 \cdot 76} \right)
+            + 2 \cdot 641 \log\left(1311 \cdot \frac{641}{655 \cdot 1235} \right) \\
+            &\quad + 2 \cdot 62 \log\left(1311 \cdot \frac{62}{656 \cdot 76} \right)
+            + 2 \cdot 594 \log\left(1311 \cdot \frac{594}{656 \cdot 1235} \right) \\
+        &\approx 34.53.
+    \end{split}
+\end{equation*}
+Under $H_0$: $T \xrightarrow{D} \chi^2_1$, so the probability that this can happen is $P(T > 34.53) = 4.2.10^{-9}$.
+So we reject the null hypothesis $H_0$ that $Y$ (color of victim) and $Z$ (death sentence) are independent.
+However, note that correlation ($Y \propto Z$) doesn't imply causality.
