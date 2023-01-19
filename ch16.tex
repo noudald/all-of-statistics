@@ -1,0 +1,16 @@
+\section*{Chapter 16 - Causal Inference}
+
+\subsection*{Solution 16.1}
+
+Create the following population.
+
+\begin{table}[H]
+\begin{tabular}{l|l||l|l}
+X & Y & $C_0$ & $C_1$ \\ \hline \hline
+0 & 1 & 1    & 0    \\ \hline
+0 & 0 & 0    & 0    \\ \hline
+1 & 1 & 1    & 1
+\end{tabular}
+\end{table}
+
+With this population we have $\theta = E(C_1) - E(C_0) = \frac{1}{3} - \frac{2}{3} = -\frac{1}{3} < 0$ and $\alpha = E(Y|X=1) - E(Y|X=0) = 1 - \frac{1}{2} = \frac{1}{2} > 0$.
