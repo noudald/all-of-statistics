@@ -12,5 +12,19 @@ X & Y & $C_0$ & $C_1$ \\ \hline \hline
 1 & 1 & 1    & 1
 \end{tabular}
 \end{table}
-
 With this population we have $\theta = E(C_1) - E(C_0) = \frac{1}{3} - \frac{2}{3} = -\frac{1}{3} < 0$ and $\alpha = E(Y|X=1) - E(Y|X=0) = 1 - \frac{1}{2} = \frac{1}{2} > 0$.
+
+
+\subsection*{Solution 16.2}
+
+Let $X$ be randomly assigned.
+We have
+\begin{equation*}
+    r(x) = E(Y|X = x)
+        = \int_{X} C_{z}(x) f(z|x) dz
+        = \int_{X} C_{z}(x) f(z) dz
+        = E(C(X)).
+\end{equation*}
+As a counter example, let $C(x) = 0$ if $x < 0$ and $C(x) = 1$ otherwise on $x \in [-1, 1]$.
+Assign $X$ such that $P(X < 0) = 1$ and $P(X \geq 0) = 0$.
+Then $E(C(X)) = \frac{1}{2}$, but $r(x) = E(Y|X = x) = 0$, so $\theta(x) \neq r(x)$.
