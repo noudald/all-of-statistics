@@ -4,3 +4,46 @@
 
 If $f(x,y|z) = f(x|z)f(y|z)$, then $f(x|y,z) = \frac{f(x,y|z)}{f(y|z)} = f(x|z)$.
 In the opposite direction, if $f(x|y,z) = f(x|z)$, then $f(x,y|z) = f(x|y,z)f(y|z) = f(x|z)f(y|z)$.
+
+
+\subsection*{Solution 17.2}
+
+\begin{itemize}
+    \item[(a)] Let $X \bot Y | Z$, then $f_{Y,X|Z}(y,x|z) = f_{X,Y|Z}(x,y|z) = f(x|z)f(y|z) = f(y|z)f(x|z)$, so $Y \bot X | Z$.
+    \item[(b)] Let $X \bot Y | Z$, $h: \mathbb{R} \to \mathbb{R}$, and $U = h(X)$.
+        Define $A_{h,x} = \{x' | h(x') \leq x\}$.
+        We have
+        \begin{equation*}
+            f(h(x)|y,z) = \left(\int_{A_{h,x}} f(x|y,z) dx \right)'
+                = \left(\int_{A_{h,x}} f(x|z) dx \right)'
+                = f(h(x)|z).
+        \end{equation*}
+        So, $U \bot Y | Z$.
+    \item[(c)] Let $X \bot Y | Z$, $U = h(X)$.
+        Note from (b) that $Y \bot Y | Z$, so $f(h(x)|y, z) = f(h(x)|z)$.
+        We have
+        \begin{equation*}
+            f(x|y,z,h(x)) = \frac{f(x,h(x)|y,z)}{f(h(x)|y,z)}
+                = \frac{f(x,h(x)|z)}{f(h(x)|z)}
+                = f(x|z,h(x)).
+        \end{equation*}
+        So, $X \bot Y | (Z, U)$.
+    \item[(d)] Let $X \bot Y | Z$ and $X \bot W | (Y, Z)$.
+        We have
+        \begin{equation*}
+            f(w,y|x,z) = f(w|x,y,z) f(y|x,z)
+                = f(w|y,z) f(y|z)
+                = f(w,y|z).
+        \end{equation*}
+    \item[(e)] Let $X \bot Y | Z$ and $X \bot Z | Y$.
+        Note that $f(x|y,z) = f(x|z)$ and $f(x|y,z) = f(x|y)$, so $f(x|z) = f(x|y)$.
+        We have
+        \begin{equation*}
+            f(x) = \int f(x|z)f(z)dz
+                = \int f(x|y)f(z)dz
+                = f(x|y) \int f(z)dz
+                = f(x|y)
+                = f(x|y, z).
+        \end{equation*}
+        So $X \bot (Y, Z)$.
+\end{itemize}
