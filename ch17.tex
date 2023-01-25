@@ -47,3 +47,38 @@ In the opposite direction, if $f(x|y,z) = f(x|z)$, then $f(x,y|z) = f(x|y,z)f(y|
         \end{equation*}
         So $X \bot (Y, Z)$.
 \end{itemize}
+
+
+\subsection*{Solution 17.3}
+
+\begin{itemize}
+    \item[(a)]
+        We have
+        \begin{table}[H]
+            \begin{tabular}{l|l||c|c}
+                X & Y & $P(X,Y|Z=0)$ & $P(X,Y|Z=1)$ \\ \hline \hline
+                0 & 0 & 0.81         & 0.25         \\ \hline
+                0 & 1 & 0.09         & 0.25         \\ \hline
+                1 & 0 & 0.09         & 0.25         \\ \hline
+                1 & 1 & 0.01         & 0.25
+            \end{tabular}
+        \end{table}
+    \item[(b)] We just have to check that $P(X,Y|Z) = P(X|Z)P(Y|Z)$, so
+        \begin{table}[H]
+            \begin{tabular}{c|c|c||c|c|c|c}
+                $X$ & $Y$ & $Z$ & $P(X|Z)$ & $P(Y|Z)$ & $P(X|Z)P(Y|Z)$ & $P(X,Y|Z)$ \\ \hline \hline
+                0   & 0   & 0   & 0.9      & 0.9      & 0.81           & 0.81       \\ \hline
+                1   & 0   & 0   & 0.1      & 0.9      & 0.09           & 0.09       \\ \hline
+                0   & 1   & 0   & 0.9      & 0.1      & 0.09           & 0.09       \\ \hline
+                1   & 1   & 0   & 0.1      & 0.1      & 0.01           & 0.01       \\ \hline
+                0   & 0   & 1   & 0.5      & 0.5      & 0.25           & 0.25       \\ \hline
+                1   & 0   & 1   & 0.5      & 0.5      & 0.25           & 0.25       \\ \hline
+                0   & 1   & 1   & 0.5      & 0.5      & 0.25           & 0.25       \\ \hline
+                1   & 1   & 1   & 0.5      & 0.5      & 0.25           & 0.25
+            \end{tabular}
+        \end{table}
+        So $P(X,Y|Z) = P(X|Z)P(Y|Z)$.
+    \item[(c)] The marginal distributions of $X$ and $Y$ are $P(X = 0) = 0.7$, $P(X = 1) = 0.3)$, and $P(Y = 0) = 0.7$ and $P(Y = 1) = 0.3$.
+    \item[(d)] Take $X = 0$ and $Y = 0$, then $P(X=0)P(Y=0) = 0.49$, but $P(X=0,Y=0) = 0.53)$.
+        So $P(X, Y) \neq P(X)P(Y)$.
+\end{itemize}
