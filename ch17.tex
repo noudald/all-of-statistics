@@ -87,3 +87,27 @@ In the opposite direction, if $f(x|y,z) = f(x|z)$, then $f(x,y|z) = f(x|y,z)f(y|
 \subsection*{Solution 17.4}
 
 Apply Theorem 17.6.
+
+
+\subsection*{Solution 17.5}
+
+Using Theorem 17.6, $X \bot \tilde{X} | \pi_X = X \bot Z$.
+
+To show that $X$ and $Z$ are dependent of $Y$, we only have to find one example of $f$ satisfying $X \rightarrow Y \leftarrow Z$ such that not $X \bot Z | Y$.
+Let $P(X = 0) = \frac{1}{2} = P(X = 1)$ and $P(Z = 0) = \frac{1}{2} = P(Z = 1)$.
+Define $Y$ by $Y = 1$ if $X = 1$ and $Z = 1$, otherwise $Y = 0$.
+Note that for this case we have $f(x, y, z) = f(x) f(y|x,z) f(z)$, because
+\begin{table}[H]
+    \begin{tabular}{c|c|c||c|c|c|c|c|c}
+        $X$ & $Y$ & $Z$ & $P(X)$ & $P(Y)$ &  $P(Z)$ & $P(Y|X,Z)$ & $P(X)P(Y|X,Z)P(Z)$ & $P(X,Y,Z)$ \\ \hline \hline
+        0   & 0   & 0   & 0.5    & 0.75   &  0.5    & 1          & 0.25               & 0.25       \\ \hline
+        1   & 0   & 0   & 0.5    & 0.75   &  0.5    & 1          & 0.25               & 0.25       \\ \hline
+        0   & 1   & 0   & 0.5    & 0.25   &  0.5    & 0          & 0                  & 0          \\ \hline
+        1   & 1   & 0   & 0.5    & 0.25   &  0.5    & 0          & 0                  & 0          \\ \hline
+        0   & 0   & 1   & 0.5    & 0.75   &  0.5    & 1          & 0.25               & 0.25       \\ \hline
+        1   & 0   & 1   & 0.5    & 0.75   &  0.5    & 0          & 0                  & 0          \\ \hline
+        0   & 1   & 1   & 0.5    & 0.25   &  0.5    & 0          & 0                  & 0          \\ \hline
+        1   & 1   & 1   & 0.5    & 0.25   &  0.5    & 1          & 0.25               & 0.25
+    \end{tabular}
+\end{table}
+Note that $f_{X,Z|Y}(1, 1| 1) = 1$, but $f_{X|Y}(1|1) = \frac{1}{2} = f_{Z|Y}(1|1)$, so $f_{X,Z|Y}(1,1|1) \neq f_{X|Y}(1|1)f_{Z|Y}(1|1)$.
