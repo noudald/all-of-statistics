@@ -116,3 +116,32 @@ Note that $f_{X,Z|Y}(1, 1| 1) = 1$, but $f_{X|Y}(1|1) = \frac{1}{2} = f_{Z|Y}(1|
 \subsection*{Solution 17.6}
 
 See code.
+
+
+\subsection*{Solution 17.7}
+
+\begin{itemize}
+    \item[(a)]
+        \begin{equation*}
+            f(x, \bm{y}, \bm{z}) = f(x) \left(\prod_{i = 1}^4 f(y_i|x, z_i) f(z_i) \right).
+        \end{equation*}
+    \item[(b)] We have
+        \begin{equation*}
+            \begin{split}
+                f(x, z_i)
+                    &= \int_{\bm{y}} \int_{\bm{z}_{(j)}} f(x, \bm{y}, \bm{z}) d\bm{y} d\bm{z}_{(j)} \\
+                    &= \int_{\bm{y}} \int_{\bm{z}_{(j)}}
+                            f(x) f(z_i)
+                            \left(\prod_{j = 1}^4 f(y_j|x, z_i) \right)
+                            \left(\prod_{j \neq i} f(z_j) \right)
+                        d\bm{y} d\bm{z}_{(j)} \\
+                    &= f(x) f(z_i)
+                            \int_{\bm{z}_{(j)}} \int_{\bm{y}}
+                                \left(\prod_{j = 1}^4 f(y_j|x, z_i) \right)
+                            d\bm{y}
+                        \left(\prod_{j \neq i} f(z_j) \right) d\bm{z}_{(j)} \\
+                    &= f(x) f(z_i).
+            \end{split}
+        \end{equation*}
+    Therefore, $X \bot Z_i$, for all $i$.
+\end{itemize}
