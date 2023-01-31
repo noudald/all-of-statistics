@@ -183,3 +183,26 @@ See code.
         \end{equation*}
     \item[(d)] See code.
 \end{itemize}
+
+
+\subsection*{Solution 17.9}
+
+Let $X \sim \mathrm{Normal}(0, 1)$, $Y|X \sim \mathrm{Normal}(\alpha x, 1)$ and $Z|X,Y \sim \mathrm{Normal}(\beta y + \gamma z, 1)$.
+As this is a tedious exercise with a lot of bookkeeping I only present a sketch of the calculations.
+\begin{itemize}
+    \item[(a)] Note that $f(x, y, z) = f(x)f(y|x)f(z|x,y)$.
+        Expanding the equation, we get $(X, Y, Z) \sim \mathrm{Normal}(0, \Sigma_{XYZ})$, where
+        \begin{equation*}
+            \Sigma_{XYZ} = \begin{pmatrix}
+                1 & \alpha & \alpha \beta + \gamma \\
+                \alpha & 1 + \alpha^2 & \beta + \alpha^2 \beta^2 + \alpha \gamma \\
+                \alpha \beta + \gamma & \beta + \alpha^2 \beta^2 + \alpha \gamma & 1 + (1 + \alpha^2) \beta^2 + \gamma^2 + 2 \alpha \beta \gamma
+            \end{pmatrix}.
+        \end{equation*}
+        According to Theorem 2.44, $(Y,Z) \sim \mathrm{Normal}(0, \Sigma_{YZ})$, and $Z \sim \mathrm{Normal}(\Sigma_{zy} \Sigma_{yy}^{-1} y, \Sigma_{zz} - \Sigma_{zy} \Sigma_{yy}^{-1} \Sigma_{yz})$.
+        Therefore,
+        \begin{equation*}
+            E(Z|Y) = \Sigma_{zy} \Sigma_{yy}^{-1} y
+                = \frac{\beta + \alpha^2 \beta^2 + \alpha \gamma}{1 + \alpha^2}.
+        \end{equation*}
+\end{itemize}
