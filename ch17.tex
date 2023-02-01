@@ -205,4 +205,18 @@ As this is a tedious exercise with a lot of bookkeeping I only present a sketch 
             E(Z|Y) = \Sigma_{zy} \Sigma_{yy}^{-1} y
                 = \frac{\beta + \alpha^2 \beta^2 + \alpha \gamma}{1 + \alpha^2}.
         \end{equation*}
+    \item[(b)] Let $Y := y$, then $f^*(x, z) = f(x)f(z|x,y)$.
+        Expanding $f^*(x,z)$ shows that $X,Z|Y:=y \sim (\mu_{XZ}, \Sigma_{XZ})$, where
+        \begin{equation*}
+            \mu_{XZ} = \begin{pmatrix}
+                0 \\
+                \beta y
+            \end{pmatrix}, \quad
+            \Sigma_{XZ} = \begin{pmatrix}
+                1 & \gamma \\
+                \gamma & 1 + \gamma^2
+            \end{pmatrix}.
+        \end{equation*}
+        Again, by Theorem 2.44, $Z|Y:=y \sim \mathrm{Normal}(\mu_z, \Sigma_z) = \mathrm{Normal}(\beta y, 1 + \gamma^2)$.
+        So $E(Z|Y:=y) = \beta y$.
 \end{itemize}
