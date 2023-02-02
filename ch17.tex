@@ -188,7 +188,7 @@ See code.
 \subsection*{Solution 17.9}
 
 Let $X \sim \mathrm{Normal}(0, 1)$, $Y|X \sim \mathrm{Normal}(\alpha x, 1)$ and $Z|X,Y \sim \mathrm{Normal}(\beta y + \gamma z, 1)$.
-As this is a tedious exercise with a lot of bookkeeping I only present a sketch of the calculations.
+As this is a tedious exercise with a lot of bookkeeping I skip most of the calculations (which I did on paper).
 \begin{itemize}
     \item[(a)] Note that $f(x, y, z) = f(x)f(y|x)f(z|x,y)$.
         Expanding the equation, we get $(X, Y, Z) \sim \mathrm{Normal}(0, \Sigma_{XYZ})$, where
@@ -219,4 +219,10 @@ As this is a tedious exercise with a lot of bookkeeping I only present a sketch 
         \end{equation*}
         Again, by Theorem 2.44, $Z|Y:=y \sim \mathrm{Normal}(\mu_z, \Sigma_z) = \mathrm{Normal}(\beta y, 1 + \gamma^2)$.
         So $E(Z|Y:=y) = \beta y$.
+    \item[(c)] Note that $(Y, Z) \sim \mathrm{Normal}(0, \Sigma_{YZ})$, so the correlation coefficient is
+        \begin{equation*}
+            \rho_{YZ} = \mathrm{Cov}(Y, Z)
+                = \frac{\sigma_{yz}^2}{\sigma_y \sigma_z}
+                = \frac{\beta + \alpha^2 \beta^2 + \alpha \gamma}{\sqrt{(1 + \alpha^2)(1 + (1 + \alpha^2) \beta^2 + \gamma^2 + 2 \alpha \beta \gamma}}.
+        \end{equation*}
 \end{itemize}
