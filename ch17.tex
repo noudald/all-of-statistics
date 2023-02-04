@@ -230,4 +230,27 @@ As this is a tedious exercise with a lot of bookkeeping I skip most of the calcu
         The opposite is also true.
         Suppose $Y$ and $Z$ are independent, then $\beta = 0$.
         Choose $\alpha, \gamma \neq 0$, then $\beta + \alpha^2 \beta^2 + \alpha \gamma \neq 0$, and $\rho_{YZ} \neq 0$.
+    \item[(e)] Let $Y \sim \mathrm{Normal}(\alpha, 1)$, so $Y$ is independent of $X$.
+        We have pdf $f(x, y, z) = f(x)f(y)f(z|x,y)$.
+        Expanding $f(x,y,z)$ we find $(X, Y, Z) \sim \mathrm{Normal}(\mu, \Sigma)$, where
+        \begin{equation*}
+            \mu = \begin{pmatrix}
+                0 \\
+                \frac{\alpha}{\sqrt{1 + \beta^2}} \\
+                0
+            \end{pmatrix}, \quad
+            \Sigma = \begin{pmatrix}
+                1 & 0 & \gamma \\
+                0 & 1 & \beta \\
+                \gamma & \beta & 1 + \beta^2 + \gamma^2
+            \end{pmatrix}.
+        \end{equation*}
+        The correlation coefficient is
+        \begin{equation*}
+            \rho_{YZ} = \frac{\mathrm{Cov}(Y,Z)}{\sigma_y \sigma_z} = \frac{\beta}{\sqrt{1 + \beta^2 + \gamma^2}}.
+        \end{equation*}
+        So $\rho = 0$ iff $\beta = 0$ iff $Y$ and $Z$ are independent.
+        Set $Y := y$.
+        With exactly the same calculation as (b) we have $Z|Y:=y \sim \mathrm{Normal}(\beta y, 1 + \gamma^2)$.
+        Now $Z|Y:=y$ is independent of $Y$ iff $\beta = 0$ iff $\rho_{YZ} = 0$.
 \end{itemize}
