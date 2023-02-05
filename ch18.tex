@@ -1,0 +1,30 @@
+\section*{Chapter 18 - Undirected Graphs}
+
+\subsection*{Solution 18.1}
+
+\begin{itemize}
+    \item[(a)]
+        Relation $X_1 \bot X_3 | X_2$ is translated to
+        \begin{figure}[!h]
+            \centering
+            \tikz \graph {
+                "$X_1$" -- "$X_2$" -- "$X_3$"
+            };
+        \end{figure}
+    \item[(b)]
+        Relations $X_1 \bot X_2 | X_3$ and $X_1 \bot X_3 | X_2$ translate to
+        \begin{figure}[!h]
+            \centering
+            \tikz \graph {
+                "$X_1$" -!- "$X_2$" -- "$X_3$"
+            };
+        \end{figure}
+    \item[(c)]
+        Relations $X_1 \bot X_2 | X_3$, $X_1 \bot X_3 | X_2$ and $X_2 \bot X_3 | X_1$ translate to
+        \begin{figure}[!h]
+            \centering
+            \tikz \graph {
+                "$X_1$" -!- "$X_2$" -!- "$X_3$"
+            };
+        \end{figure}
+\end{itemize}
