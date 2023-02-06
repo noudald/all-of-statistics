@@ -28,3 +28,31 @@
             };
         \end{figure}
 \end{itemize}
+
+
+\subsection*{Solution 18.2}
+
+\begin{itemize}
+    \item[(a)]
+        Relations $X_1 \bot X_3 | X_2, X_4$, $X_1 \bot X_4 | X_2, X_3$, and $X_2 \bot X_4 | X_1, X_3$ translate to
+        \begin{figure}[h!]
+            \centering
+            \tikz \graph {
+                "$X_1$" -- "$X_2$" -- "$X_3$" -- "$X_4$"
+            };
+        \end{figure}
+    \item[(b)]
+        Relations $X_1 \bot X_2 | X_3, X_4$, $X_1 \bot X_3 | X_2, X_4$, and $X_2 \bot X_3 | X_1, X_4$ translate to
+        \begin{figure}[h!]
+            \centering
+            \tikz \graph {
+                {"$X_1$", "$X_2$", "$X_3$"} -- "$X_4$"
+            };
+        \end{figure}
+    \item[(c)]
+        Relations $X_1 \bot X_3 | X_2, X_4$ and $X_2 \bot X_4 | X_1, X_3$ translate to
+        % Figure doesn't work for this one... don't really like figures.
+        \tikz \graph {
+            "$X_1$" -- {"$X_2$", "$X_4$"} -- "$X_3$"
+        };
+\end{itemize}
