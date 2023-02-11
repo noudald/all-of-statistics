@@ -7,3 +7,27 @@
     p_{01} &= e^{\beta_1 + \beta_3}, & p_{02} &= e^{\beta_2 + \beta_4}, \\
     p_{11} &= e^{\beta_1 + \beta_2 + \beta_3 + \beta_5}, & p_{12} &= e^{\beta_1 + \beta_2 + \beta_4 + \beta_6}.
 \end{align*}
+
+
+\subsection*{Solution 19.2}
+
+\begin{itemize}
+    \item[$\rightarrow$)] If $X_b \bot X_c | X_a$, then
+        \begin{equation*}
+            \frac{f(x_a, x_b, x_c)}{f(x_a)}
+                = f(x_b, x_c| x_a) = f(x_b|x_a) f(x_c|x_a)
+                = \frac{f(x_a, x_b)}{f(x_a)} \frac{f(x_a, x_c)}{f(x_a)}.
+        \end{equation*}
+        Rearranging the equation we find
+        \begin{equation*}
+            f(x_a, x_b, x_c) = f(x_a, x_b) \frac{f(x_a, x_c)}{f(x_a)}
+                := g(x_a, x_b) h(x_a, x_c).
+        \end{equation*}
+    \item[$\leftarrow$)] Note that
+        \begin{equation*}
+            f(x_b, x_c|x_a) = \frac{f(x_a, x_b, x_c)}{f(x_a)}
+                = \frac{g(x_a, x_b) h(x_a, x_c)}{f(x_a)}
+                = g'(x_b) h'(x_c).
+        \end{equation*}
+        Using solution 2.12 we have $X_b \bot X_c | X_a$.
+\end{itemize}
