@@ -31,3 +31,15 @@
         \end{equation*}
         Using solution 2.12 we have $X_b \bot X_c | X_a$.
 \end{itemize}
+
+
+\subsection*{Solution 19.3}
+
+Let $\mathcal{G} = (E, V)$ be a graphical model.
+Take $\log(f(x)) = \sum_{A \subset S} \psi_A(x)$ with $\psi_A(x) = 0$ iff $A$ is non-empty and for all $\{i, j\} \in A$ and $(i, j) \notin E$.
+Let $A \subset S$ such that $\psi_A = 0$ and $A \subset B \subset S$.
+Let $\{i, j\} \in A$, then $(i, j) \notin E$.
+Since $A \subset B$, $\{i, j\} \in B$, and hence $\psi_B = 0$.
+Therefore, $\mathcal{G}$ is hierarchical.
+
+The opposite is not true as you can see in example 19.11.
