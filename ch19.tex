@@ -43,3 +43,16 @@ Since $A \subset B$, $\{i, j\} \in B$, and hence $\psi_B = 0$.
 Therefore, $\mathcal{G}$ is hierarchical.
 
 The opposite is not true as you can see in example 19.11.
+
+
+\subsection*{Solution 19.4}
+
+\begin{itemize}
+    \item[(a)]
+        \tikz \graph {
+            "$X_1$" -- {"$X_2$", "$X_3$"} -- "$X_4$"
+        };
+    \item[(b)] $X_1 \bot X_4 | \{X_2, X_3\}$, $X_2 \bot X_3 | \{X_1, X_4\}$.
+    \item[(c)] The graph is not graphical, because $(1, 2) \in E$, but $\psi_{123} = 0$.
+        The graph is hierarchical as $\emptyset$ is the only non-zero subset.
+\end{itemize}
