@@ -56,3 +56,25 @@ The opposite is not true as you can see in example 19.11.
     \item[(c)] The graph is not graphical, because $(1, 2) \in E$, but $\psi_{123} = 0$.
         The graph is hierarchical as $\emptyset$ is the only non-zero subset.
 \end{itemize}
+
+
+\subsection*{Solution 19.5}
+
+In this particular case it's easier to calculate ${}^2\log(f)$.
+Note that $\log(f) = \frac{{}^2\log(f)}{\log(2)}$.
+So we can recover $\log(f)$ from ${}^2\log(f)$.
+We have
+\begin{equation*}
+    {}^2\log(f)(x_1, x_2, x_3) = 1 + 3x_1 x_2 + 2x_3 + x_1x_3,
+\end{equation*}
+and
+\begin{equation*}
+    \log(f) = \psi_{\emptyset} + \psi_1 + \psi_2 + \psi_3 + \psi_{13}.
+\end{equation*}
+The graph is given by
+\begin{center}
+\tikz \graph {
+    "$X_1$" -- {"$X_2$", "$X_3$"} -- "$X_4$"
+};
+\end{center}
+In particular, $X_1 \bot X_2$ and $X_2 \bot X_3$.
