@@ -1,0 +1,34 @@
+\section*{Chapter 20 - Non-Parametric Curve Estimation}
+
+\subsection*{Solution 20.1}
+
+\begin{itemize}
+    \item[(a)]
+        We have
+        \begin{equation*}
+            E_{X_i}(\hat{f}(x))
+                = \frac{1}{n} \sum_{i = 1}^n \frac{1}{h} \int K\left(\frac{x - y}{h}\right) f(y) dy
+                = \frac{1}{n} \sum_{i = 1}^n \frac{1}{h} \int_{x - \frac{1}{2}h}^{x + \frac{1}{2}h} f(y) dy
+                = \frac{1}{h} \int_{x - \frac{1}{2}h}^{x + \frac{1}{2}h} f(y) dy.
+        \end{equation*}
+        For calculating the variance note that $E(K(x^2)) = E(K(x))$, so
+        \begin{equation*}
+            \begin{split}
+                V_{X_i}(\hat{f}(x))
+                    &= V_{X_i}\left(\frac{1}{hn} \sum_{i = 1}^n K\left(\frac{x - X_i}{h}\right)\right) \\
+                    &= \frac{1}{h^2 n^2} \sum_{i = 1}^n V\left(K\left(\frac{x - X_i}{h}\right)\right) \\
+                    &= \frac{1}{h^2 n^2} \sum_{i = 1}^n \left[
+                        \int_{x - \frac{1}{2}h}^{x + \frac{1}{2}h} f(y) dy
+                        - \left(\int_{x - \frac{1}{2}h}^{x + \frac{1}{2}h} f(y) dy \right)^2
+                    \right] \\
+                    &= \frac{1}{h^2 n} \left[
+                        \int_{x - \frac{1}{2}h}^{x + \frac{1}{2}h} f(y) dy
+                        - \left(\int_{x - \frac{1}{2}h}^{x + \frac{1}{2}h} f(y) dy \right)^2
+                    \right].
+            \end{split}
+        \end{equation*}
+    \item[(b)] This exercise can only be true if some extra requirements are put on $f$, which are not.
+        As an counter example take $f(x) = 1$ if $1 < x < 2$ or $x = 0$, and $f(x) = 0$ otherwise.
+        Then $\hat{f}_n(0) = 0$, but $f(0) = 1$.
+        So $P(|\hat{f}_n(0) - f(0)| < \epsilon) = 0$ for all $\epsilon < 1$, and not $\hat{f}_n(0) \xrightarrow{P} f(0)$!
+\end{itemize}
