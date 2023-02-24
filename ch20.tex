@@ -42,3 +42,19 @@ See code.
 \subsection*{Solution 20.3}
 
 See code.
+
+
+\subsection*{Solution 20.4}
+
+This is a classical exercise.
+\begin{equation*}
+    \begin{split}
+        R(g, \hat{g}_n)
+            &= E(L(g, \hat{g}_n)) \\
+            &= E\left(\int (g(u) - \hat{g}_n(u))^2 du\right) \\
+            &= \int E((g(u) - \hat{g}_n(u))^2) du \\
+            &= \int E(g(u) - \hat{g}_n(u))^2 + V(g(u) - \hat{g}_n(u)) du \\
+            &= \int E(g(u) - \hat{g}_n(u))^2 du + \int V(\hat{g}_n(u)) du
+            = \int b^2(u) du + \int v(u) du.
+    \end{split}
+\end{equation*}
