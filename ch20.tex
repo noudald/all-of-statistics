@@ -58,3 +58,13 @@ This is a classical exercise.
             = \int b^2(u) du + \int v(u) du.
     \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 20.5}
+
+As $x$ is fixed and $x \in B_i$, $\hat{f}(x) = \frac{\hat{p}_i}{h}$.
+So $E(\hat{f}(x)) = E(\hat{p}_i/h) = p_i/h$, as $\hat{p}_i$ is the maximum likelihood estimator of $p_i$.
+For the variance, note that $\hat{p}_i = \nu_i / n$.
+We can write $\nu_i = \sum_{j=1}^n X_j$ where $X_j \sim \mathrm{Bernoulli}(p_i)$.
+Hence $\nu_i \sim \mathrm{Binomial}(n, p_i)$.
+So $V(\hat{f}(x)) = \frac{1}{n^2 h^2} V(\nu_i) = \frac{p_i(1 - p_i)}{n^2 h^2}$.
