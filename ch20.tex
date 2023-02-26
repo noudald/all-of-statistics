@@ -68,3 +68,22 @@ For the variance, note that $\hat{p}_i = \nu_i / n$.
 We can write $\nu_i = \sum_{j=1}^n X_j$ where $X_j \sim \mathrm{Bernoulli}(p_i)$.
 Hence $\nu_i \sim \mathrm{Binomial}(n, p_i)$.
 So $V(\hat{f}(x)) = \frac{1}{n^2 h^2} V(\nu_i) = \frac{p_i(1 - p_i)}{n^2 h^2}$.
+
+
+\subsection*{Solution 20.6}
+
+We split the solution into several parts.
+Note that we have
+\begin{equation*}
+    \hat{J}(h) = \int \hat{f}^2(x) dx - \frac{2}{n} \sum_{i = 1}^n \hat{f}_{(-i)}(x_i).
+\end{equation*}
+The first part can be written to
+\begin{equation*}
+    \begin{split}
+        \int \hat{f}^2(x) dx
+            &= \int \sum_{i = 1}^m \sum_{j = 1}^m \frac{\hat{p}_i \hat{p}_j}{h^2} I(x \in B_i \cap B_j) dx \\
+            &= \sum_{i = 1}^m \frac{\hat{p}_i^2}{h^2} \int I(x \in B_i) dx \\
+            &= \frac{1}{h} \sum_{i = 1}^m \hat{p}_i^2.
+    \end{split}
+\end{equation*}
+This gives the first part of the solution.
