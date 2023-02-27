@@ -87,3 +87,18 @@ The first part can be written to
     \end{split}
 \end{equation*}
 This gives the first part of the solution.
+For the second part we first calculate
+\begin{equation*}
+    \begin{split}
+        \hat{f}_{(-i)}(x)
+            &= \sum_{j = 1}^m \frac{\hat{p}_{j,(-i)}}{h} I(x \in B_j) \\
+            &= \sum_{j = 1}^m \sum_{k \neq i} \frac{1}{h} \frac{1}{n - 1} I(x_k \in B_j) I(x \in B_j)
+            = \sum_{j = 1}^m \frac{\nu_j - 1}{h(n - 1)} I(x \in B_j)
+    \end{split}
+\end{equation*}
+Now, we have
+\begin{equation*}
+        \sum_{i = 1}^n \hat{f}_{(-i)}(x_i)
+            = \sum_{i = 1}^n \sum_{j = 1}^m \frac{\nu_j - 1}{h(n - 1)} I(x_j \in B_j)
+            = \sum_{j = 1}^m \frac{\nu_j (\nu_j - 1)}{h (n - 1)}.
+\end{equation*}
