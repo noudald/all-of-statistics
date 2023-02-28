@@ -102,3 +102,14 @@ Now, we have
             = \sum_{i = 1}^n \sum_{j = 1}^m \frac{\nu_j - 1}{h(n - 1)} I(x_j \in B_j)
             = \sum_{j = 1}^m \frac{\nu_j (\nu_j - 1)}{h (n - 1)}.
 \end{equation*}
+Combining the two parts gives
+\begin{equation*}
+    \begin{split}
+        \hat{J}(h) &= \frac{1}{h} \sum_{j = 1}^m \hat{p}_j^2 - \frac{2}{h n (n - 1)} \sum_{j = 1}^m \nu_j(\nu_j - 1) \\
+            &= \frac{1}{h} \sum_{j = 1}^m \left[\frac{\nu_j^2}{h^2} - \frac{2}{n(n-1)} \nu_j(\nu_j - 1)\right] \\
+            &= \frac{1}{h} \sum_{j = 1}^m \left[\frac{2 n \nu_j - (n + 1) \nu_j^2}{n^2 (n - 1)}\right] \\
+            &= \frac{2}{h} \sum_{j = 1}^m \frac{\nu_j}{n(n-1)} - \frac{1}{h} \frac{n + 1}{n - 1} \sum_{j = 1}^m \left(\frac{\nu_j}{n}\right)^2 \\
+            &= \frac{2}{h(n - 1)} \sum_{j = 1}^m \hat{p}_j - \frac{1}{h} \frac{n + 1}{n - 1} \sum_{j = 1}^m \hat{p}_j^2
+            = \frac{2}{h(n - 1)} - \frac{1}{h} \frac{n + 1}{n - 1} \sum_{j = 1}^m \hat{p}_j^2
+    \end{split}
+\end{equation*}
