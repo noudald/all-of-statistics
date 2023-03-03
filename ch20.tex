@@ -167,3 +167,22 @@ When $n \to \infty$ and $h \to 0$, we have
 where $\epsilon = \sigma Z_i$ and $Z_i \sim \mathrm{Normal}(0, 1)$.
 Note that $E(Z_i Z_{i + 1}) = E(Z_i) E(Z_{i + 1})$, and from Solution 3.12, $E(Z_i^2) = 1$.
 Therefore, $E(\hat{\sigma}^2) = \sigma$.
+
+
+\subsection*{Solution 20.10}
+
+Start with the right hand side
+\begin{equation*}
+    \begin{split}
+        \sum_{i = 1}^n \frac{(Y_i - r(x_i))^2}{(1 - w_i(x_i))^2}
+            &= \sum_{i = 1}^n \left( \frac{Y_i - \sum_{k = 1}^n w_k(x) Y_k}{1 - w_i(x_i)} \right)^2 \\
+            &= \sum_{i = 1}^n \left(Y_i \frac{(1 - w_i(x_i))}{(1 - w_i(x_i))} - \sum_{j = 1, j \neq i}^n \frac{w_j(x_i)}{1 - w_i(x_i)} Y_j\right)^2 \\
+            &= \sum_{i = 1}^n \left(Y_i - \sum_{j = 1, j \neq i}^n w_{(-i)j}(x_i) Y_j\right)^2
+            = \sum_{i = 1}^n \left(Y_i - \hat{r}_{(-i)}(x_i)\right)^2,
+    \end{split}
+\end{equation*}
+where we used that
+\begin{equation*}
+    \frac{w_j(x_i)}{1 - w_j(x_i)}
+        = \frac{K((x_i - x_j)/h)}{\sum_{k = 1}^n K((x_i - x_k)/h) - K((x_i - x_j)/h)}.
+\end{equation*}
