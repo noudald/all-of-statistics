@@ -80,3 +80,25 @@ The rest of the exercise is in the code.
 \subsection*{Solution 21.7}
 
 See code.
+
+
+\subsection*{Solution 21.8}
+
+Let $D_{jk} = \{x : \psi_{jk}(x) \neq 0\}$, then $D_{jk} = \left[\frac{k}{2^j}, \frac{k + 1}{2^j}\right]$.
+Suppose $(j_1, k_j) \neq (j_2, k_2)$, w.l.o.g., $j_1 \leq j_2$.
+If $j_1 = j_2$, then $D_{j_1 k_1} \cap D_{j_2 k_2} = \empty$, so assume $j_1 < j_2$.
+Suppose $D_{j_1 k_1} \cap D_{j_2 k_2} \neq \empty$.
+Split $D_{j_1 k_1} = D_{j_1 k_1}^- \cup D_{j_1 k_1}^+$, where $D_{j_1 k_1}^- = \left[\frac{k}{2^k}, \frac{k + 1/2}{2^k}\right]$ and $D_{j_1 k_1}^+ = \left[\frac{k + 1/2}{2^k}, \frac{k + 1}{2^k}\right]$.
+Suppose $D_{j_2 k_2} \subset D_{j_1 k_1}$, and $D_{j_2 k_2} \cap D_{j_1 k_1}^+ \neq \empty$ and $D_{j_2 k_2} \cap D_{j_1 k_1}^- \neq \empty$.
+Then
+\begin{equation*}
+    \frac{k_2}{2^{j_2}} < \frac{k_1 + \frac{1}{2}}{2^{j_1}} < \frac{k_2 + 1}{2^{j_2}}.
+\end{equation*}
+Rearanging the symbols gives $0 < 2^{j_2 - j_1} k_1 + 2^{j_2 - j_1 - 1} - 2^{j_2}k_2 < 1$.
+But, because $j_1 < j_2$, the value in the middle is an whole integer, which is a contradiction.
+So we have $D_{j_2 k_2} \subset D_{j_1 k_1}^-$ or $D_{j_2 k_2} \subset D_{j_1 k_1}^+$.
+In both cases we see that
+\begin{equation*}
+    \langle \psi_{j_1, k_1}, \psi_{j_2, k_2} \rangle = 0.
+\end{equation*}
+Lastly, note that $\langle \psi, \psi \rangle = 1$, $\langle \phi, \phi \rangle = 1$, and $\langle \psi, \phi \rangle = 0$.
