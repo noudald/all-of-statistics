@@ -8,3 +8,28 @@ Suppose there is an $h$ such that $L(h) < L(h^*)$, then
 \end{equation*}
 With sufficient properties on the distribution there is an $x$ such that $P(h(x) = Y | X = x) > P(h^*(x) = Y | X = x)$.
 But this contradicts the choice of $h^*$.
+
+
+\subsection*{Solution 22.2}
+
+In general we have
+\begin{equation*}
+    P(y|x) = \frac{P(x|y)P(y)}{P(x)}
+        = \frac{P(x|y)f(y)}{P(x|0)f(0) + P(x|1)f(1)}
+        = \frac{P(x|y) \pi_y}{P(x|0) \pi_0 + P(x|1) \pi_1},
+\end{equation*}
+where $\pi_y = P(Y = y)$.
+In particular
+\begin{equation*}
+    P(1|x) = \frac{P(x|1) \pi_1}{P(x|0) \pi_0 + P(x|1) \pi_1}
+        = \frac{P(x|1)}{P(x|0) \frac{\pi_0}{\pi_1} + P(x|1)}
+        > \frac{1}{2},
+\end{equation*}
+if and only if
+\begin{equation*}
+    \frac{\pi_1}{\pi_0} f(x|1) > f(x|0).
+\end{equation*}
+Expanding $f(x|0)$ and $f(x|1)$, and taking the log on both sides gives
+\begin{equation*}
+    r_1^2 < r_0^2 + \log\left(\frac{|\Sigma_0|}{|\Sigma_1|}\right) + 2\log\left(\frac{\pi_1}{\pi_0}\right).
+\end{equation*}
