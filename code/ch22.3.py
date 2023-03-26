@@ -200,6 +200,14 @@ def cross_validation(classifier, X=X, Y=Y):
     return sum(cv_Y_pred == Y) / len(Y)
 
 
+# 22.5
+def svm(X, Y, X_pred):
+    '''I cheat and use third party software.'''
+    clf = SVC()
+    clf.fit(X, Y)
+    return clf.predict(X_pred)
+
+
 if __name__ == '__main__':
     # Solution 22.3
 
@@ -229,3 +237,9 @@ if __name__ == '__main__':
     print('Select 10 features with highest difference between classes:')
     print('CV LDA', cross_validation(lda, X_selection))
     print('CV Logistic regression', cross_validation(logr, X_selection))
+
+
+    # Solution 22.5
+
+    svm_pred = svm(X, Y, X)
+    print('SVM', sum(svm_pred == Y) / len(Y))
