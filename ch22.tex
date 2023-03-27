@@ -53,3 +53,14 @@ See code.
 \subsection*{Solution 22.6}
 
 Similar to 22.4. I don't understand VC-theory.
+
+
+\subsection*{Solution 22.7}
+
+Suppose there is a linear classifier $r(x) = \beta_1 x + \beta_0$ that perfectly classifies the data.
+Note that $Y_i = 1$ if $r(X_i) > \frac{1}{2}$.
+So we have $Y_i = 1$ if and only if $X_i > \frac{1}{2 \beta_1} (1 - \beta_0)$.
+But in that case there will always be some $X_i$ with $Y_i = 0$, but $X_i > \frac{1}{2 \beta_1} (1 - \beta_0)$.
+
+Note that the kernelized data $Z_i = (X_i, X_i^2)$ can be linearly seperated.
+Indeed, we can take $r(Z_i) = \frac{1}{2} X_i^2$.
