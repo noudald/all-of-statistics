@@ -208,6 +208,14 @@ def svm(X, Y, X_pred):
     return clf.predict(X_pred)
 
 
+# 22.8
+def svm2(X, Y, X_pred, p):
+    '''I cheat and use third party software.'''
+    clf = SVC(kernel='poly', degree=p, coef0=1.0)
+    clf.fit(X, Y)
+    return clf.predict(X_pred)
+
+
 if __name__ == '__main__':
     # Solution 22.3
 
@@ -243,3 +251,17 @@ if __name__ == '__main__':
 
     svm_pred = svm(X, Y, X)
     print('SVM', sum(svm_pred == Y) / len(Y))
+
+
+    # Solution 22.8
+
+    best_p = 1
+    best_p_acc = 0.0
+    for p in range(1, 8):
+        svm2_cv_acc = cross_validation(lambda X, Y, X_pred: svm2(X, Y, X_pred, p))
+        if svm2_cv_acc > best_p_acc:
+            best_p = p
+            best_p_acc = svm2_cv_acc
+        print('HP opt SVM', p, svm2_cv_acc)
+
+    print(f'Best SVM {p}', best_p_acc)
