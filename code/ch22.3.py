@@ -265,3 +265,21 @@ if __name__ == '__main__':
         print('HP opt SVM', p, svm2_cv_acc)
 
     print(f'Best SVM {p}', best_p_acc)
+
+
+    # 22.11 - Bagging a tree
+
+    # This function is extremely slow. I'll use the sklearn tools instead.
+    # dt_pred = decision_tree(X, Y, X)
+    # print('Decision tree', sum(dt_pred == Y) / len(Y))
+
+
+    clf = DecisionTreeClassifier(max_depth=10)
+    clf.fit(X, Y)
+    dt_pred = clf.predict(X)
+    print('Decision tree (scikit-learn)', sum(dt_pred == Y) / len(Y))
+
+    bag = BaggingClassifier(DecisionTreeClassifier(max_depth=10))
+    bag.fit(X, Y)
+    bag_pred = bag.predict(X)
+    print('Bagging decision tree (scikit-learn)', sum(bag_pred == Y) / len(Y))
