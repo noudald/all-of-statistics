@@ -283,3 +283,11 @@ if __name__ == '__main__':
     bag.fit(X, Y)
     bag_pred = bag.predict(X)
     print('Bagging decision tree (scikit-learn)', sum(bag_pred == Y) / len(Y))
+
+
+    # 22.12 - Boosting a tree
+
+    boost = AdaBoostClassifier(base_estimator=DecisionTreeClassifier(max_depth=1))
+    boost.fit(X, Y)
+    boost_pred = boost.predict(X)
+    print('Boost decision tree (scikit-learn)', sum(boost_pred == Y) / len(Y))
