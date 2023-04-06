@@ -40,3 +40,60 @@ So the limiting distribution is
 \subsection*{Solution 23.4}
 
 See code.
+
+
+\subsection*{Solution 23.5}
+
+\begin{itemize}
+    \item[(a)] We have
+        \begin{equation*}
+            M(n + 1) = E(X_{n + 1})
+                = E\left(\sum_{i = 1}^{X_n} Y_i^{(n)}\right)
+                = E\left(\sum_{i = 1}^{X_n} Y\right)
+                = E(X_n Y)
+                = \mu E(X_n)
+                = \mu M(n).
+        \end{equation*}
+        Variance is more tricky,
+        \begin{equation*}
+            \begin{split}
+                V(n + 1)
+                    &= V(X_{n + 1}) \\
+                    &= E(X_{n + 1}^2) - E(X_{n + 1})^2 \\
+                    &= E\left(\sum_{i = 1}^{X_n} \sum_{j = 1}^{X_n} Y_i^{(n)} Y_j^{(n)}\right) - \mu^2 E M(n)^2 \\
+                    &= E\left(\sum_{i = 1}^{X_n} Y^2 +  \sum_{i \neq j} Y_i^{(n)} Y_j^{(n)}\right) - \mu^2 E M(n)^2 \\
+                    &= E(X_n) E(Y^2) + E(X_n (X_n - 1)) E(Y)^2 - \mu^2 M(n)^2 \\
+                    &= M(n) E(Y^2) + (E(X_n^2) - E(X_n)) E(Y)^2 - \mu^2 M(n)^2 \\
+                    &= M(n) E(Y^2) + (V(X_n) + E(X_n)^2 - E(X_n)) E(Y)^2 - \mu^2 M(n)^2 \\
+                    &= M(n) (V(Y) + E(Y)^2) + (V(n) + M(n)^2 - M(n)) \mu^2 \\
+                    &= \sigma^2 M(n) + \mu^2 V(n).
+            \end{split}
+        \end{equation*}
+    \item[(b)] Follows from induction on $n$.
+        We have $M(0) = 1$ and $V(0) = 0$.
+        Then, $M(n) = \mu M(n - 1) = \mu^n$, and $V(n) = \sigma^2 M(n - 1) + \mu^2 V(n - 1) = \sigma^2 \mu^{n - 1} \frac{1 - \mu^n}{1 - \mu}$.
+    \item[(c)] We have 3 cases.
+        If $\mu > 1$, then $V(n) \to \infty$ as $n \to \infty$.
+        If $\mu = 1$, then $V(n) = n \sigma^2 \to \infty$ as $n \to \infty$.
+        If $\mu < 1$, then $V(n) \to 0$ as $n \to \infty$.
+    \item[(d)] Let $N = \max{n | X_n = 0}$ be the extinction time.
+        Let $F(n) = P(N \leq n)$.
+        We introduce some notation.
+        If $X_1 = k$, i.e., we have $k$ arch animals, let $Z_i^{(n, k)}$ all offspring from arch animal $i$ at time $n$.
+        Note that
+        \begin{equation*}
+            X_n = Z_1^{(n, k)} + Z_2^{(n, k)} + ... + Z_k^{(n, k)},
+        \end{equation*}
+        and $P(Z_i^{(n, k)} = 0) = F(n - 1)$.
+        We have
+        \begin{equation*}
+            \begin{split}
+                F(n) &= P(N \leq n) \\
+                    &= \sum_{k = 0}^{\infty} P(X_n = 0 | X_1 = k) P(X_1 = k) \\
+                    &= \sum_{k = 0}^{\infty} P(X_1 = k) \prod_{i = 1}^k P(Z_i^{(n, k)} = 0)
+                    = \sum_{k = 0}^{\infty} p_k F(n - 1)^k.
+            \end{split}
+        \end{equation*}
+    \item[(e)] We have $F(n) = \frac{1}{4} + \frac{1}{2} F(n - 1) + \frac{1}{4} F(n - 1)^2 = \frac{1}{4}(1 + F(n - 1))^2$.
+        I have no idea how to find a closed expression for this recurrence relation.
+\end{itemize}
