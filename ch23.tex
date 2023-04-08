@@ -102,3 +102,16 @@ See code.
 \subsection*{Solution 23.6}
 
 Calculated with the computer, $\pi \approx (0.11, 0.90, 0.43)$.
+
+
+\subsection*{Solution 23.7}
+
+Let $p_{ij}(m) = P(X_{m + 1} = j | X_m = i)$ and $p_{ji}(n) = P(X_{n + 1} = i | X_n = j)$.
+We have
+\begin{equation*}
+    \sum_{n} p_{jj}(n) \geq \sum_n p_{ji}(n) p_{ii}(n + 1) p_{ij}(n + 2)
+        \geq p_{ji}(a) \left( \sum_n p_{ii}(n + 1) \right) p_{ij}(b)
+        \to \infty,
+\end{equation*}
+for some $a, b$, when $n \to \infty$.
+So $j$ is recurrent.
