@@ -128,3 +128,20 @@ Transient: 1, 2, 4.
 We have $\pi = (\frac{1}{2}, \frac{1}{2})$ as stationary distribution.
 The book isn't clear what they mean exactly with convergence.
 Probably, this exercise wants to show that this chain doesn't converge (it's flipping between position 1 and 2), but does have a stationary distribution.
+
+
+\subsection*{Solution 23.10}
+
+Let $\pi = (a, b, c, d, e)$.
+Solving $\pi P = \pi$ we find $\pi = a (1, p, p^2, p^3, p^4)$.
+We need $\sum \pi_i = 1$, so $a = \frac{1 - p}{1 - p^5}$.
+We get
+\begin{equation*}
+    \pi = \left(
+        \frac{1 - p}{1 - p^5},
+        p \frac{1 - p}{1 - p^5},
+        p^2 \frac{1 - p}{1 - p^5},
+        p^3 \frac{1 - p}{1 - p^5},
+        p^4 \frac{1 - p}{1 - p^5}
+    \right)
+\end{equation*}
