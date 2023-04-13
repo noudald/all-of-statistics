@@ -154,3 +154,18 @@ So
 \begin{equation*}
     Y(s) = X(\Lambda^{-1}(s)) \sim \mathrm{Poisson}(\Lambda(\Lambda^{-1}(s))) = \mathrm{Poisson}(s).
 \end{equation*}
+
+
+\subsection*{Solution 23.12}
+
+We have
+\begin{equation*}
+    \begin{split}
+        P(X(t) = m | X(t + s) = n)
+            &= \frac{P(X(t) = m, X(t + s) - X(t) = n - m)}{P(X(t + s) = n)} \\
+            &\propto P(X(t) = m)P(X(t + s) - X(t) = n - m) \\
+            &\propto \frac{n!}{m!(n - m)!} t^m s^{n - m} \frac{1}{(s + t)^n} \\
+            &= \binom{n}{m} \left(\frac{t}{s + t}\right)^m \left(\frac{s}{s + t}\right)^{n - m}
+            \sim \mathrm{Binomial}\left(n, \frac{t}{s + t}\right).
+    \end{split}
+\end{equation*}
