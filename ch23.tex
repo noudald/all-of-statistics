@@ -169,3 +169,18 @@ We have
             \sim \mathrm{Binomial}\left(n, \frac{t}{s + t}\right).
     \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 23.13}
+
+Note that $X(t) \sim \mathrm{Poisson}(\lambda t)$, so
+\begin{equation*}
+    \begin{split}
+        P(X(t) = 1, 3, 5, ...)
+            &= \sum_{x = 1, 3, 5, ...} P(X(t) = x) \\
+            &= \sum_{n = 0}^{\infty} \frac{1}{(2n + 1)!} e^{-\lambda t} (\lambda t)^{2n + 1} \\
+            &= e^{-\lambda t} \sum_{n = 0}^{\infty} \frac{(\lambda t)^{2n + 1}}{(2n + 1)!} \\
+            &= e^{-\lambda t} \sinh(\lambda t)
+            = \frac{1}{2}(1 - e^{-2 \lambda t}).
+    \end{split}
+\end{equation*}
