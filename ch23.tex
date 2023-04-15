@@ -184,3 +184,29 @@ Note that $X(t) \sim \mathrm{Poisson}(\lambda t)$, so
             = \frac{1}{2}(1 - e^{-2 \lambda t}).
     \end{split}
 \end{equation*}
+
+
+\subsection*{Solution 23.14}
+
+We take initial condition $X(0) = 0$.
+The time that person $P_i$ spends longer than $s$ time on the server is $P(P_i > s) = 1 - G(s)$.
+If we want to find out how many persons are only at time $t$, we have to count all persons that stayed longer than $t - t_0^{(i)}$, where $t_0^{(i)}$ is the time person $P_i$ logged in.
+Mathematically, with $N_i = X_{i} - X_{i-1}$.
+\begin{equation*}
+    \begin{split}
+        Y(t) &= \sum_{i = 1}^{t} \sum_{j = 1}^{N_i} I(P_{i, j} > t - i),
+    \end{split}
+\end{equation*}
+where
+\begin{equation*}
+    \begin{split}
+        I(P_{i,j} > t - i) &\sim \mathrm{Bernoulli}(1 - G(t - i)), \\
+        \sum_{j = 1}^{N_i} I(P_{i,j} > t - i) &\sim \mathrm{Binomial}(N_i, 1 - G(t - i)), \\
+        N_i &\sim \mathrm{Poisson}(\lambda).
+    \end{split}
+\end{equation*}
+Putting everything together, we find
+\begin{equation*}
+    Y(t) = \sum_{i = 1}^{t} \sum_{j = 1}^{N_i} I(P_{i, j} > t - i)
+        \sim \mathrm{Poisson}\left(\lambda \sum_{i = 1}^{t}(1 - G(t - i))\right).
+\end{equation*}
