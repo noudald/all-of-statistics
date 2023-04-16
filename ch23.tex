@@ -215,3 +215,36 @@ Putting everything together, we find
 \subsection*{Solution 23.15}
 
 It seems like you need extra restrictions on $f$, but I have no idea how to solve this exercise.
+
+
+\subsection*{Solution 23.16}
+
+For the cumulative distribution function we have
+\begin{equation*}
+    F(t) = 1 - P(X > t)
+        = 1 - \frac{1}{0!} (\lambda \pi t^2)^0 e^{-\lambda \pi t^2}
+        = 1 - e^{-\lambda \pi t^2}.
+\end{equation*}
+Therefore, the probability density function is $f(t) = F'(t) = 2 \lambda \pi t e^{-\lambda \pi t^2}$.
+The expected value is
+\begin{equation*}
+    E(X) = \int_0^{\infty} t f(t) dt
+        = \int_0^{\infty} 2 \lambda \pi t e^{-\lambda \pi t^2} dt
+        = \frac{1}{2 \sqrt{\lambda}}.
+\end{equation*}
+
+The last integral needs some explaination.
+Note that
+\begin{equation*}
+    \int_0^{\infty} x^2 e^{-x^2} dx
+        = \frac{1}{2} \int_0^{\infty} x \cdot 2 x e^{-x^2} dx
+        = \left. -\frac{1}{2} x e^{-x^2} \right|_0^{\infty} + \frac{1}{2} \int_0^{\infty} e^{-x^2} dx
+        = \left. \frac{1}{4} \sqrt{\pi} \mathrm{erf}(x) \right|_0^{\infty}
+        = \frac{1}{4} \sqrt{\pi}.
+\end{equation*}
+And more generally for $A \neq 0$,
+\begin{equation*}
+    \int_0^{\infty} 2 A x^2 e^{-A x^2} dx
+        = \frac{2}{\sqrt{A}} \int_0^{\infty} y^2 e^{-y^2} dy
+        = \frac{1}{2} \sqrt{\frac{\pi}{A}}.
+\end{equation*}
