@@ -1,0 +1,41 @@
+\section*{Chapter 24 - Simulation Methods}
+
+\subsection*{Solution 24.1}
+
+\begin{itemize}
+    \item[(a)] See code.
+    \item[(b)] We have
+        \begin{equation*}
+            \begin{split}
+                E((Y_i - Y)^2) &= V(Y_i - Y) + E(Y_i - Y)^2, \\
+                V(Y_i - Y) &= V(Y_i) = E(Y_i^2) - E(Y_i)^2 = I - I^2, \\
+                E(Y_i - I) &= E(Y_i) - I = I - I = 0.
+            \end{split}
+        \end{equation*}
+        Therefore,
+        \begin{equation*}
+            E(\mathrm{se}^2) = \frac{1}{N} E(s^2)
+                = \frac{1}{N (N - 1)} \sum_{i = 1}^N E((Y_i - Y)^2)
+                = \frac{1}{N - 1} (I - I^2).
+        \end{equation*}
+    \item[(c)] See code.
+    \item[(d)] The optimal $g$ is
+        \begin{equation*}
+            g^*(x) = \frac{h(x) f(x)}{\int_1^2 h(x) f(x) dx}
+                = \left\{ \begin{matrix}
+                    \frac{\phi(x)}{I} & \text{if } 1 < x < 2, \\ \\
+                    0 & \text{else}
+                \end{matrix} \right.
+        \end{equation*}
+        We see that we need to know the exact value of $I$ (which we try to find) for the optimal $g$.
+        The variance if
+        \begin{equation*}
+            \begin{split}
+                V\left(\frac{f h}{g^*}\right)
+                    &= \int \left(\frac{fh}{g^*}\right)^2(x) g^*(x) dx - \left( \int \frac{fh}{g^*}(x) g^*(x) dx \right)^2 \\
+                    &= \int_1^2 \frac{f^2(x)}{g^*(x)} dx - I^2 \\
+                    &= \int_1^2 I \phi(x) dx - I^2
+                    = 0.
+            \end{split}
+        \end{equation*}
+\end{itemize}
