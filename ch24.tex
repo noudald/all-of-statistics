@@ -39,3 +39,17 @@
             \end{split}
         \end{equation*}
 \end{itemize}
+
+
+\subsection*{Solution 24.2}
+
+\begin{itemize}
+    \item[(a)] This follows from the law of large numbers.
+    \item[(b)] We use that $f(x, y) = f(x|y) f(y)$.
+        With this, we have
+        \begin{equation*}
+            \hat{f}(x) = \frac{1}{N} \sum_{i = 1}^N \frac{f(x, Y_i)}{f(X_i, Y_i)} w(X_i)
+                = \frac{1}{N} \sum_{i = 1}^N \frac{f(x|Y_i) f(Y_i)}{f(X_i|Y_i) f(Y_i)} w(X_i)
+                = \frac{1}{N} \sum_{i = 1}^N \frac{f(x|Y_i)}{f(X_i|Y_i)} w(X_i).
+        \end{equation*}
+\end{itemize}
