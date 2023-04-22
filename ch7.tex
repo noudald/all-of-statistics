@@ -1,6 +1,6 @@
 \section*{Chapter 7 - Estimating the CDF and Statistical Functionals}
 
-\subsection*{Solution 1}
+\subsection*{Solution 7.1}
 
 Let $X_1, X_2, ..., X_n$ random variables with cumulative distribution function $F$.
 Let $\hat{F}_n(x) = \frac{1}{n} \sum I(X_i \leq x)$ be the emperical distribution function of $F$.
@@ -24,7 +24,7 @@ Let $\hat{F}_n(x) = \frac{1}{n} \sum I(X_i \leq x)$ be the emperical distributio
 \end{itemize}
 
 
-\subsection*{Solution 2}
+\subsection*{Solution 7.2}
 
 Let $X_1, X_2, ..., X_n \sim \mathrm{Bernoulli}(p)$ and $Y_1, Y_2, ..., Y_m \sim \mathrm{Bernoulli}(q)$.
 
@@ -38,12 +38,12 @@ Let $X_1, X_2, ..., X_n \sim \mathrm{Bernoulli}(p)$ and $Y_1, Y_2, ..., Y_m \sim
 \end{itemize}
 
 
-\subsection*{Solution 3}
+\subsection*{Solution 7.3}
 
 See code.
 
 
-\subsection*{Solution 4}
+\subsection*{Solution 7.4}
 
 Let $X_1, X_2, ..., X_n \sim F$.
 Let $\hat{F}(x) = \frac{1}{n} \sum I(X_i \leq x)$.
@@ -57,7 +57,7 @@ By the central limit theorem
 In other words, when $n \to \infty$, $\hat{F}(x)$ behaves as a random variable from the distribution $\mathrm{Normal}(F(x), \frac{1}{n} F(x)(1 - F(x)))$.
 
 
-\subsection*{Solution 5}
+\subsection*{Solution 7.5}
 
 Let $x \neq y$.
 We have
@@ -101,7 +101,7 @@ Therefore, we ahve
 \end{equation*}
 
 
-\subsection*{Solution 6}
+\subsection*{Solution 7.6}
 
 Let $X_1, X_2, ..., X_n \sim F$, and define the emperical distribution function $\hat{F}_n(x) = \frac{1}{n} \sum_{i = 1}^n I(X_i \leq x)$.
 Take $a < b$ and $\theta = T(F) = F(b) - F(a)$.
@@ -153,17 +153,17 @@ and the $1 - \alpha$ confidence interval is given by
 \end{equation*}
 
 
-\subsection*{Solution 7}
+\subsection*{Solution 7.7}
 
 See code.
 
 
-\subsection*{Solution 8}
+\subsection*{Solution 7.8}
 
 See code.
 
 
-\subsection*{Solution 9}
+\subsection*{Solution 7.9}
 
 Let $X_1, X_2, ..., X_{100} \sim \mathrm{Bernoulli}(p_1)$ and $Y_1, Y_2, ..., Y_{100} \sim \mathrm{Bernoulli}(p_2)$.
 The plugin-estimators are $\hat{p}_1 = \frac{90}{100} = 0.9$ and $\hat{p}_2 = \frac{85}{100} = 0.85$.
@@ -197,6 +197,6 @@ and the $95\%$ interval is
 \end{equation*}
 
 
-\subsection*{Solution 10}
+\subsection*{Solution 7.10}
 
 See code.

@@ -1,6 +1,6 @@
 \section*{Chapter 3 - Expectation}
 
-\subsection*{Solution 1}
+\subsection*{Solution 3.1}
 
 Let $X_n$ a random variable representing the amount of money after $n$ turns.
 We set $X_0 = c$.
@@ -15,7 +15,7 @@ Using the tower property of conditional expectation we have
 \end{equation*}
 
 
-\subsection*{Solution 2}
+\subsection*{Solution 3.2}
 
 \begin{itemize}
     \item[$\rightarrow$)] TODO: This is a hand-wave proof. I should look for a better proof if I have some time.
@@ -31,7 +31,7 @@ Using the tower property of conditional expectation we have
 \end{itemize}
 
 
-\subsection*{Solution 3}
+\subsection*{Solution 3.3}
 
 Let $X_1, X_2, ..., X_n \sim \mathrm{Uniform}(0, 1)$.
 Define $Y_n = \mathrm{max}(X_1, X_2, ..., X_n)$.
@@ -46,14 +46,14 @@ So $f(y) = ny^{n-1}$ and
 \end{equation*}
 
 
-\subsection*{Solution 4}
+\subsection*{Solution 3.4}
 
 Let $X_0 = 0$.
 Note that for $n > 0$, $X_n = \sum_{i = 1}^n (1 - 2B_i)$, where $B_i \sim \mathrm{Bernoulli}(p)$.
 We have $E(X_n) = n - 2\sum_i E(B_i) = n(1 - 2p)$ and $V(X_n) = 4\sum_i V(B_i) = 4np(1-p)$.
 
 
-\subsection*{Solution 5}
+\subsection*{Solution 3.5}
 
 The probability density function is $f(X = i) = p^{i - 1} (1 - p) = p^i$, as $p = \frac{1}{2}$.
 We have
@@ -66,7 +66,7 @@ We have
 \end{equation*}
 
 
-\subsection*{Solution 6}
+\subsection*{Solution 3.6}
 
 Write out the definition and do required book keeping.
 \begin{equation*}
@@ -82,7 +82,7 @@ Write out the definition and do required book keeping.
 \end{equation*}
 
 
-\subsection*{Solution 7}
+\subsection*{Solution 3.7}
 
 We first prove a lemma.
 \begin{equation*}
@@ -102,7 +102,7 @@ For the solution, use integration by parts.
 \end{equation*}
 
 
-\subsection*{Solution 8}
+\subsection*{Solution 3.8}
 
 Let $X_1, X_2, ..., X_n$ i.i.d. with $\mu = E(X_i)$ and $\sigma^2 = V(X_i)$.
 Let the sample mean be $\overline{X}_n = \frac{1}{n} \sum X_i$.
@@ -139,21 +139,21 @@ We calculate
 \end{equation*}
 
 
-\subsection*{Solution 9}
+\subsection*{Solution 3.9}
 
 See code.
 Note that the Cauchy distribution doesn't have moments.
 Therefore, we cannot "sample" the mean of the Cauchy distribution.
 
 
-\subsection*{Solution 10}
+\subsection*{Solution 3.10}
 
 Let $X \sim \mathrm{Normal}(0, 1)$ and let $Y = e^X$.
 Note that for the moment generating function for X we have $\exp(\frac{t^2}{2}) = \phi_X(t) = E(e^{tX}) = E(Y^t)$.
 So $E(Y) = \phi_X(1) = \sqrt{e}$, and $E(Y^2) = \phi_X(2) = e^2$ so that $V(Y) = E(Y^2) - E(Y)^2 = e^2 - e = e(e - 1)$.
 
 
-\subsection*{Solution 11}
+\subsection*{Solution 3.11}
 
 \begin{itemize}
     \item[(a)] See solution 3.4 with $p = \frac{1}{2}$.
@@ -164,7 +164,7 @@ So $E(Y) = \phi_X(1) = \sqrt{e}$, and $E(Y^2) = \phi_X(2) = e^2$ so that $V(Y) =
 \end{itemize}
 
 
-\subsection*{Solution 12}
+\subsection*{Solution 3.12}
 
 We calculate the expected value and variance for all distributions in section 3.4.
 
@@ -369,7 +369,7 @@ By lemma 3.21, $E(X) = E(\Sigma^{1/2}Z + \mu) = \mu$ and $V(X) = V(\Sigma^{1/2}Z
 \end{itemize}
 
 
-\subsection*{Solution 13}
+\subsection*{Solution 3.13}
 
 Let $X = B U_1 + (1 - B) U_2$ a random variable, where $B \sim \mathrm{Bernoulli}(\frac{1}{2})$, $U_1 \sim \mathrm{Uniform}(0, 1)$, and $U_2 \sim \mathrm{Uniform}(3, 4)$.
 
@@ -390,7 +390,7 @@ Let $X = B U_1 + (1 - B) U_2$ a random variable, where $B \sim \mathrm{Bernoulli
 \end{itemize}
 
 
-\subsection*{Solution 14}
+\subsection*{Solution 3.14}
 
 Let $X_1, X_2, ..., X_m$ and $Y_1, Y_2, ..., Y_m$ be random variables, and $a_1, a_2, ..., a_m$ and $b_1, b_2, ..., b_n$ be constants.
 We have
@@ -404,7 +404,7 @@ We have
 \end{equation*}
 
 
-\subsection*{Solution 15}
+\subsection*{Solution 3.15}
 
 We have
 \begin{equation*}
@@ -426,7 +426,7 @@ E((2X - 3Y)^2) &= \frac{1}{3} \int_0^2 \int_0^2 (2x - 3y)^2 (x + y) dx dy \\
 So that $V(2X - 3Y) = E((2X - 3Y)^2) - E(2X - 3Y)^2 = \frac{245}{81}$.
 
 
-\subsection*{Solution 16}
+\subsection*{Solution 3.16}
 
 This follows almost by definition,
 \begin{equation*}
@@ -437,7 +437,7 @@ This follows almost by definition,
 Take $s(Y) = 1$ so that $E(r(X)|X) = E(r(X)s(Y)|X) = r(X) E(s(Y)|X) = r(X)$.
 
 
-\subsection*{Solution 17}
+\subsection*{Solution 3.17}
 
 This is an algebraic manipulation of symbols.
 \begin{equation*}
@@ -451,7 +451,7 @@ This is an algebraic manipulation of symbols.
 \end{equation*}
 
 
-\subsection*{Solution 18}
+\subsection*{Solution 3.18}
 
 Suppose $E(X|Y) = c$.
 We have $E(XY) = E(E(XY|Y)) = E(E(X|Y)Y) = cE(Y)$.
@@ -466,13 +466,13 @@ The covariance of $X$ and $Y$ is
 If the covariance of $X$ and $Y$ is zero, $X \bot Y$.
 
 
-\subsection*{Solution 19}
+\subsection*{Solution 3.19}
 
 We have $f_X(x) = 1$ for $0 \leq x \leq 1$.
 As $E(X_i) = 1$ and $V(X_i) = \frac{1}{12}$, we have $E(\overline{X}_n) = \frac{1}{2}$ and $V(\overline{X}_n) = \frac{1}{12n}$.
 
 
-\subsection*{Solution 20}
+\subsection*{Solution 3.20}
 
 Let $a$ be a vector and $X$ a random variable with mean $\mu$ and variance $\Sigma$.
 We have
@@ -506,7 +506,7 @@ The variance is
 \end{equation*}
 
 
-\subsection*{Solution 21}
+\subsection*{Solution 3.21}
 
 Let $X$ and $Y$ be random variables.
 Suppose that $E(Y|X) = X$.
@@ -522,7 +522,7 @@ We have
 \end{equation*}
 
 
-\subsection*{Solution 22}
+\subsection*{Solution 3.22}
 
 Let $0 < a < b < 1$ and $X \sim \mathrm{Uniform}(0, 1)$.
 Define $Y = 1$ if $0 \leq x \leq b$ else $Y = 0$, and $Z = 1$ if $a \leq x \leq 0$ else $Z = 0$.
@@ -542,7 +542,7 @@ Define $Y = 1$ if $0 \leq x \leq b$ else $Y = 0$, and $Z = 1$ if $a \leq x \leq 
 \end{itemize}
 
 
-\subsection*{Solution 23}
+\subsection*{Solution 3.23}
 
 We do the whole list.
 
@@ -599,7 +599,7 @@ We do the whole list.
 \end{itemize}
 
 
-\subsection*{Solution 24}
+\subsection*{Solution 3.24}
 
 Let $X_1, X_2, ..., X_n \sim \mathrm{Exp}(\beta)$.
 We have
